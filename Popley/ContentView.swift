@@ -25,10 +25,10 @@ struct ContentView: View {
                     .foregroundColor(Color("Tertiary"))
                     .padding([.horizontal])
                     .background {
-                        Capsule()
+                        Color("Primary")
                             .frame(minHeight: 50)
                             .opacity(0.75)
-                            .foregroundColor(Color("Primary"))
+                            .cornerRadius(10, corners: [.topRight, .bottomRight])
                     }
                     .frame(maxWidth: 230, alignment: .leading)
                     Spacer()
@@ -69,6 +69,7 @@ struct ContentView: View {
         }
         .cornerRadius(10)
         .padding()
+        .shadow(radius: 6, y: 3)
     }
 }
 
