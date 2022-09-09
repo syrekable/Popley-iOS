@@ -14,6 +14,9 @@
 		F1D7E47828CB3DBA001159FA /* PopleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E47728CB3DBA001159FA /* PopleyTests.swift */; };
 		F1D7E48228CB3DBA001159FA /* PopleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E48128CB3DBA001159FA /* PopleyUITests.swift */; };
 		F1D7E48428CB3DBA001159FA /* PopleyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E48328CB3DBA001159FA /* PopleyUITestsLaunchTests.swift */; };
+		F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E49128CB4914001159FA /* CornerRadius.swift */; };
+		F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E49428CB498D001159FA /* RoundedCorner.swift */; };
+		F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E49728CB4EB2001159FA /* StyleGuide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		F1D7E47D28CB3DBA001159FA /* PopleyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopleyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D7E48128CB3DBA001159FA /* PopleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopleyUITests.swift; sourceTree = "<group>"; };
 		F1D7E48328CB3DBA001159FA /* PopleyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopleyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F1D7E49128CB4914001159FA /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		F1D7E49428CB498D001159FA /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		F1D7E49728CB4EB2001159FA /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 		F1D7E46528CB3DB9001159FA /* Popley */ = {
 			isa = PBXGroup;
 			children = (
+				F1D7E49628CB4EA4001159FA /* StyleGuide */,
+				F1D7E49028CB4903001159FA /* Extensions */,
 				F1D7E46628CB3DB9001159FA /* PopleyApp.swift */,
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1D7E46A28CB3DBA001159FA /* Assets.xcassets */,
@@ -125,6 +133,31 @@
 				F1D7E48328CB3DBA001159FA /* PopleyUITestsLaunchTests.swift */,
 			);
 			path = PopleyUITests;
+			sourceTree = "<group>";
+		};
+		F1D7E49028CB4903001159FA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F1D7E49328CB4974001159FA /* Model */,
+				F1D7E49128CB4914001159FA /* CornerRadius.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F1D7E49328CB4974001159FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1D7E49428CB498D001159FA /* RoundedCorner.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1D7E49628CB4EA4001159FA /* StyleGuide */ = {
+			isa = PBXGroup;
+			children = (
+				F1D7E49728CB4EB2001159FA /* StyleGuide.swift */,
+			);
+			path = StyleGuide;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
+				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
+				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

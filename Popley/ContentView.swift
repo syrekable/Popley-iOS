@@ -21,17 +21,19 @@ struct ContentView: View {
                 HStack {
                     Text("Ziemiokulkas")
                         .fontWeight(.bold)
+                        .foregroundColor(Color("Tertiary"))
                     Spacer()
                     Image(systemName: "gear")
+                        .foregroundColor(Color("Accent"))
                 }
                 .font(.title)
-                .foregroundColor(.gray)
                 .padding()
             }
             HStack {
                 VStack(spacing: 20) {
                     Text("Time")
                         .font(.title2)
+                        .fontWeight(.bold)
                     Text("1 day")
                         .font(.title3)
                 }
@@ -39,34 +41,21 @@ struct ContentView: View {
                 VStack(spacing: 20) {
                     Text("Water")
                         .font(.title2)
+                        .fontWeight(.bold)
                     Image(systemName: "drop.circle")
                         .font(.title3)
                 }
             }
             .padding([.horizontal, .bottom])
+            .foregroundColor(Color("Tertiary"))
             .background {
-                Color.brown.opacity(0.3)
+                Color("Primary")
             }
-            .cornerRadius(10, corners: [.bottomLeft, .bottomRight])
+            
         }
+        .cornerRadius(10)
         .padding()
-    }
-}
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
-    }
-}
-
-struct RoundedCorner: Shape {
-
-    var radius: CGFloat = .infinity
-    var corners: UIRectCorner = .allCorners
-
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
+        
     }
 }
 
