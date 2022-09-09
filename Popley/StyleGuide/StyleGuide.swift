@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Algorithms
 
 struct StyleGuide: View {
     let colorNames = ["primary", "secondary", "tertiary", "accent"]
@@ -33,19 +34,24 @@ struct ColorReadabilityView: View {
         VStack(alignment: .leading) {
             Text("Colors on each other")
                 .font(.title)
-            ForEach(Array(zip(colorNames, colorNames.reversed())), id: \.0) { (color, oposite) in
-                ZStack {
-                    Color(color)
-                        .cornerRadius(10)
-                    VStack {
-                        ForEach(Font.Weight.allCases.reversed(), id: \.self) { weight in
-                            Text("\(oposite) on \(color)")
-                                .foregroundColor(Color(oposite))
-                                .fontWeight(weight)
-                        }
-                    }
-                    .padding()
-                }
+            ForEach(Array(colorNames.permutations(ofCount: 2)), id: \.self) {
+                pair in
+                Text(pair[0])
+                    .font(.title2)
+                 ZStack {
+                     Color(pair[0])
+                         .cornerRadius(10)
+                     VStack {
+                         ForEach(Font.Weight.allCases.reversed(), id: \.self) { weight in
+                             Text("\(pair[1]) on \(pair[0])")
+                                 .foregroundColor(Color(pair[1]))
+                                 .fontWeight(weight)
+                         }
+                     }
+                     .padding()
+                 }
+                 
+                
             }
         }
     }
