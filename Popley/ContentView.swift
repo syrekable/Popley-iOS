@@ -30,20 +30,26 @@ struct ContentView: View {
                 .padding()
             }
             HStack {
-                VStack(spacing: 20) {
-                    Text("Time")
-                        .font(.title2)
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("Time to water")
+                        .font(.title3)
                         .fontWeight(.bold)
                     Text("1 day")
-                        .font(.title3)
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .frame(maxWidth: 125)
+                        .foregroundColor(Color("Accent"))
                 }
                 Spacer()
-                VStack(spacing: 20) {
-                    Text("Water")
-                        .font(.title2)
+                VStack(alignment: .trailing, spacing: 15) {
+                    Text("Water now")
+                        .font(.title3)
                         .fontWeight(.bold)
                     Image(systemName: "drop.circle")
-                        .font(.title3)
+                        .font(.title2)
+                        .fontWeight(.heavy)
+                        .frame(width: 100)
+                        .foregroundColor(Color("Accent"))
                 }
             }
             .padding([.horizontal, .bottom])
@@ -51,11 +57,9 @@ struct ContentView: View {
             .background {
                 Color("Primary")
             }
-            
         }
         .cornerRadius(10)
         .padding()
-        
     }
 }
 
