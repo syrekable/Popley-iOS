@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct PlantCardView: View {
+    let name: String
+    let timeToWater: WaterInterval
+    let imageName: String
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
-                Image("plant-zz")
+                Image(imageName)
                     .resizable()
                     .scaledToFill()
                     .frame(height: 300)
@@ -19,7 +23,7 @@ struct PlantCardView: View {
                         Rectangle()
                     }
                 HStack(spacing: 0) {
-                    Text("Ziemiokulkas")
+                    Text(name)
                         .lineLimit(1)
                         .fontWeight(.bold)
                     .foregroundColor(Color("Tertiary"))
@@ -43,7 +47,7 @@ struct PlantCardView: View {
                     Text("Time to water")
                         .font(.title3)
                         .fontWeight(.bold)
-                    Text("1 day")
+                    Text(String(describing: timeToWater))
                         .font(.title2)
                         .fontWeight(.heavy)
                         .frame(maxWidth: 125)
@@ -74,7 +78,8 @@ struct PlantCardView: View {
 }
 
 struct PlantCardView_Previews: PreviewProvider {
+    private static let zzPlant = Plant.sampleData[1]
     static var previews: some View {
-        PlantCardView()
+        PlantCardView(name: zzPlant.name, timeToWater: zzPlant.waterInterval, imageName: zzPlant.picture)
     }
 }

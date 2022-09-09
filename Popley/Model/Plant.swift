@@ -13,13 +13,14 @@ struct Plant: Identifiable {
     var name: String
     // TODO: change to actual image
     var picture: String
-    var wateringInterval: WateringInterval
+    var waterInterval: WaterInterval
+    // TODO: computed property for timeToWater, now - lastWaterDate
 }
 
 extension Plant {
     static let sampleData = [
-        Plant(name: "Ziemiokulas", picture: "plant-zz", wateringInterval: .everyTwoWeeks),
-        Plant(name: "Aloes", picture: "plant-aloe", wateringInterval: .quarterly),
-        Plant(name: "Dracena", picture: "plant-dracena", wateringInterval: .everyEightDays)
+        Plant(name: "Ziemiokulas", picture: "plant-zz", waterInterval: .everyTwoWeeks),
+        Plant(name: "Aloes", picture: "plant-aloe", waterInterval: .quarterly),
+        Plant(name: "Dracena", picture: "plant-dracena", waterInterval: .everyEightDays)
     ]
 }

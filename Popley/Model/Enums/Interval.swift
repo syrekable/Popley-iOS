@@ -15,8 +15,11 @@ enum Interval: String, CaseIterable {
     }
 }
 
-extension Interval: CustomStringConvertible {
-    var description: String {
-        self.rawValue.capitalized
-    }
-}
+/*
+ extension Interval: CustomStringConvertible {
+     var description: String {
+         self.rawValue.capitalized
+     }
+ }
+ */
+

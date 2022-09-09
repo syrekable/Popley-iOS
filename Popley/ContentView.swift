@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView {
-            PlantCardView()
-            PlantCardView()
-            PlantCardView()
+            ForEach(Plant.sampleData) { plant in
+                PlantCardView(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+            }
         }
     }
 }
