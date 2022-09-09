@@ -18,19 +18,28 @@ struct ContentView: View {
                     .mask {
                         Rectangle()
                     }
-                HStack {
+                HStack(spacing: 0) {
                     Text("Ziemiokulkas")
+                        .lineLimit(1)
                         .fontWeight(.bold)
-                        .foregroundColor(Color("Tertiary"))
+                    .foregroundColor(Color("Tertiary"))
+                    .padding([.horizontal])
+                    .background {
+                        Capsule()
+                            .frame(minHeight: 50)
+                            .opacity(0.75)
+                            .foregroundColor(Color("Primary"))
+                    }
+                    .frame(maxWidth: 230, alignment: .leading)
                     Spacer()
                     Image(systemName: "gear")
                         .foregroundColor(Color("Accent"))
                 }
                 .font(.title)
-                .padding()
+                .padding([.top, .trailing])
             }
             HStack {
-                VStack(alignment: .leading, spacing: 15) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("Time to water")
                         .font(.title3)
                         .fontWeight(.bold)
@@ -41,7 +50,7 @@ struct ContentView: View {
                         .foregroundColor(Color("Accent"))
                 }
                 Spacer()
-                VStack(alignment: .trailing, spacing: 15) {
+                VStack(alignment: .trailing, spacing: 10) {
                     Text("Water now")
                         .font(.title3)
                         .fontWeight(.bold)
