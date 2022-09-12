@@ -9,6 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        /*
+         TODO:
+         - navigation to detail views
+         - actual detail views
+         - figuring out if cog or default nav chevron works
+         - editability of Plant's data
+         - background colour for the whole app
+         */
         ScrollView {
             ForEach(Plant.sampleData) { plant in
                 PlantCardView(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
