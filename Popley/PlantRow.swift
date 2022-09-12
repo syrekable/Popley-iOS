@@ -19,9 +19,6 @@ struct PlantRow: View {
                     .resizable()
                     .scaledToFill()
                     .frame(height: 300)
-                    .mask {
-                        Rectangle()
-                    }
                 HStack(spacing: 0) {
                     Text(name)
                         .lineLimit(1)
@@ -72,8 +69,6 @@ struct PlantRow: View {
             }
         }
         .cornerRadius(10)
-        .padding()
-        .shadow(radius: 6, y: 3)
     }
 }
 
