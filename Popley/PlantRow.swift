@@ -67,6 +67,7 @@ struct PlantRow: View {
             .background {
                 Color("Primary")
             }
+            .lineLimit(1)
         }
         .cornerRadius(10)
         .padding()

@@ -11,8 +11,7 @@ struct ContentView: View {
     var body: some View {
         /*
          TODO:
-         - making use of Grid to display the PlantRow
-         - figuring out if cog or default nav chevron works
+         - only the gear icon navigates to plant's details/edit
          - editability of Plant's data
          - background colour for the whole app
          */
@@ -27,6 +26,7 @@ struct ContentView: View {
                     .navigationDestination(for: Plant.self) { plant in
                         PlantDetails(plant: plant)
                     }
+                    .navigationTitle("Your plants")
                 }
             }
         }
