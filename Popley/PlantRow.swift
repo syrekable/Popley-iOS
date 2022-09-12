@@ -69,6 +69,8 @@ struct PlantRow: View {
             }
         }
         .cornerRadius(10)
+        .padding()
+        .shadow(radius: 6, y: 3)
     }
 }
 

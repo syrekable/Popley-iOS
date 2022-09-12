@@ -17,13 +17,17 @@ struct ContentView: View {
          - background colour for the whole app
          */
         NavigationStack {
-            List(Plant.sampleData) { plant in
-                NavigationLink(value: plant) {
-                    PlantRow(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+            ScrollView {
+                VStack {
+                    ForEach(Plant.sampleData) { plant in
+                        NavigationLink(value: plant) {
+                            PlantRow(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+                        }
+                    }
+                    .navigationDestination(for: Plant.self) { plant in
+                        PlantDetails(plant: plant)
+                    }
                 }
-            }
-            .navigationDestination(for: Plant.self) { plant in
-                PlantDetails(plant: plant)
             }
         }
     }
