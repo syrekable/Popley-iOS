@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
 		F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E46628CB3DB9001159FA /* PopleyApp.swift */; };
 		F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E46828CB3DB9001159FA /* ContentView.swift */; };
 		F1D7E46B28CB3DBA001159FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D7E46A28CB3DBA001159FA /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
 		F1D7E46328CB3DB9001159FA /* Popley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D7E46628CB3DB9001159FA /* PopleyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopleyApp.swift; sourceTree = "<group>"; };
 		F1D7E46828CB3DB9001159FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				F1D7E46A28CB3DBA001159FA /* Assets.xcassets */,
 				F1D7E46C28CB3DBA001159FA /* Preview Content */,
 				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
+				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
 			);
 			path = Popley;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
+				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
