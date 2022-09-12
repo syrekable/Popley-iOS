@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlantCardView: View {
+struct PlantRow: View {
     let name: String
     let timeToWater: WaterInterval
     let imageName: String
@@ -80,6 +80,6 @@ struct PlantCardView: View {
 struct PlantCardView_Previews: PreviewProvider {
     private static let zzPlant = Plant.sampleData[1]
     static var previews: some View {
-        PlantCardView(name: zzPlant.name, timeToWater: zzPlant.waterInterval, imageName: zzPlant.picture)
+        PlantRow(name: zzPlant.name, timeToWater: zzPlant.waterInterval, imageName: zzPlant.picture)
     }
 }

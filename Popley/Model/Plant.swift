@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Plant: Identifiable {
+struct Plant: Identifiable, Hashable {
     var id: UUID = UUID()
     var name: String
     // TODO: change to actual image

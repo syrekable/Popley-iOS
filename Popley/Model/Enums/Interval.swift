@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Interval: String, CaseIterable {
+enum Interval: String, CaseIterable, Hashable {
     case day, week, month
     
     static var allCases: [Interval] {

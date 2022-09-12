@@ -18,10 +18,15 @@ struct ContentView: View {
          - background colour for the whole app
          */
         NavigationView {
-            List {
-                ForEach(Plant.sampleData) { plant in
-                    PlantCardView(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+            List(Plant.sampleData, id: \.self) { plant in
+                NavigationLink {
+                    VStack {
+                        Text(plant.name)
+                    }
+                } label: {
+                    PlantRow(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
                 }
+
             }
         }
     }
