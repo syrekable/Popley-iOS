@@ -17,9 +17,11 @@ struct ContentView: View {
          - editability of Plant's data
          - background colour for the whole app
          */
-        ScrollView {
-            ForEach(Plant.sampleData) { plant in
-                PlantCardView(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+        NavigationView {
+            List {
+                ForEach(Plant.sampleData) { plant in
+                    PlantCardView(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+                }
             }
         }
     }
