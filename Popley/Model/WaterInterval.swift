@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WaterInterval {
+struct WaterInterval: Hashable {
     var frequency: Int
     var interval: Interval
 }

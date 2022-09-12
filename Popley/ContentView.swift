@@ -11,15 +11,19 @@ struct ContentView: View {
     var body: some View {
         /*
          TODO:
-         - navigation to detail views
-         - actual detail views
+         - making use of Grid to display the PlantRow
          - figuring out if cog or default nav chevron works
          - editability of Plant's data
          - background colour for the whole app
          */
-        ScrollView {
-            ForEach(Plant.sampleData) { plant in
-                PlantCardView(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+        NavigationStack {
+            List(Plant.sampleData) { plant in
+                NavigationLink(value: plant) {
+                    PlantRow(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
+                }
+            }
+            .navigationDestination(for: Plant.self) { plant in
+                PlantDetails(plant: plant)
             }
         }
     }
