@@ -17,16 +17,16 @@ struct ContentView: View {
          - editability of Plant's data
          - background colour for the whole app
          */
-        NavigationView {
+        NavigationStack {
             List(Plant.sampleData, id: \.self) { plant in
-                NavigationLink {
-                    VStack {
-                        Text(plant.name)
-                    }
-                } label: {
+                NavigationLink(value: plant) {
                     PlantRow(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture)
                 }
-
+            }
+            .navigationDestination(for: Plant.self) { plant in
+                VStack {
+                    Text(plant.name)
+                }
             }
         }
     }
