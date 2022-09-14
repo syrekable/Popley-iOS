@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit
+import Datez
 
 struct Plant: Identifiable, Hashable {
     var id: UUID = UUID()
@@ -14,7 +14,15 @@ struct Plant: Identifiable, Hashable {
     // TODO: change to actual image
     var picture: String
     var waterInterval: WaterInterval
-    // TODO: computed property for timeToWater, now - lastWaterDate
+    var lastWaterDate = Date()
+    
+    var timeToWater: DateInterval {
+        DateInterval(start: lastWaterDate, duration: 2.weekOfMonth.timeInterval)
+    }
+    
+    mutating func water() -> Void {
+        self.lastWaterDate = Date()
+    }
 }
 
 extension Plant {
