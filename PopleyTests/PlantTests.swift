@@ -33,11 +33,15 @@ final class PlantTests: XCTestCase {
         
         // can't mutate while iterating
         plants[0].water()
+        plants[1].water()
+        plants[2].water()
         
-        XCTAssertEqual(plants[0].timeToWater,
-                       DateInterval(start: Date(),
-                                    duration: 2.weekOfMonth.timeInterval))
-        
+        for plant in plants {
+            XCTAssertEqual(plant.timeToWater.duration,
+                           DateInterval(start: Date(),
+                                        duration: plant.waterInterval.asTimeInterval).duration,
+                           accuracy: 0.1)
+        }
     }
 
 }
