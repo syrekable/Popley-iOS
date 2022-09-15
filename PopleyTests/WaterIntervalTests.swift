@@ -13,9 +13,9 @@ final class WaterIntervalTests: XCTestCase {
     func testConversionToTimeInterval() {
         let secondsInHour = 3600
         let intervals = [
-            WaterInterval(frequency: 3, interval: .day),
-            WaterInterval(frequency: 2, interval: .week),
-            WaterInterval(frequency: 1, interval: .month)
+            DescriptiveDateInterval(frequency: 3, interval: .day),
+            DescriptiveDateInterval(frequency: 2, interval: .week),
+            DescriptiveDateInterval(frequency: 1, interval: .month)
         ]
         let answers: [Double] = [
             3 * 24 * secondsInHour,

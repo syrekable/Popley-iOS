@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WaterInterval: Hashable {
+struct DescriptiveDateInterval: Hashable {
     var frequency: Int
     var interval: Interval
     var asTimeInterval: TimeInterval {
@@ -26,16 +26,16 @@ struct WaterInterval: Hashable {
     }
 }
 
-extension WaterInterval {
-    static let everyEightDays = WaterInterval(frequency: 8, interval: .day)
-    static let everyTwoWeeks = WaterInterval(frequency: 2, interval: .week)
-    static let quarterly = WaterInterval(frequency: 3, interval: .month)
+extension DescriptiveDateInterval {
+    static let everyEightDays = DescriptiveDateInterval(frequency: 8, interval: .day)
+    static let everyTwoWeeks = DescriptiveDateInterval(frequency: 2, interval: .week)
+    static let quarterly = DescriptiveDateInterval(frequency: 3, interval: .month)
 }
 
 // Due to DateInterval already having this extension,
 // which is not overridable,
 // I resort to creating this type in order to have human-readable interval information
-extension WaterInterval: CustomStringConvertible {
+extension DescriptiveDateInterval: CustomStringConvertible {
     var description: String {
         let interval = self.frequency > 1 || self.frequency == 0 ? "\(self.interval)s" : self.interval.rawValue
         return "\(self.frequency) \(interval)"

@@ -24,13 +24,13 @@ final class TypeDescriptionTests: XCTestCase {
     
     
     func testWaterIntervalSingularDescription() {
-        let interval = WaterInterval(frequency: 1, interval: .month)
+        let interval = DescriptiveDateInterval(frequency: 1, interval: .month)
         
         XCTAssertEqual(String(describing: interval), "1 month")
     }
     
     func testWaterIntervalPluralDescription() {
-        let interval = WaterInterval(frequency: 2, interval: .week)
+        let interval = DescriptiveDateInterval(frequency: 2, interval: .week)
         
         XCTAssertEqual(String(describing: interval), "2 weeks")
     }

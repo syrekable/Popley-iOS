@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import Datez
 
 struct Plant: Identifiable, Hashable {
     var id: UUID = UUID()
     var name: String
     // TODO: change to actual image
     var picture: String
-    var waterInterval: WaterInterval
+    var waterInterval: DescriptiveDateInterval
     var lastWaterDate = Date()
     
     var timeToWater: DateInterval {

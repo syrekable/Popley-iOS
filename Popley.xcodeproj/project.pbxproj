@@ -24,7 +24,7 @@
 		F1D7E49B28CB64B9001159FA /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = F1D7E49A28CB64B9001159FA /* Algorithms */; };
 		F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E49D28CB7E64001159FA /* PlantRow.swift */; };
 		F1D7E4A028CB8090001159FA /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E49F28CB8090001159FA /* Plant.swift */; };
-		F1D7E4A328CB8130001159FA /* WaterInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A228CB8130001159FA /* WaterInterval.swift */; };
+		F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */; };
 		F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A428CB82A6001159FA /* Interval.swift */; };
 		F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,7 @@
 		F1D7E49728CB4EB2001159FA /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		F1D7E49D28CB7E64001159FA /* PlantRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRow.swift; sourceTree = "<group>"; };
 		F1D7E49F28CB8090001159FA /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		F1D7E4A228CB8130001159FA /* WaterInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterInterval.swift; sourceTree = "<group>"; };
+		F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveDateInterval.swift; sourceTree = "<group>"; };
 		F1D7E4A428CB82A6001159FA /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDescriptionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,7 +191,7 @@
 			children = (
 				F1D7E4A628CB82AE001159FA /* Enums */,
 				F1D7E49F28CB8090001159FA /* Plant.swift */,
-				F1D7E4A228CB8130001159FA /* WaterInterval.swift */,
+				F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
-				F1D7E4A328CB8130001159FA /* WaterInterval.swift in Sources */,
+				F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
