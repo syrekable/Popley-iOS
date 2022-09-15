@@ -17,7 +17,7 @@ struct Plant: Identifiable, Hashable {
     var lastWaterDate = Date()
     
     var timeToWater: DateInterval {
-        DateInterval(start: lastWaterDate, duration: 2.weekOfMonth.timeInterval)
+        DateInterval(start: lastWaterDate, duration: .greatestFiniteMagnitude)
     }
     
     mutating func water() -> Void {

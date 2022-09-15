@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
+		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
 		F1C9451C28D212B30005345B /* PlantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C9451B28D212B30005345B /* PlantTests.swift */; };
 		F1C9451F28D21FE40005345B /* Datez in Frameworks */ = {isa = PBXBuildFile; productRef = F1C9451E28D21FE40005345B /* Datez */; };
 		F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E46628CB3DB9001159FA /* PopleyApp.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
+		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F1C9451B28D212B30005345B /* PlantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTests.swift; sourceTree = "<group>"; };
 		F1D7E46328CB3DB9001159FA /* Popley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D7E46628CB3DB9001159FA /* PopleyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopleyApp.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				F1D7E47728CB3DBA001159FA /* PopleyTests.swift */,
 				F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */,
 				F1C9451B28D212B30005345B /* PlantTests.swift */,
+				F181844228D32DB80077596E /* WaterIntervalTests.swift */,
 			);
 			path = PopleyTests;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				F1C9451C28D212B30005345B /* PlantTests.swift in Sources */,
 				F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */,
+				F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */,
 				F1D7E47828CB3DBA001159FA /* PopleyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
