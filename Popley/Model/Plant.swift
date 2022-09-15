@@ -8,12 +8,12 @@
 import Foundation
 
 struct Plant: Identifiable, Hashable {
-    var id: UUID = UUID()
+    var id: UUID
     var name: String
     // TODO: change to actual image
     var picture: String
     var waterInterval: DescriptiveDateInterval
-    var lastWaterDate = Date()
+    var lastWaterDate: Date
     
     var timeToWater: DateInterval {
         DateInterval(start: lastWaterDate, duration: waterInterval.asTimeInterval)
@@ -21,6 +21,14 @@ struct Plant: Identifiable, Hashable {
     
     mutating func water() -> Void {
         self.lastWaterDate = Date()
+    }
+    
+    init(name: String, picture: String, waterInterval: DescriptiveDateInterval, lastWaterDate: Date? = nil) {
+        self.id = UUID()
+        self.name = name
+        self.picture = picture
+        self.waterInterval = waterInterval
+        self.lastWaterDate = lastWaterDate ?? Date()
     }
 }
 

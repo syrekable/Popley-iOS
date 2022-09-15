@@ -19,7 +19,8 @@ final class PlantTests: XCTestCase {
     }
     
     func testPlantWateringResetsTimer() {
-        var plant = Plant(name: "IR", picture: "IR", waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day))
+        var plant = Plant(name: "IR", picture: "IR", waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day),
+                          lastWaterDate: Date() - 1.days.timeInterval)
         let timeToWaterBeforeWatering = plant.timeToWater
         
         plant.water()

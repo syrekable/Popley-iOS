@@ -12,7 +12,7 @@ struct PlantRow: View {
     let timeToWater: DescriptiveDateInterval
     let imageName: String
     let waterAction: () -> Void
-    
+
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {

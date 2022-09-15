@@ -20,7 +20,10 @@ struct ContentView: View {
                 VStack {
                     ForEach(Plant.sampleData) { plant in
                         NavigationLink(value: plant) {
-                            PlantRow(name: plant.name, timeToWater: plant.waterInterval, imageName: plant.picture, waterAction: {})
+                            PlantRow(name: plant.name,
+                                     timeToWater: plant.timeToWater.asDescriptiveDateInterval,
+                                     imageName: plant.picture,
+                                     waterAction: {})
                         }
                     }
                     .navigationDestination(for: Plant.self) { plant in
