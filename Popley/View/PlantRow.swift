@@ -12,6 +12,7 @@ struct PlantRow: View {
     let timeToWater: DescriptiveDateInterval
     let imageName: String
     let waterAction: () -> Void
+    let navigateToPlantDetailsAction: (UUID) -> Void
 
     var body: some View {
         VStack(spacing: 0) {
@@ -76,9 +77,15 @@ struct PlantRow: View {
     }
 }
 
+/*
 struct PlantCardView_Previews: PreviewProvider {
     private static let zzPlant = Plant.sampleData[1]
     static var previews: some View {
-        PlantRow(name: zzPlant.name, timeToWater: zzPlant.waterInterval, imageName: zzPlant.picture, waterAction: { print("💦") })
+        PlantRow(name: zzPlant.name,
+                 timeToWater: zzPlant.waterInterval,
+                 imageName: zzPlant.picture,
+                 waterAction: { print("💦") }),
+    navigateToPlantDetailsAction: { _ in return Void})
     }
 }
+*/

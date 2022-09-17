@@ -24,7 +24,8 @@ struct ContentView: View {
                             PlantRow(name: plant.name,
                                      timeToWater: plant.timeToWater.asDescriptiveDateInterval,
                                      imageName: plant.picture,
-                                     waterAction: {})
+                                     waterAction: {},
+                                     navigateToPlantDetailsAction: model.showPlant)
                         }
                     }
                     .navigationDestination(for: Plant.self) { plant in
