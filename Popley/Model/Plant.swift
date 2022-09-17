@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import Datez
 
 struct Plant: Identifiable, Hashable {
     var id: UUID
     var name: String
     // TODO: change to actual image
     var picture: String
-    var waterInterval: DescriptiveDateInterval
+    var waterInterval: WaterInterval
     var lastWaterDate: Date
     
     var timeToWater: DateInterval {
@@ -23,10 +24,18 @@ struct Plant: Identifiable, Hashable {
         self.lastWaterDate = Date()
     }
     
-    init(name: String, picture: String, waterInterval: DescriptiveDateInterval, lastWaterDate: Date? = nil) {
+    init(name: String, picture: String, waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
         self.id = UUID()
         self.name = name
         self.picture = picture
+        self.waterInterval = waterInterval
+        self.lastWaterDate = lastWaterDate ?? Date()
+    }
+    
+    init(waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
+        self.id = UUID()
+        self.name = "IR"
+        self.picture = "IR"
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }
@@ -34,8 +43,8 @@ struct Plant: Identifiable, Hashable {
 
 extension Plant {
     static let sampleData = [
-        Plant(name: "Ziemiokulas", picture: "plant-zz", waterInterval: .everyTwoWeeks),
+        Plant(name: "Ziemiokulas", picture: "plant-zz", waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 1.weeksOfYear.timeInterval),
         Plant(name: "Aloes", picture: "plant-aloe", waterInterval: .quarterly),
-        Plant(name: "Dracena", picture: "plant-dracena", waterInterval: .everyEightDays)
+        Plant(name: "Dracena", picture: "plant-dracena", waterInterval: .everyEightDays, lastWaterDate: Date() - 3.days.timeInterval)
     ]
 }

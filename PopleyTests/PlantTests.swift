@@ -12,7 +12,10 @@ import Datez
 final class PlantTests: XCTestCase {
     
     func testNewPlantIsAssumedToBeWateredNow() {
-        let plant = Plant(name: "IR", picture: "IR", waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day))
+        let plant = Plant(name: "IR",
+                          picture: "IR",
+                          waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day),
+                          lastWaterDate: nil)
         XCTAssertEqual(plant.lastWaterDate.timeIntervalSince1970,
                        Date().timeIntervalSince1970,
                        accuracy: 0.1)
@@ -44,5 +47,29 @@ final class PlantTests: XCTestCase {
                            accuracy: 0.1)
         }
     }
+    
+    func testTimeToWaterForThreeDays() {
+        let interval = DescriptiveDateInterval(frequency: 3, interval: .day)
+        /*
+         let plant = Plant(name: "IR", picture: <#T##String#>, waterInterval: <#T##DescriptiveDateInterval#>)
+         */
+        
+    }
 
+    func testPlantWillNeedWaterInCertainInterval() {
+        let lastWaterDate = Date() - 2.days.timeInterval
+        let waterInterval = DescriptiveDateInterval(frequency: 3, interval: .day)
+        let plant = Plant(name: "IR",
+                          picture: "IR",
+                          waterInterval: waterInterval,
+                          lastWaterDate: lastWaterDate)
+        
+        XCTAssertLessThan(plant.lastWaterDate, Date())
+        XCTAssertEqual(plant.waterInterval.description, "3 days")
+        // ...but
+        XCTAssertEqual("1 day", plant
+            .timeToWater
+            .asDescriptiveDateInterval
+            .description)
+    }
 }

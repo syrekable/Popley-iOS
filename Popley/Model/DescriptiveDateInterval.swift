@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias WaterInterval = DescriptiveDateInterval
+
 struct DescriptiveDateInterval: Hashable {
     var frequency: Int
     var interval: Interval

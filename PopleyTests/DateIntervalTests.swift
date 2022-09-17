@@ -51,4 +51,9 @@ final class DateIntervalTests: XCTestCase {
         XCTAssertEqual("1 month",
                        String(describing: interval.asDescriptiveDateInterval))
     }
+    
+    func testAssertTypeAliasWorks() {
+        let interval = WaterInterval(frequency: 42, interval: .day)
+        XCTAssertNotNil(interval)
+    }
 }
