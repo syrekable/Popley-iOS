@@ -17,9 +17,9 @@ struct Plant: Identifiable, Hashable {
     var lastWaterDate: Date
     
     var timeToWater: DateInterval {
-        let lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
-        let x = waterInterval.asTimeInterval - lastWateringUntilNow.duration
-        return DateInterval(start: Date(), duration: x)
+        var lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
+        var _remainingTimeToWater = ceil(waterInterval.asTimeInterval - lastWateringUntilNow.duration)
+        return DateInterval(start: Date(), duration: _remainingTimeToWater)
     }
     
     mutating func water() -> Void {
