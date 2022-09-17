@@ -50,24 +50,60 @@ final class PlantTests: XCTestCase {
     
     func testTimeToWaterForThreeDays() {
         let interval = DescriptiveDateInterval(frequency: 3, interval: .day)
-        /*
-         let plant = Plant(name: "IR", picture: <#T##String#>, waterInterval: <#T##DescriptiveDateInterval#>)
-         */
+        let plant = Plant(waterInterval: interval)
         
+        XCTAssertEqual("3 days", plant
+            .timeToWater
+            .asDescriptiveDateInterval
+            .description)
     }
-
-    func testPlantWillNeedWaterInCertainInterval() {
-        let lastWaterDate = Date() - 2.days.timeInterval
-        let waterInterval = DescriptiveDateInterval(frequency: 3, interval: .day)
-        let plant = Plant(name: "IR",
-                          picture: "IR",
-                          waterInterval: waterInterval,
-                          lastWaterDate: lastWaterDate)
+    
+    func testTimeToWaterForOneWeek() {
+        let interval = DescriptiveDateInterval(frequency: 1, interval: .week)
+        let plant = Plant(waterInterval: interval)
+        let expected = "1 week"
+        
+        XCTAssertEqual(expected, plant
+            .timeToWater
+            .asDescriptiveDateInterval
+            .description)
+    }
+    
+    func testPlantWasWateredThreeDaysAgo() {
+        let lastWaterDate = Date() - 3.days.timeInterval
+        let interval = WaterInterval(frequency: 4, interval: .day)
+        let plant = Plant(waterInterval: interval, lastWaterDate: lastWaterDate)
         
         XCTAssertLessThan(plant.lastWaterDate, Date())
-        XCTAssertEqual(plant.waterInterval.description, "3 days")
-        // ...but
-        XCTAssertEqual("1 day", plant
+    }
+    
+    func testPlantWateredTwoDaysAgoWillNeedWaterInOneDay() {
+        let lastWaterDate = Date() - 2.days.timeInterval
+        let waterInterval = WaterInterval(frequency: 3, interval: .day)
+        let plant = Plant(waterInterval: waterInterval,
+                          lastWaterDate: lastWaterDate)
+        
+        let expectedDescription = "1 day"
+        let expectedSecondsInInterval: TimeInterval = 24 * 60 * 60
+        
+        XCTAssertEqual(expectedSecondsInInterval, plant.timeToWater.duration, accuracy: 0.1)
+        XCTAssertEqual(expectedDescription, plant
+            .timeToWater
+            .asDescriptiveDateInterval
+            .description)
+    }
+    
+    func testPlantWateredAWeekAgoAgoWillNeedWaterInOneWeek() {
+        let lastWaterDate = Date() - 1.weeksOfYear.timeInterval
+        let waterInterval = WaterInterval(frequency: 2, interval: .week)
+        let plant = Plant(waterInterval: waterInterval,
+                          lastWaterDate: lastWaterDate)
+        
+        let expectedDescription = "1 week"
+        let expectedSecondsInInterval: TimeInterval = 7 * 24 * 60 * 60
+        
+        XCTAssertEqual(expectedSecondsInInterval, plant.timeToWater.duration, accuracy: 0.1)
+        XCTAssertEqual(expectedDescription, plant
             .timeToWater
             .asDescriptiveDateInterval
             .description)
