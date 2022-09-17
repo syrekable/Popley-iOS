@@ -21,16 +21,13 @@ struct ContentView: View {
                 VStack {
                     ForEach(Plant.sampleData) { plant in
                         NavigationLink(value: plant) {
-                            PlantRow(name: plant.name,
-                                     timeToWater: plant.timeToWater.asDescriptiveDateInterval,
-                                     imageName: plant.picture,
-                                     waterAction: {},
+                            PlantRow(plant: plant,
                                      navigateToPlantDetailsAction: model.showPlant)
                         }
                     }
-                    .navigationDestination(for: Plant.self) { plant in
-                        PlantDetails(plant: plant)
-                    }
+                     .navigationDestination(for: Plant.self) { plant in
+                         PlantDetails(plant: plant)
+                     }
                     .navigationTitle("Your plants")
                 }
             }

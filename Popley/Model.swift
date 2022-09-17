@@ -8,9 +8,9 @@
 import Foundation
 
 class Model: ObservableObject {
-    @Published var plants: [UUID] = []
+    @Published var plants: [Plant] = []
     
-    func showPlant(of id: UUID) {
-        plants.append(id)
+    func showPlant(_ plant: Plant) {
+        plants.append(plant)
     }
 }
