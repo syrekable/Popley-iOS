@@ -8,23 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var model: Model
     var body: some View {
         /*
          TODO:
-         - only the gear icon navigates to plant's details/edit
          - editability of Plant's data
          - background colour for the whole app
          */
-        NavigationStack {
+        NavigationStack(path: $model.plants) {
             ScrollView {
                 VStack {
                     ForEach(Plant.sampleData) { plant in
-                        NavigationLink(value: plant) {
-                            PlantRow(name: plant.name,
-                                     timeToWater: plant.timeToWater.asDescriptiveDateInterval,
-                                     imageName: plant.picture,
-                                     waterAction: {})
-                        }
+                        PlantRow(plant: plant,
+                                 navigateToPlantDetailsAction: model.navigateToPlant)
                     }
                     .navigationDestination(for: Plant.self) { plant in
                         PlantDetails(plant: plant)
@@ -40,5 +36,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Model())
     }
 }
