@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var model: Model
     var body: some View {
         /*
          TODO:
@@ -15,7 +16,7 @@ struct ContentView: View {
          - editability of Plant's data
          - background colour for the whole app
          */
-        NavigationStack {
+        NavigationStack(path: $model.plants) {
             ScrollView {
                 VStack {
                     ForEach(Plant.sampleData) { plant in
@@ -40,5 +41,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Model())
     }
 }

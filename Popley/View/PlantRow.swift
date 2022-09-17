@@ -34,7 +34,7 @@ struct PlantRow: View {
                     }
                     .frame(maxWidth: 230, alignment: .leading)
                     Spacer()
-                    Image(systemName: "gear")
+                    Image(systemName: "info.circle")
                         .foregroundColor(Color("Accent"))
                 }
                 .font(.title)

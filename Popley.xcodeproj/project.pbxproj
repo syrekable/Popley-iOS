@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10D43D328D63778005C3D81 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D43D228D63778005C3D81 /* Model.swift */; };
 		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
 		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F10D43D228D63778005C3D81 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
@@ -101,6 +103,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F10D43D128D6371E005C3D81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
+				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
+				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F1D7E45A28CB3DB9001159FA = {
 			isa = PBXGroup;
 			children = (
@@ -124,15 +136,14 @@
 		F1D7E46528CB3DB9001159FA /* Popley */ = {
 			isa = PBXGroup;
 			children = (
+				F10D43D128D6371E005C3D81 /* View */,
 				F1D7E4A128CB811E001159FA /* Model */,
 				F1D7E49628CB4EA4001159FA /* StyleGuide */,
 				F1D7E49028CB4903001159FA /* Extensions */,
 				F1D7E46628CB3DB9001159FA /* PopleyApp.swift */,
-				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1D7E46A28CB3DBA001159FA /* Assets.xcassets */,
 				F1D7E46C28CB3DBA001159FA /* Preview Content */,
-				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
-				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
+				F10D43D228D63778005C3D81 /* Model.swift */,
 			);
 			path = Popley;
 			sourceTree = "<group>";
@@ -351,6 +362,7 @@
 				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
+				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
