@@ -19,15 +19,21 @@ struct PlantDetails: View {
                     Rectangle()
                 }
                 .cornerRadius(10)
-            Text("Needs water every ") +
-            Text(String(describing: plant.waterInterval))
-                .fontWeight(.semibold)
-            Text("Next watering in ") +
-            Text(String(describing: plant
-                .timeToWater
-                .asDescriptiveDateInterval
-            ))
-                .fontWeight(.bold)
+            HStack {
+                Label("Needs water every:", systemImage: "calendar.circle")
+                Spacer()
+                Text(String(describing: plant.waterInterval))
+                    .fontWeight(.semibold)
+            }
+            HStack {
+                Label("Next watering in:", systemImage: "timer")
+                Spacer()
+                Text(String(describing: plant
+                    .timeToWater
+                    .asDescriptiveDateInterval
+                ))
+                    .fontWeight(.semibold)
+            }
             Spacer()
         }
         .navigationTitle(plant.name)
