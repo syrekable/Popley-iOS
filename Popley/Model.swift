@@ -10,7 +10,7 @@ import Foundation
 class Model: ObservableObject {
     @Published var plants: [Plant] = []
     
-    func showPlant(_ plant: Plant) {
+    func navigateToPlant(_ plant: Plant) {
         plants.append(plant)
     }
 }

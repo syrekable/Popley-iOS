@@ -12,7 +12,6 @@ struct ContentView: View {
     var body: some View {
         /*
          TODO:
-         - only the gear icon navigates to plant's details/edit
          - editability of Plant's data
          - background colour for the whole app
          */
@@ -20,14 +19,12 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     ForEach(Plant.sampleData) { plant in
-                        NavigationLink(value: plant) {
-                            PlantRow(plant: plant,
-                                     navigateToPlantDetailsAction: model.showPlant)
-                        }
+                        PlantRow(plant: plant,
+                                 navigateToPlantDetailsAction: model.navigateToPlant)
                     }
-                     .navigationDestination(for: Plant.self) { plant in
-                         PlantDetails(plant: plant)
-                     }
+                    .navigationDestination(for: Plant.self) { plant in
+                        PlantDetails(plant: plant)
+                    }
                     .navigationTitle("Your plants")
                 }
             }
