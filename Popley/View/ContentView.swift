@@ -26,6 +26,14 @@ struct ContentView: View {
                         PlantDetails(plant: plant)
                     }
                     .navigationTitle("Your plants")
+                    .toolbar(content: {
+                        Button {
+                            print("new plant")
+                        } label: {
+                            Label("add new plant", systemImage: "plus")
+                        }
+                    })
+                    
                 }
             }
         }
