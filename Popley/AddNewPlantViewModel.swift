@@ -32,6 +32,7 @@ class AddNewPlantViewModel: ObservableObject {
     }
     
     func navigateFurther() {
+        print(navigationStack)
         switch navigationStack.count {
         case 0:
             navigationStack.append(.plantName)
