@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
+    @State private var isAddingNewPlant: Bool = false
     var body: some View {
         /*
          TODO:
@@ -28,14 +29,21 @@ struct ContentView: View {
                     .navigationTitle("Your plants")
                     .toolbar(content: {
                         Button {
-                            print("new plant")
+                            isAddingNewPlant = true
                         } label: {
                             Label("add new plant", systemImage: "plus")
                         }
                     })
-                    
                 }
             }
+        }
+        .sheet(isPresented: $isAddingNewPlant) {
+            NavigationView {
+                Image(systemName: "leaf.circle.fill")
+                    .font(.system(size: 120))
+                    .navigationTitle("Add new plant")
+            }
+            
         }
     }
 }
