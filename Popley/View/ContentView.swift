@@ -38,12 +38,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isAddingNewPlant) {
-            NavigationView {
-                Image(systemName: "leaf.circle.fill")
-                    .font(.system(size: 120))
-                    .navigationTitle("Add new plant")
-            }
-            
+            AddNewPlantView(model: AddNewPlantViewModel())
         }
     }
 }

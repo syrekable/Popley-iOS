@@ -12,6 +12,9 @@
 		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
+		F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE228DB5A8D00440419 /* ImagePicker.swift */; };
+		F1BFABE528DB5B6A00440419 /* AddNewPlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE428DB5B6A00440419 /* AddNewPlantViewModel.swift */; };
+		F1BFABE928DB5EF900440419 /* AddNewPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE828DB5EF900440419 /* AddNewPlantView.swift */; };
 		F1C9451C28D212B30005345B /* PlantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C9451B28D212B30005345B /* PlantTests.swift */; };
 		F1C9451F28D21FE40005345B /* Datez in Frameworks */ = {isa = PBXBuildFile; productRef = F1C9451E28D21FE40005345B /* Datez */; };
 		F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E46628CB3DB9001159FA /* PopleyApp.swift */; };
@@ -55,6 +58,9 @@
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalTests.swift; sourceTree = "<group>"; };
+		F1BFABE228DB5A8D00440419 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F1BFABE428DB5B6A00440419 /* AddNewPlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlantViewModel.swift; sourceTree = "<group>"; };
+		F1BFABE828DB5EF900440419 /* AddNewPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlantView.swift; sourceTree = "<group>"; };
 		F1C9451B28D212B30005345B /* PlantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTests.swift; sourceTree = "<group>"; };
 		F1D7E46328CB3DB9001159FA /* Popley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D7E46628CB3DB9001159FA /* PopleyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopleyApp.swift; sourceTree = "<group>"; };
@@ -109,8 +115,17 @@
 				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
+				F1BFABE828DB5EF900440419 /* AddNewPlantView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F1BFABE128DB5A7900440419 /* UIViewRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				F1BFABE228DB5A8D00440419 /* ImagePicker.swift */,
+			);
+			path = UIViewRepresentable;
 			sourceTree = "<group>";
 		};
 		F1D7E45A28CB3DB9001159FA = {
@@ -136,6 +151,7 @@
 		F1D7E46528CB3DB9001159FA /* Popley */ = {
 			isa = PBXGroup;
 			children = (
+				F1BFABE128DB5A7900440419 /* UIViewRepresentable */,
 				F10D43D128D6371E005C3D81 /* View */,
 				F1D7E4A128CB811E001159FA /* Model */,
 				F1D7E49628CB4EA4001159FA /* StyleGuide */,
@@ -144,6 +160,7 @@
 				F1D7E46A28CB3DBA001159FA /* Assets.xcassets */,
 				F1D7E46C28CB3DBA001159FA /* Preview Content */,
 				F10D43D228D63778005C3D81 /* Model.swift */,
+				F1BFABE428DB5B6A00440419 /* AddNewPlantViewModel.swift */,
 			);
 			path = Popley;
 			sourceTree = "<group>";
@@ -359,12 +376,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */,
 				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
 				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
+				F1BFABE528DB5B6A00440419 /* AddNewPlantViewModel.swift in Sources */,
+				F1BFABE928DB5EF900440419 /* AddNewPlantView.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
 				F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */,
