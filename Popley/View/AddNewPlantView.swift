@@ -9,8 +9,9 @@ import SwiftUI
 
 struct AddNewPlantView: View {
     @StateObject var model: AddNewPlantViewModel
+    
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $model.navigationStack) {
             ZStack {
                 VStack(spacing: 15) {
                     Button {
@@ -33,7 +34,14 @@ struct AddNewPlantView: View {
                     //.ignoresSafeArea()
                 }
             }
+            .onChange(of: model.image) { newValue in
+                model.navigateFurther()
+            }
         }
+            .environmentObject(model)
+            .navigationDestination(for: Page.self) { _ in
+                AddNewPlantNameView()
+            }
     }
 }
 
@@ -59,5 +67,11 @@ struct ButtonLabel: View {
             Color("Accent")
         }
         .cornerRadius(15)
+    }
+}
+
+struct AddNewPlantNameView: View {
+    var body: some View {
+        Text("See how deep the rabbit hole goes.")
     }
 }
