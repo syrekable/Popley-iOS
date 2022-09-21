@@ -15,6 +15,7 @@
 		F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE228DB5A8D00440419 /* ImagePicker.swift */; };
 		F1BFABE528DB5B6A00440419 /* AddNewPlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE428DB5B6A00440419 /* AddNewPlantViewModel.swift */; };
 		F1BFABE928DB5EF900440419 /* AddNewPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE828DB5EF900440419 /* AddNewPlantView.swift */; };
+		F1BFABEB28DB61CD00440419 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABEA28DB61CD00440419 /* Picker.swift */; };
 		F1C9451C28D212B30005345B /* PlantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C9451B28D212B30005345B /* PlantTests.swift */; };
 		F1C9451F28D21FE40005345B /* Datez in Frameworks */ = {isa = PBXBuildFile; productRef = F1C9451E28D21FE40005345B /* Datez */; };
 		F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E46628CB3DB9001159FA /* PopleyApp.swift */; };
@@ -61,6 +62,7 @@
 		F1BFABE228DB5A8D00440419 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F1BFABE428DB5B6A00440419 /* AddNewPlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlantViewModel.swift; sourceTree = "<group>"; };
 		F1BFABE828DB5EF900440419 /* AddNewPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlantView.swift; sourceTree = "<group>"; };
+		F1BFABEA28DB61CD00440419 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		F1C9451B28D212B30005345B /* PlantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTests.swift; sourceTree = "<group>"; };
 		F1D7E46328CB3DB9001159FA /* Popley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D7E46628CB3DB9001159FA /* PopleyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopleyApp.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D7E4A428CB82A6001159FA /* Interval.swift */,
+				F1BFABEA28DB61CD00440419 /* Picker.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
 				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
+				F1BFABEB28DB61CD00440419 /* Picker.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F1BFABE528DB5B6A00440419 /* AddNewPlantViewModel.swift in Sources */,

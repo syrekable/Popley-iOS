@@ -13,34 +13,16 @@ struct AddNewPlantView: View {
         NavigationView {
             VStack(spacing: 15) {
                 Button {
-                    
+                    model.source = .camera
                 } label: {
-                    VStack(spacing: 10) {
-                        Text("Take a photo")
-                        Image(systemName: "camera")
-                    }
+                    ButtonLabel(description: "Take a photo", systemName: "camera")
                 }
-                .padding()
-                .background {
-                    Color("Accent")
-                }
-                .cornerRadius(15)
                 Button {
-                    
+                    model.source = .library
                 } label: {
-                    VStack(spacing: 10) {
-                        Text("Pick existing")
-                        Image(systemName: "photo")
-                    }
+                    ButtonLabel(description: "Pick existing", systemName: "photo")
                 }
-                .padding()
-                .background {
-                    Color("Accent")
-                }
-                .cornerRadius(15)
             }
-            .fontWeight(.heavy)
-            .foregroundColor(Color("Secondary"))
             .navigationTitle("Add a new plant")
         }
     }
@@ -49,5 +31,24 @@ struct AddNewPlantView: View {
 struct AddNewPlantView_Previews: PreviewProvider {
     static var previews: some View {
         AddNewPlantView(model: AddNewPlantViewModel())
+    }
+}
+
+// TODO: rewrite as ButtonStyle
+struct ButtonLabel: View {
+    let description: String
+    let systemName: String
+    var body: some View {
+        VStack(spacing: 10) {
+            Text(description)
+            Image(systemName: systemName)
+        }
+        .fontWeight(.bold)
+        .padding()
+        .foregroundColor(Color("Secondary"))
+        .background {
+            Color("Accent")
+        }
+        .cornerRadius(15)
     }
 }
