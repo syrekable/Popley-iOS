@@ -13,10 +13,13 @@ struct AddNewPlantView: View {
     var body: some View {
         NavigationStack(path: $model.navigationStack) {
             ZStack {
-                NavigationLink(value: Page.plantName, label: {
-                    Text("h4ck3rm4n")
-                })
+                List(Page.allCases) { page in
+                    NavigationLink(value: page, label: {
+                        AddNewPlantPagePresenterView(page: page)
+                    })
+                }
                     .opacity(0)
+                
                 VStack(spacing: 15) {
                     Button {
                         model.source = .camera
@@ -34,22 +37,21 @@ struct AddNewPlantView: View {
                         ButtonLabel(description: "Pick existing", systemName: "photo")
                     }
                 }
-                .navigationTitle("Add a new plant")
+                    .navigationTitle("Add a new plant")
                 if model.isPickerShown {
                     ImagePicker(sourceType: model.source == .camera ?  .camera : .photoLibrary,
                                 selectedImage: $model.image)
                     //.ignoresSafeArea()
                 }
             }
-                .navigationDestination(for: Page.self) { page in
-                    AddNewPlantNameView(page: page)
-                }
-                .onChange(of: model.image) { newValue in
-                    model.navigateFurther()
-                }
+            .navigationDestination(for: Page.self) { page in
+                AddNewPlantPagePresenterView(page: page)
+            }
+            .onChange(of: model.image) { newValue in
+                model.navigateFurther()
+            }
         }
             .environmentObject(model)
-            
     }
 }
 
@@ -78,37 +80,26 @@ struct ButtonLabel: View {
     }
 }
 
-struct AddNewPlantNameView: View {
+struct AddNewPlantPagePresenterView: View {
     @EnvironmentObject var addPlantVM: AddNewPlantViewModel
     @State private var text: String = "rabbit hole"
     let page: Page
     var body: some View {
-        VStack {
-            ZStack {
-                NavigationLink(value: Page.plantSummary, label: {
-                    Text("h4ck3rm4n")
-                })
-                    .opacity(0)
+        if page == .plantName {
+            VStack {
                 Text("See how deep the \(text) goes.")
-                    .navigationTitle("Change plant's name")
+                    .font(.title)
+                TextField("Fill your destiny", text: $text)
+                    .textFieldStyle(.plain)
+                    .onSubmit {
+                        addPlantVM.navigateFurther()
+                    }
             }
-                .navigationDestination(for: Page.self) { page in
-                    AddNewPlantNameView(page: page)
-                }
-            TextField("Fill your destiny", text: $text)
-                .textFieldStyle(.plain)
-                .onSubmit {
-                    addPlantVM.navigateFurther()
-                }
+            .navigationTitle("Change plant's name")
+            .padding()
+        } else {
+            Text("This is the Matrix.")
+                .navigationTitle("New plant summary")
         }
-        .padding()
-    }
-}
-
-struct AddNewPlantSummaryView: View {
-    let page: Page
-    var body: some View {
-        Text("This is the Matrix.")
-            .navigationTitle("Summary of your new plant.")
     }
 }

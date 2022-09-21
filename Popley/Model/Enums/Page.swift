@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum Page {
+enum Page: Identifiable, CaseIterable {
+    var id: Page { self }
     case plantName, plantSummary
 }
