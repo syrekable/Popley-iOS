@@ -11,19 +11,28 @@ struct AddNewPlantView: View {
     @StateObject var model: AddNewPlantViewModel
     var body: some View {
         NavigationView {
-            VStack(spacing: 15) {
-                Button {
-                    model.source = .camera
-                } label: {
-                    ButtonLabel(description: "Take a photo", systemName: "camera")
+            ZStack {
+                VStack(spacing: 15) {
+                    Button {
+                        model.source = .camera
+                        model.isPickerShown = true
+                    } label: {
+                        ButtonLabel(description: "Take a photo", systemName: "camera")
+                    }
+                    Button {
+                        model.source = .library
+                        model.isPickerShown = true
+                    } label: {
+                        ButtonLabel(description: "Pick existing", systemName: "photo")
+                    }
                 }
-                Button {
-                    model.source = .library
-                } label: {
-                    ButtonLabel(description: "Pick existing", systemName: "photo")
+                .navigationTitle("Add a new plant")
+                if model.isPickerShown {
+                    ImagePicker(sourceType: model.source == .camera ?  .camera : .photoLibrary,
+                                selectedImage: $model.image)
+                    //.ignoresSafeArea()
                 }
             }
-            .navigationTitle("Add a new plant")
         }
     }
 }

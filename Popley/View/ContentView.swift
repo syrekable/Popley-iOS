@@ -28,17 +28,24 @@ struct ContentView: View {
                     }
                     .navigationTitle("Your plants")
                     .toolbar(content: {
-                        Button {
-                            isAddingNewPlant = true
-                        } label: {
-                            Label("add new plant", systemImage: "plus")
-                        }
+                        if !isAddingNewPlant {
+                            Button {
+                                isAddingNewPlant = true
+                            } label: {
+                                Label("add new plant", systemImage: "plus")
+                            }
+                        } else {
+                            ProgressView()
+                        } 
                     })
                 }
             }
         }
         .sheet(isPresented: $isAddingNewPlant) {
             AddNewPlantView(model: AddNewPlantViewModel())
+        }
+        .onChange(of: isAddingNewPlant) { newValue in
+            print(newValue)
         }
     }
 }
