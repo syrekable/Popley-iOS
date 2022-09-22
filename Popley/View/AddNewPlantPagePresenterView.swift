@@ -32,10 +32,13 @@ extension AddNewPlantPagePresenterView {
                  model.source = .camera
                  model.isPickerShown = true
                  */
-                model.navigateToNextStageOfAddingNewPlant()
+                // model.navigateToNextStageOfAddingNewPlant()
+                print("Not coded yet")
             } label: {
                 ButtonLabel(description: "Take a photo", systemName: "camera")
             }
+                .disabled(true)
+                .opacity(0.6)
             Button {
                 addPlantViewModel.source = .library
                 addPlantViewModel.isPickerShown = true
@@ -48,8 +51,10 @@ extension AddNewPlantPagePresenterView {
                 model.navigateToNextStageOfAddingNewPlant()
             }
             .sheet(isPresented: $addPlantViewModel.isPickerShown) {
-                Image(systemName: "leaf.circle.fill")
-                    .font(.title)
+                ImagePicker(sourceType: addPlantViewModel.source == .camera
+                            ? .camera
+                            : .photoLibrary,
+                            selectedImage: $addPlantViewModel.image)
             }
     }
     var plantName: some View {
