@@ -19,6 +19,7 @@ struct ContentView: View {
         NavigationStack(path: $model.path) {
             ScrollView {
                 ZStack {
+                    // FIXME: this is a hack
                     List(Page.allCases) { page in
                         NavigationLink(value: page, label: {
                             AddNewPlantPagePresenterView(page: page)

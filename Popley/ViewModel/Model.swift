@@ -29,7 +29,6 @@ class Model: ObservableObject {
         default:
             fatalError("Unexpected navigation error.")
         }
-        print(path)
     }
     
     func navigateToRoot() {

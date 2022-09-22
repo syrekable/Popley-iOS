@@ -13,9 +13,9 @@
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
 		F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15E728DC631300D94727 /* ButtonLabel.swift */; };
+		F1BE15EB28DC708000D94727 /* AddNewPlantPagePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */; };
 		F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE228DB5A8D00440419 /* ImagePicker.swift */; };
 		F1BFABE528DB5B6A00440419 /* AddPlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE428DB5B6A00440419 /* AddPlantViewModel.swift */; };
-		F1BFABE928DB5EF900440419 /* AddPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE828DB5EF900440419 /* AddPlantView.swift */; };
 		F1BFABEB28DB61CD00440419 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABEA28DB61CD00440419 /* Picker.swift */; };
 		F1BFABED28DB6AD200440419 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABEC28DB6AD200440419 /* Page.swift */; };
 		F1C9451C28D212B30005345B /* PlantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C9451B28D212B30005345B /* PlantTests.swift */; };
@@ -61,10 +61,10 @@
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalTests.swift; sourceTree = "<group>"; };
-		F1BE15E728DC631300D94727 /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonLabel.swift; path = Popley/View/ButtonLabel.swift; sourceTree = "<group>"; };
+		F1BE15E728DC631300D94727 /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
+		F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlantPagePresenterView.swift; sourceTree = "<group>"; };
 		F1BFABE228DB5A8D00440419 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F1BFABE428DB5B6A00440419 /* AddPlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewModel.swift; sourceTree = "<group>"; };
-		F1BFABE828DB5EF900440419 /* AddPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantView.swift; sourceTree = "<group>"; };
 		F1BFABEA28DB61CD00440419 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		F1BFABEC28DB6AD200440419 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		F1C9451B28D212B30005345B /* PlantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTests.swift; sourceTree = "<group>"; };
@@ -121,7 +121,8 @@
 				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
-				F1BFABE828DB5EF900440419 /* AddPlantView.swift */,
+				F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */,
+				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,7 +147,6 @@
 		F1D7E45A28CB3DB9001159FA = {
 			isa = PBXGroup;
 			children = (
-				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
 				F1D7E46528CB3DB9001159FA /* Popley */,
 				F1D7E47628CB3DBA001159FA /* PopleyTests */,
 				F1D7E48028CB3DBA001159FA /* PopleyUITests */,
@@ -404,11 +404,11 @@
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F1BFABE528DB5B6A00440419 /* AddPlantViewModel.swift in Sources */,
-				F1BFABE928DB5EF900440419 /* AddPlantView.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
 				F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */,
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
+				F1BE15EB28DC708000D94727 /* AddNewPlantPagePresenterView.swift in Sources */,
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
 				F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */,
 			);

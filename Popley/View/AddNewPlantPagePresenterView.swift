@@ -1,39 +1,11 @@
 //
-//  AddNewPlantView.swift
+//  AddnewPlantPagePresenterView.swift
 //  Popley
 //
-//  Created by Jordan Niedzielski on 21/09/2022.
+//  Created by Jordan Niedzielski on 22/09/2022.
 //
 
 import SwiftUI
-
-struct AddPlantView: View {
-    @StateObject var addPlantViewModel = AddPlantViewModel()
-    
-    var body: some View {
-            ZStack {
-                
-                
-                if addPlantViewModel.isPickerShown {
-                    ImagePicker(sourceType: addPlantViewModel.source == .camera ?  .camera : .photoLibrary,
-                                selectedImage: $addPlantViewModel.image)
-                    //.ignoresSafeArea()
-                }
-            }
-            /*
-             .onChange(of: model.image) { newValue in
-                 model.navigateToPlant()
-             }
-             */
-            .environmentObject(addPlantViewModel)
-    }
-}
-
-struct AddNewPlantView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddPlantView(addPlantViewModel: AddPlantViewModel())
-    }
-}
 
 struct AddNewPlantPagePresenterView: View {
     @EnvironmentObject var model: Model
@@ -100,5 +72,22 @@ extension AddNewPlantPagePresenterView {
 
         }
             .navigationTitle("New plant summary")
+    }
+}
+
+
+struct AddNewPlantPagePresenterView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            AddNewPlantPagePresenterView(page: .plantPicture)
+                .environmentObject(Model())
+                .previewDisplayName("Plant Picture Screen")
+            AddNewPlantPagePresenterView(page: .plantName)
+                .environmentObject(Model())
+                .previewDisplayName("Plant Name Screen")
+            AddNewPlantPagePresenterView(page: .plantSummary)
+                .environmentObject(Model())
+                .previewDisplayName("Plant Summary Screen")
+        }
     }
 }
