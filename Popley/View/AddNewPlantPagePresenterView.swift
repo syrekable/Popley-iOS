@@ -10,8 +10,8 @@ import SwiftUI
 struct AddNewPlantPagePresenterView: View {
     @EnvironmentObject var model: Model
     @StateObject var addPlantViewModel = AddPlantViewModel()
-    
     let page: Page
+    
     var body: some View {
         switch page {
         case .plantPicture:
@@ -41,30 +41,43 @@ extension AddNewPlantPagePresenterView {
                 .opacity(0.6)
             Button {
                 addPlantViewModel.source = .library
-                addPlantViewModel.isPickerShown = true
+                addPlantViewModel.showPhotoPicker()
             } label: {
                 ButtonLabel(description: "Pick existing", systemName: "photo")
             }
         }
             .navigationTitle("Add a new plant")
-            .onChange(of: addPlantViewModel.image) { _ in
-                model.navigateToNextStageOfAddingNewPlant()
-            }
             .sheet(isPresented: $addPlantViewModel.isPickerShown) {
-                ImagePicker(sourceType: addPlantViewModel.source == .camera
-                            ? .camera
-                            : .photoLibrary,
-                            selectedImage: $addPlantViewModel.image)
+                 ImagePicker(sourceType: addPlantViewModel.source == .camera
+                             ? .camera
+                             : .photoLibrary,
+                             selectedImage: $addPlantViewModel.image)
+            }
+            .onChange(of: addPlantViewModel.image) { image in
+                guard (image != nil) else { return }
+                //print(image)
+                model.navigateToNextStageOfAddingNewPlant()
             }
     }
     var plantName: some View {
         VStack {
-            Text("See how deep the rabbit hole goes.")
-                .font(.title)
-            Button {
-                model.navigateToNextStageOfAddingNewPlant()
-            } label: {
-                ButtonLabel(description: "Find out", systemName: "eye.fill")
+            if let image = addPlantViewModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .mask {
+                        Circle()
+                    }
+                    .frame(width: 250, height: 100)
+            } else {
+                Image("plant-zz")
+                    .resizable()
+                    .scaledToFill()
+                    .mask {
+                        Circle()
+                    }
+                    .frame(width: 250, height: 100)
+                
             }
         }
             .navigationTitle("Change plant's name")

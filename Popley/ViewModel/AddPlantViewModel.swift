@@ -13,8 +13,8 @@ class AddPlantViewModel: ObservableObject {
     @Published var image: UIImage?
     @Published var source: Picker.Source = .library
     @Published var isPickerShown = false
-    
-    @Published var navigationStack: [Page] = []
+    // TODO: propose systematic name from Plant.id rest API
+    @Published var plantName = ""
     
     func showPhotoPicker() {
         do {
@@ -28,17 +28,6 @@ class AddPlantViewModel: ObservableObject {
              cameraError = Picker.CameraErrorType(error: error as! Picker.PickerError)
              */
             print(error.localizedDescription)
-        }
-    }
-    
-    func navigateToNextPage() {
-        switch navigationStack.count {
-        case 0:
-            navigationStack.append(.plantName)
-        case 1:
-            navigationStack.append(.plantSummary)
-        default:
-            fatalError("Unexpected navigation error.")
         }
     }
 }
