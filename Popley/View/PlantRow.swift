@@ -17,7 +17,7 @@ struct PlantRow: View {
                 Image(uiImage: plant.picture)
                     .resizable()
                     .scaledToFill()
-                    .frame(height: 300)
+                    .frame(width: 360, height: 300)
                 HStack(spacing: 0) {
                     Text(plant.name)
                         .lineLimit(1)
