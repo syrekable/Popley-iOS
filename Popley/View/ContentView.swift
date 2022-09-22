@@ -16,36 +16,38 @@ struct ContentView: View {
          - editability of Plant's data
          - background colour for the whole app
          */
-        NavigationStack(path: $model.plants) {
+        NavigationStack(path: $model.path) {
             ScrollView {
-                VStack {
-                    ForEach(Plant.sampleData) { plant in
-                        PlantRow(plant: plant,
-                                 navigateToPlantDetailsAction: model.navigateToPlant)
+                ZStack {
+                    List(Page.allCases) { page in
+                        NavigationLink(value: page, label: {
+                            AddNewPlantPagePresenterView(page: page)
+                        })
                     }
-                    .navigationDestination(for: Plant.self) { plant in
-                        PlantDetails(plant: plant)
+                    .navigationDestination(for: Page.self) { page in
+                        AddNewPlantPagePresenterView(page: page)
                     }
-                    .navigationTitle("Your plants")
-                    .toolbar(content: {
-                        if !isAddingNewPlant {
+                    .opacity(0)
+                    VStack {
+                        ForEach(Plant.sampleData) { plant in
+                            PlantRow(plant: plant,
+                                     navigateToPlantDetailsAction: model.navigateToPlant)
+                        }
+                        .navigationDestination(for: Plant.self) { plant in
+                            PlantDetails(plant: plant)
+                        }
+                        .navigationTitle("Your plants")
+                        .toolbar(content: {
                             Button {
+                                model.navigateToNextStageOfAddingNewPlant()
                                 isAddingNewPlant = true
                             } label: {
                                 Label("add new plant", systemImage: "plus")
                             }
-                        } else {
-                            ProgressView()
-                        } 
-                    })
+                        })
+                    }
                 }
             }
-        }
-        .sheet(isPresented: $isAddingNewPlant) {
-            AddPlantView(addPlantViewModel: AddPlantViewModel())
-        }
-        .onChange(of: isAddingNewPlant) { newValue in
-            print(newValue)
         }
     }
 }

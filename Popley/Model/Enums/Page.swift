@@ -9,5 +9,5 @@ import Foundation
 
 enum Page: Identifiable, CaseIterable {
     var id: Page { self }
-    case plantName, plantSummary
+    case plantPicture, plantName, plantSummary
 }
