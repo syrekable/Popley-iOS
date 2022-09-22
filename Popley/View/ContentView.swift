@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
+    @EnvironmentObject var addPlantViewModel: AddPlantViewModel
     @State private var isAddingNewPlant: Bool = false
     var body: some View {
         /*
@@ -32,10 +33,24 @@ struct ContentView: View {
                     }
                     .navigationTitle("Your plants")
                     .toolbar(content: {
-                        Button {
-                            model.navigateToNextStageOfAddingNewPlant()
+                        Menu {
+                            Button {
+                                addPlantViewModel.source = .camera
+                                model.navigateToNextStageOfAddingNewPlant()
+                             } label: {
+                                 Label("Take a photo", systemImage: "camera")
+                             }
+                                // TODO: enable
+                                .disabled(true)
+                             Button {
+                                 addPlantViewModel.source = .library
+                                 model.navigateToNextStageOfAddingNewPlant()
+                             } label: {
+                                 Label("Pick existing", systemImage: "photo")
+                             }
                         } label: {
                             Label("add new plant", systemImage: "plus")
+                                .foregroundColor(.accentColor)
                         }
                     })
                 }
@@ -49,5 +64,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(Model())
+            .environmentObject(AddPlantViewModel())
     }
 }

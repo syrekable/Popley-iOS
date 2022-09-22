@@ -27,38 +27,16 @@ struct AddNewPlantPagePresenterView: View {
 extension AddNewPlantPagePresenterView {
     private var diameter: CGFloat { 250 }
     var plantPicture: some View {
-        VStack(spacing: 15) {
-            Button {
-                /*
-                 model.source = .camera
-                 model.isPickerShown = true
-                 */
-                // model.navigateToNextStageOfAddingNewPlant()
-                print("Not coded yet")
-            } label: {
-                ButtonLabel(description: "Take a photo", systemName: "camera")
-            }
-                .disabled(true)
-                .opacity(0.6)
-            Button {
-                addPlantViewModel.source = .library
-                addPlantViewModel.showPhotoPicker()
-            } label: {
-                ButtonLabel(description: "Pick existing", systemName: "photo")
-            }
-        }
-            .navigationTitle("Add a new plant")
-            .sheet(isPresented: $addPlantViewModel.isPickerShown) {
-                 ImagePicker(sourceType: addPlantViewModel.source == .camera
-                             ? .camera
-                             : .photoLibrary,
-                             selectedImage: $addPlantViewModel.image)
-            }
+        ImagePicker(sourceType: addPlantViewModel.source == .camera
+                    ? .camera
+                    : .photoLibrary,
+                    selectedImage: $addPlantViewModel.image)
             .onChange(of: addPlantViewModel.image) { image in
                 guard (image != nil) else { return }
                 //print(image)
                 model.navigateToNextStageOfAddingNewPlant()
             }
+            //.ignoresSafeArea()
     }
     var plantName: some View {
         return VStack {
@@ -66,10 +44,10 @@ extension AddNewPlantPagePresenterView {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: diameter)
                     .mask {
                         Circle()
                     }
+                    .frame(height: diameter)
             } else {
                 Image("plant-zz")
                     .resizable()
@@ -82,6 +60,7 @@ extension AddNewPlantPagePresenterView {
             HStack {
                 TextField("New plant's name", text: $addPlantViewModel.plantName)
                     .onSubmit {
+                        // TODO: check if empty
                         model.navigateToNextStageOfAddingNewPlant()
                     }
                 Button {
@@ -102,15 +81,15 @@ extension AddNewPlantPagePresenterView {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: diameter / 2)
                         .mask {
                             Circle()
                         }
+                        .frame(height: diameter / 2)
                 } else {
                     Image("plant-zz")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: diameter / 2)
+                        .frame(width: diameter / 2, height: diameter / 2)
                         .mask {
                             Circle()
                         }

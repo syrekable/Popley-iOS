@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 
+// TODO: hide 'cancel' button
 struct ImagePicker: UIViewControllerRepresentable {
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var selectedImage: UIImage?
@@ -39,7 +40,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 parent.selectedImage = image
             }
-            parent.presentationMode.wrappedValue.dismiss()
+            //parent.presentationMode.wrappedValue.dismiss()
         }
     }
 }
