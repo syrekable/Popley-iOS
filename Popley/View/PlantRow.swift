@@ -14,7 +14,7 @@ struct PlantRow: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
-                Image(plant.picture)
+                Image(uiImage: plant.picture)
                     .resizable()
                     .scaledToFill()
                     .frame(height: 300)

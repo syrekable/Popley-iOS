@@ -96,7 +96,7 @@ extension AddNewPlantPagePresenterView {
             .padding()
     }
     var plantSummary: some View {
-        VStack {
+        VStack(spacing: 30) {
             HStack {
                 if let image = addPlantViewModel.image {
                     Image(uiImage: image)
@@ -119,10 +119,18 @@ extension AddNewPlantPagePresenterView {
                 Text(addPlantViewModel.plantName)
                     .font(.title)
                     .fontWeight(.medium)
+                    .frame(maxWidth: 200, alignment: .center)
             }
             //.padding([.horizontal])
             Divider()
             Spacer()
+            Button {
+                // TODO: add debounce
+                model.addPlant(addPlantViewModel.createPlant())
+                model.navigateToRoot()
+            } label: {
+                ButtonLabel(description: "Add this plant", systemName: "hand.thumbsup.circle")
+            }
         }
             .navigationTitle("New plant summary")
             .padding([.horizontal])
@@ -135,12 +143,15 @@ struct AddNewPlantPagePresenterView_Previews: PreviewProvider {
         Group {
             AddNewPlantPagePresenterView(page: .plantPicture)
                 .environmentObject(Model())
+                .environmentObject(AddPlantViewModel())
                 .previewDisplayName("Plant Picture Screen")
             AddNewPlantPagePresenterView(page: .plantName)
                 .environmentObject(Model())
+                .environmentObject(AddPlantViewModel())
                 .previewDisplayName("Plant Name Screen")
             AddNewPlantPagePresenterView(page: .plantSummary)
                 .environmentObject(Model())
+                .environmentObject(AddPlantViewModel())
                 .previewDisplayName("Plant Summary Screen")
         }
     }

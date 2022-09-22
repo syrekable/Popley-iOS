@@ -18,36 +18,26 @@ struct ContentView: View {
          */
         NavigationStack(path: $model.path) {
             ScrollView {
-                ZStack {
-                    // FIXME: this is a hack
-                    /*
-                     List(Page.allCases) { page in
-                         NavigationLink(value: page, label: {
-                             AddNewPlantPagePresenterView(page: page)
-                         })
-                     }
-                     */
-                    //.opacity(0)
-                    VStack {
-                        ForEach(Plant.sampleData) { plant in
-                            PlantRow(plant: plant,
-                                     navigateToPlantDetailsAction: model.navigateToPlant)
-                        }
-                        .navigationDestination(for: Plant.self) { plant in
-                            PlantDetails(plant: plant)
-                        }
-                        .navigationDestination(for: Page.self) { page in
-                            AddNewPlantPagePresenterView(page: page)
-                        }
-                        .navigationTitle("Your plants")
-                        .toolbar(content: {
-                            Button {
-                                model.navigateToNextStageOfAddingNewPlant()
-                            } label: {
-                                Label("add new plant", systemImage: "plus")
-                            }
-                        })
+                VStack {
+                    // TODO: sorting
+                    ForEach(model.plants.reversed()) { plant in
+                        PlantRow(plant: plant,
+                                 navigateToPlantDetailsAction: model.navigateToPlant)
                     }
+                    .navigationDestination(for: Plant.self) { plant in
+                        PlantDetails(plant: plant)
+                    }
+                    .navigationDestination(for: Page.self) { page in
+                        AddNewPlantPagePresenterView(page: page)
+                    }
+                    .navigationTitle("Your plants")
+                    .toolbar(content: {
+                        Button {
+                            model.navigateToNextStageOfAddingNewPlant()
+                        } label: {
+                            Label("add new plant", systemImage: "plus")
+                        }
+                    })
                 }
             }
         }

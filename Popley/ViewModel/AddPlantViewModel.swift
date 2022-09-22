@@ -16,7 +16,9 @@ class AddPlantViewModel: ObservableObject {
     // TODO: propose systematic name from Plant.id rest API
     @Published var plantName = ""
     
-    
+    func createPlant() -> Plant {
+        return Plant(name: plantName, picture: image!, waterInterval: WaterInterval())
+    }
     
     func showPhotoPicker() {
         do {

@@ -27,6 +27,11 @@ struct DescriptiveDateInterval: Hashable {
         }
         return Double(frequency) * hoursInInterval * secondsInHour
     }
+    
+    init(frequency: Int = 1, interval: Interval = .day) {
+        self.frequency = frequency
+        self.interval = interval
+    }
 }
 
 extension DescriptiveDateInterval {

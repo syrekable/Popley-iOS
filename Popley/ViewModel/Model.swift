@@ -8,11 +8,17 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class Model: ObservableObject {
     @Published var path = NavigationPath()
+    @Published var plants: [Plant] = Plant.sampleData
     
     func navigateToPlant(_ plant: Plant) {
         path.append(plant)
+    }
+    
+    func addPlant(_ plant: Plant) {
+        plants.append(plant)
     }
     
     // lol

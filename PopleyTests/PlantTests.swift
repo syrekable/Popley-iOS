@@ -12,9 +12,7 @@ import Datez
 final class PlantTests: XCTestCase {
     
     func testNewPlantIsAssumedToBeWateredNow() {
-        let plant = Plant(name: "IR",
-                          picture: "IR",
-                          waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day),
+        let plant = Plant(waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day),
                           lastWaterDate: nil)
         XCTAssertEqual(plant.lastWaterDate.timeIntervalSince1970,
                        Date().timeIntervalSince1970,
@@ -22,7 +20,7 @@ final class PlantTests: XCTestCase {
     }
     
     func testPlantWateringResetsTimer() {
-        var plant = Plant(name: "IR", picture: "IR", waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day),
+        var plant = Plant(waterInterval: DescriptiveDateInterval(frequency: 1, interval: .day),
                           lastWaterDate: Date() - 1.days.timeInterval)
         let timeToWaterBeforeWatering = plant.timeToWater
         
