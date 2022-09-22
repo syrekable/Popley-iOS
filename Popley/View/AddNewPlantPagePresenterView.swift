@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewPlantPagePresenterView: View {
     @EnvironmentObject var model: Model
-    @StateObject var addPlantViewModel = AddPlantViewModel()
+    @EnvironmentObject var addPlantViewModel: AddPlantViewModel
     let page: Page
     
     var body: some View {
@@ -25,6 +25,7 @@ struct AddNewPlantPagePresenterView: View {
 }
 
 extension AddNewPlantPagePresenterView {
+    private var diameter: CGFloat { 250 }
     var plantPicture: some View {
         VStack(spacing: 15) {
             Button {
@@ -60,40 +61,71 @@ extension AddNewPlantPagePresenterView {
             }
     }
     var plantName: some View {
-        VStack {
+        return VStack {
             if let image = addPlantViewModel.image {
                 Image(uiImage: image)
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
+                    .frame(height: diameter)
                     .mask {
                         Circle()
                     }
-                    .frame(width: 250, height: 100)
             } else {
                 Image("plant-zz")
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
+                    .frame(height: diameter)
                     .mask {
                         Circle()
                     }
-                    .frame(width: 250, height: 100)
-                
             }
+            HStack {
+                TextField("New plant's name", text: $addPlantViewModel.plantName)
+                    .onSubmit {
+                        model.navigateToNextStageOfAddingNewPlant()
+                    }
+                Button {
+                    model.navigateToNextStageOfAddingNewPlant()
+                } label: {
+                    Image(systemName: "arrow.right.circle.fill")
+                }
+            }
+            Spacer()
         }
             .navigationTitle("Change plant's name")
             .padding()
     }
     var plantSummary: some View {
         VStack {
-            Text("This is the Matrix.")
-            Button {
-                model.navigateToRoot()
-            } label: {
-                ButtonLabel(description: "Shieeet", systemName: "brain.head.profile")
+            HStack {
+                if let image = addPlantViewModel.image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: diameter / 2)
+                        .mask {
+                            Circle()
+                        }
+                } else {
+                    Image("plant-zz")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: diameter / 2)
+                        .mask {
+                            Circle()
+                        }
+                }
+                Spacer()
+                Text(addPlantViewModel.plantName)
+                    .font(.title)
+                    .fontWeight(.medium)
             }
-
+            //.padding([.horizontal])
+            Divider()
+            Spacer()
         }
             .navigationTitle("New plant summary")
+            .padding([.horizontal])
     }
 }
 

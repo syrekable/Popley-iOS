@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct PopleyApp: App {
     @StateObject private var model = Model()
+    @StateObject private var addNewPlantModel = AddPlantViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(model)
+                .environmentObject(addNewPlantModel)
         }
     }
 }

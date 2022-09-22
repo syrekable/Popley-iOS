@@ -20,15 +20,14 @@ struct ContentView: View {
             ScrollView {
                 ZStack {
                     // FIXME: this is a hack
-                    List(Page.allCases) { page in
-                        NavigationLink(value: page, label: {
-                            AddNewPlantPagePresenterView(page: page)
-                        })
-                    }
-                    .navigationDestination(for: Page.self) { page in
-                        AddNewPlantPagePresenterView(page: page)
-                    }
-                    .opacity(0)
+                    /*
+                     List(Page.allCases) { page in
+                         NavigationLink(value: page, label: {
+                             AddNewPlantPagePresenterView(page: page)
+                         })
+                     }
+                     */
+                    //.opacity(0)
                     VStack {
                         ForEach(Plant.sampleData) { plant in
                             PlantRow(plant: plant,
@@ -37,11 +36,13 @@ struct ContentView: View {
                         .navigationDestination(for: Plant.self) { plant in
                             PlantDetails(plant: plant)
                         }
+                        .navigationDestination(for: Page.self) { page in
+                            AddNewPlantPagePresenterView(page: page)
+                        }
                         .navigationTitle("Your plants")
                         .toolbar(content: {
                             Button {
                                 model.navigateToNextStageOfAddingNewPlant()
-                                isAddingNewPlant = true
                             } label: {
                                 Label("add new plant", systemImage: "plus")
                             }

@@ -13,7 +13,7 @@
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
 		F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15E728DC631300D94727 /* ButtonLabel.swift */; };
-		F1BE15EB28DC708000D94727 /* AddNewPlantPagePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */; };
+		F1BE15EF28DC939700D94727 /* AddNewPlantPagePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */; };
 		F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE228DB5A8D00440419 /* ImagePicker.swift */; };
 		F1BFABE528DB5B6A00440419 /* AddPlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE428DB5B6A00440419 /* AddPlantViewModel.swift */; };
 		F1BFABEB28DB61CD00440419 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABEA28DB61CD00440419 /* Picker.swift */; };
@@ -408,9 +408,9 @@
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
 				F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */,
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
-				F1BE15EB28DC708000D94727 /* AddNewPlantPagePresenterView.swift in Sources */,
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
 				F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */,
+				F1BE15EF28DC939700D94727 /* AddNewPlantPagePresenterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

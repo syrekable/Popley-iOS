@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 
 class Model: ObservableObject {
-    @Published var plants: [Plant] = []
-    
     @Published var path = NavigationPath()
     
     func navigateToPlant(_ plant: Plant) {

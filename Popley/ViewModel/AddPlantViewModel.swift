@@ -16,6 +16,8 @@ class AddPlantViewModel: ObservableObject {
     // TODO: propose systematic name from Plant.id rest API
     @Published var plantName = ""
     
+    
+    
     func showPhotoPicker() {
         do {
             if source == .camera {
