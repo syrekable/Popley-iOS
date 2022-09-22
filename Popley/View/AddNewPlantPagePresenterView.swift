@@ -37,16 +37,20 @@ extension AddNewPlantPagePresenterView {
                 ButtonLabel(description: "Take a photo", systemName: "camera")
             }
             Button {
-                /*
-                 model.source = .library
-                 model.isPickerShown = true
-                 */
-                model.navigateToNextStageOfAddingNewPlant()
+                addPlantViewModel.source = .library
+                addPlantViewModel.isPickerShown = true
             } label: {
                 ButtonLabel(description: "Pick existing", systemName: "photo")
             }
         }
             .navigationTitle("Add a new plant")
+            .onChange(of: addPlantViewModel.image) { _ in
+                model.navigateToNextStageOfAddingNewPlant()
+            }
+            .sheet(isPresented: $addPlantViewModel.isPickerShown) {
+                Image(systemName: "leaf.circle.fill")
+                    .font(.title)
+            }
     }
     var plantName: some View {
         VStack {
