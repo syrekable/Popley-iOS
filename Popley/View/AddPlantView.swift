@@ -7,23 +7,27 @@
 
 import SwiftUI
 
-struct AddNewPlantView: View {
-    @StateObject var model: AddNewPlantViewModel
+struct AddPlantView: View {
+    @StateObject var addPlantViewModel: AddPlantViewModel
     
     var body: some View {
-        NavigationStack(path: $model.navigationStack) {
+        NavigationStack(path: $addPlantViewModel.navigationStack) {
             ZStack {
                 List(Page.allCases) { page in
                     NavigationLink(value: page, label: {
                         AddNewPlantPagePresenterView(page: page)
                     })
                 }
+                    .navigationDestination(for: Page.self) { page in
+                        AddNewPlantPagePresenterView(page: page)
+                    }
                     .opacity(0)
-                
                 VStack(spacing: 15) {
                     Button {
-                        model.source = .camera
-                        model.isPickerShown = true
+                        /*
+                         model.source = .camera
+                         model.isPickerShown = true
+                         */
                     } label: {
                         ButtonLabel(description: "Take a photo", systemName: "camera")
                     }
@@ -32,56 +36,36 @@ struct AddNewPlantView: View {
                          model.source = .library
                          model.isPickerShown = true
                          */
-                        model.navigateFurther()
+                        addPlantViewModel.navigateToNextPage()
                     } label: {
                         ButtonLabel(description: "Pick existing", systemName: "photo")
                     }
                 }
                     .navigationTitle("Add a new plant")
-                if model.isPickerShown {
-                    ImagePicker(sourceType: model.source == .camera ?  .camera : .photoLibrary,
-                                selectedImage: $model.image)
+                if addPlantViewModel.isPickerShown {
+                    ImagePicker(sourceType: addPlantViewModel.source == .camera ?  .camera : .photoLibrary,
+                                selectedImage: $addPlantViewModel.image)
                     //.ignoresSafeArea()
                 }
             }
-            .navigationDestination(for: Page.self) { page in
-                AddNewPlantPagePresenterView(page: page)
-            }
-            .onChange(of: model.image) { newValue in
-                model.navigateFurther()
-            }
+            /*
+             .onChange(of: model.image) { newValue in
+                 model.navigateToPlant()
+             }
+             */
         }
-            .environmentObject(model)
+            .environmentObject(addPlantViewModel)
     }
 }
 
 struct AddNewPlantView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewPlantView(model: AddNewPlantViewModel())
-    }
-}
-
-// TODO: rewrite as ButtonStyle
-struct ButtonLabel: View {
-    let description: String
-    let systemName: String
-    var body: some View {
-        VStack(spacing: 10) {
-            Text(description)
-            Image(systemName: systemName)
-        }
-        .fontWeight(.bold)
-        .padding()
-        .foregroundColor(Color("Secondary"))
-        .background {
-            Color("Accent")
-        }
-        .cornerRadius(15)
+        AddPlantView(addPlantViewModel: AddPlantViewModel())
     }
 }
 
 struct AddNewPlantPagePresenterView: View {
-    @EnvironmentObject var addPlantVM: AddNewPlantViewModel
+    @EnvironmentObject var addPlantVM: AddPlantViewModel
     @State private var text: String = "rabbit hole"
     let page: Page
     var body: some View {
@@ -92,11 +76,11 @@ struct AddNewPlantPagePresenterView: View {
                 TextField("Fill your destiny", text: $text)
                     .textFieldStyle(.plain)
                     .onSubmit {
-                        addPlantVM.navigateFurther()
+                        addPlantVM.navigateToNextPage()
                     }
             }
-            .navigationTitle("Change plant's name")
-            .padding()
+                .navigationTitle("Change plant's name")
+                .padding()
         } else {
             Text("This is the Matrix.")
                 .navigationTitle("New plant summary")

@@ -42,7 +42,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isAddingNewPlant) {
-            AddNewPlantView(model: AddNewPlantViewModel())
+            AddPlantView(addPlantViewModel: AddPlantViewModel())
         }
         .onChange(of: isAddingNewPlant) { newValue in
             print(newValue)

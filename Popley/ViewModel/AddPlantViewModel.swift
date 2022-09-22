@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @MainActor
-class AddNewPlantViewModel: ObservableObject {
+class AddPlantViewModel: ObservableObject {
     @Published var image: UIImage?
     @Published var source: Picker.Source = .library
     @Published var isPickerShown = false
@@ -31,7 +31,7 @@ class AddNewPlantViewModel: ObservableObject {
         }
     }
     
-    func navigateFurther() {
+    func navigateToNextPage() {
         switch navigationStack.count {
         case 0:
             navigationStack.append(.plantName)
