@@ -38,7 +38,8 @@ struct PlantRow: View {
                     } label: {
                         Image(systemName: "info.circle")
                     }
-                    .foregroundColor(Color("Accent"))         
+                    .foregroundColor(Color("Accent"))
+                    .shadow(radius: 3, x: 2, y: 2)
                 }
                 .font(.title)
                 .padding([.top, .trailing])
