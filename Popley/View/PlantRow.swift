@@ -17,6 +17,7 @@ struct PlantRow: View {
                 Image(uiImage: plant.picture)
                     .resizable()
                     .scaledToFill()
+                // FIXME: arbitrary scale
                     .frame(width: 360, height: 300)
                 HStack(spacing: 0) {
                     Text(plant.name)
