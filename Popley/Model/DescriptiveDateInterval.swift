@@ -21,8 +21,23 @@ struct DescriptiveDateInterval: Hashable {
     
     init?(days: Int) {
         guard (days >= 1) else { return nil }
-        frequency = 1
-        interval = .day
+        var _frequency: Int?
+        var _interval: Interval?
+        switch days {
+        // whole months
+        case let d where d >= (4 * 7):
+            _frequency = Int(d / 4 / 7)
+            _interval = .month
+        // whole weeks (1 week, 2 weeks, ...)
+        case let d where d % 7 == 0:
+            _frequency = Int(d / 7)
+            _interval = .week
+        default:
+            _frequency = days
+            _interval = .day
+        }
+        frequency = _frequency!
+        interval = _interval!
     }
 }
 

@@ -30,8 +30,28 @@ final class WaterIntervalTests: XCTestCase {
     }
     
     func testInitializeFromDaysForDays() {
-        let days = [1,6,13,15]
+        let days = [1, 6, 13, 15]
         let expected = ["1 day", "6 days", "13 days", "15 days"]
+        
+        for (i, day) in days.enumerated() {
+            let interval = WaterInterval(days: day)
+            XCTAssertEqual(expected[i], interval?.description)
+        }
+    }
+    
+    func testInitializeFromDaysForUpToThreeWholeWeeks() {
+        let days = [7, 21]
+        let expected = ["1 week", "3 weeks"]
+        
+        for (i, day) in days.enumerated() {
+            let interval = WaterInterval(days: day)
+            XCTAssertEqual(expected[i], interval?.description)
+        }
+    }
+    
+    func testInitializeFromDaysForMoreThanFiveWeeks() {
+        let days = [30, 35, 90]
+        let expected = ["1 month", "1 month", "3 months"]
         
         for (i, day) in days.enumerated() {
             let interval = WaterInterval(days: day)

@@ -18,16 +18,16 @@ extension DateInterval {
             frequency = 0
             interval = .day
         // months
-        case let x where x >= (4 * 7 * 24):
-            frequency = Int(x / 4 / 7 / 24)
+        case let h where h >= (4 * 7 * 24):
+            frequency = Int(h / 4 / 7 / 24)
             interval = .month
         // it's (a) day(s), not whole weeks
-        case let x where (x >= 24) && ((Int(x / 24) % 7) != 0):
-            frequency = Int(x / 24)
+        case let h where (h >= 24) && ((Int(h / 24) % 7) != 0):
+            frequency = Int(h / 24)
             interval = .day
         // whole weeks (1 week, 2 weeks, ...)
-        case let x where (x >= 24) && ((Int(x / 24) % 7) == 0):
-            frequency = Int(x / 24 / 7)
+        case let h where (h >= 24) && ((Int(h / 24) % 7) == 0):
+            frequency = Int(h / 24 / 7)
             interval = .week
         default:
             fatalError("Something went terribly wrong")
