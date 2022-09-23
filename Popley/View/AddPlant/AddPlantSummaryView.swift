@@ -11,6 +11,8 @@ struct AddPlantSummaryView: View {
     @EnvironmentObject var model: Model
     let name: String
     let image: UIImage
+    let wateredEvery: Int = 1
+    let lastWatered: Date = Date()
     
     var body: some View {
         VStack(spacing: 30) {
@@ -33,7 +35,7 @@ struct AddPlantSummaryView: View {
             Spacer()
             Button {
                 // TODO: add debounce
-                model.addPlant(named: name, withPicture: image, wateredEvery: WaterInterval(), lastWatered: Date())
+                model.addPlant(named: name, withPicture: image, wateredEvery: wateredEvery, lastWatered: lastWatered)
                 model.navigateToRoot()
             } label: {
                 ButtonLabel(description: "Add this plant", systemName: "hand.thumbsup.circle")
