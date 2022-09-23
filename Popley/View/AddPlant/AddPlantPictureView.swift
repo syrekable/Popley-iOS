@@ -10,23 +10,24 @@ import SwiftUI
 struct AddPlantPictureView: View {
     @EnvironmentObject var model: Model
     @State private var image: UIImage?
-    let source: Picker.Source = .library
+    let source: Picker.Source
     
     var body: some View {
+        // TODO: 'next' button if image != nil
         ImagePicker(sourceType: source == .camera
                     ? .camera
                     : .photoLibrary,
                     selectedImage: $image)
             .onChange(of: image) { image in
-                guard (image != nil) else { return }
-                model.navigateToNextStageOfAddingNewPlant()
+                guard let image = image else { return }
+                model.navigateToNextPage(.plantName(image))
             }
     }
 }
 
 struct AddPlantPictureView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPlantPictureView()
+        AddPlantPictureView(source: .library)
             .environmentObject(Model())
     }
 }

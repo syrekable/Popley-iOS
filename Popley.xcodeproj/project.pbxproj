@@ -17,7 +17,6 @@
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
 		F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15E728DC631300D94727 /* ButtonLabel.swift */; };
-		F1BE15EF28DC939700D94727 /* AddNewPlantPagePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */; };
 		F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE228DB5A8D00440419 /* ImagePicker.swift */; };
 		F1BFABE528DB5B6A00440419 /* AddPlantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE428DB5B6A00440419 /* AddPlantViewModel.swift */; };
 		F1BFABEB28DB61CD00440419 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABEA28DB61CD00440419 /* Picker.swift */; };
@@ -70,7 +69,6 @@
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalTests.swift; sourceTree = "<group>"; };
 		F1BE15E728DC631300D94727 /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
-		F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlantPagePresenterView.swift; sourceTree = "<group>"; };
 		F1BFABE228DB5A8D00440419 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F1BFABE428DB5B6A00440419 /* AddPlantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewModel.swift; sourceTree = "<group>"; };
 		F1BFABEA28DB61CD00440419 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
-				F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */,
 				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
 			);
 			path = View;
@@ -434,7 +431,6 @@
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
 				F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */,
-				F1BE15EF28DC939700D94727 /* AddNewPlantPagePresenterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

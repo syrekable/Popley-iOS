@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AddPlantSummaryView: View {
     @EnvironmentObject var model: Model
+    let name: String
     let image: UIImage
-    let plantName: String
     
     var body: some View {
         VStack(spacing: 30) {
@@ -23,7 +23,7 @@ struct AddPlantSummaryView: View {
                     }
                     .frame(height: 125)
                 Spacer()
-                Text(plantName)
+                Text(name)
                     .font(.title)
                     .fontWeight(.medium)
                     .frame(maxWidth: 200, alignment: .center)
@@ -33,7 +33,7 @@ struct AddPlantSummaryView: View {
             Spacer()
             Button {
                 // TODO: add debounce
-                model.addPlant(named: plantName, withPicture: image, wateredEvery: WaterInterval(), lastWatered: Date())
+                model.addPlant(named: name, withPicture: image, wateredEvery: WaterInterval(), lastWatered: Date())
                 model.navigateToRoot()
             } label: {
                 ButtonLabel(description: "Add this plant", systemName: "hand.thumbsup.circle")
@@ -47,7 +47,7 @@ struct AddPlantSummaryView: View {
 struct AddPlantSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddPlantSummaryView(image: UIImage(named: "plant-aloe")!, plantName: "Aloes")
+            AddPlantSummaryView(name: "Aloes", image: UIImage(named: "plant-aloe")!)
                 .environmentObject(Model())
         }
     }

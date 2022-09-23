@@ -22,18 +22,8 @@ class Model: ObservableObject {
         plants.append(plant)
     }
     
-    // lol
-    func navigateToNextStageOfAddingNewPlant() {
-        switch path.count {
-        case 0:
-            path.append(Page.plantPicture)
-        case 1:
-            path.append(Page.plantName)
-        case 2:
-            path.append(Page.plantSummary)
-        default:
-            fatalError("Unexpected navigation error.")
-        }
+    func navigateToNextPage(_ page: Page) {
+        path.append(page)
     }
     
     func navigateToRoot() {

@@ -29,22 +29,28 @@ struct ContentView: View {
                         PlantDetails(plant: plant)
                     }
                     .navigationDestination(for: Page.self) { page in
-                        AddNewPlantPagePresenterView(page: page)
+                        // case plantPicture(Picker.Source), plantName(UIImage), plantSummary(String, UIImage)
+                        switch page {
+                        case .plantPicture(let source):
+                            AddPlantPictureView(source: source)
+                        case .plantName(let image):
+                            AddPlantNameView(image: image)
+                        case .plantSummary(let name, let image):
+                            AddPlantSummaryView(name: name, image: image)
+                        }
                     }
                     .navigationTitle("Your plants")
                     .toolbar(content: {
                         Menu {
                             Button {
-                                addPlantViewModel.source = .camera
-                                model.navigateToNextStageOfAddingNewPlant()
+                                model.navigateToNextPage(.plantPicture(.camera))
                              } label: {
                                  Label("Take a photo", systemImage: "camera")
                              }
                                 // TODO: enable
                                 .disabled(true)
                              Button {
-                                 addPlantViewModel.source = .library
-                                 model.navigateToNextStageOfAddingNewPlant()
+                                 model.navigateToNextPage(.plantPicture(.library))
                              } label: {
                                  Label("Pick existing", systemImage: "photo")
                              }

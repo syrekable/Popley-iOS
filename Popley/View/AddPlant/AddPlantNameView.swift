@@ -25,10 +25,10 @@ struct AddPlantNameView: View {
                 TextField("New plant's name", text: $plantName)
                     .onSubmit {
                         // TODO: check if empty
-                        model.navigateToNextStageOfAddingNewPlant()
+                        model.navigateToNextPage(.plantSummary(plantName, image))
                     }
                 Button {
-                    model.navigateToNextStageOfAddingNewPlant()
+                    model.navigateToNextPage(.plantSummary(plantName, image))
                 } label: {
                     Image(systemName: "arrow.right.circle.fill")
                 }

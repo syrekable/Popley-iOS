@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-enum Page {
-    var id: Page { self }
-    case plantPicture, plantName(UIImage), plantSummary(String, UIImage)
+enum Page: Hashable {
+    case plantPicture(Picker.Source), plantName(UIImage), plantSummary(String, UIImage)
 }
