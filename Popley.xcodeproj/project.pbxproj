@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F10D43D328D63778005C3D81 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D43D228D63778005C3D81 /* Model.swift */; };
 		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
+		F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0428DDD853001163DB /* AddPlantPictureView.swift */; };
+		F1434C0728DDD91F001163DB /* AddPlantNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0628DDD91F001163DB /* AddPlantNameView.swift */; };
+		F1434C0928DDDA22001163DB /* AddPlantSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */; };
+		F17C291A28DCC8DF00E42CB9 /* MRE.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C291928DCC8DF00E42CB9 /* MRE.swift */; };
 		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
@@ -58,6 +62,10 @@
 /* Begin PBXFileReference section */
 		F10D43D228D63778005C3D81 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
+		F1434C0428DDD853001163DB /* AddPlantPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantPictureView.swift; sourceTree = "<group>"; };
+		F1434C0628DDD91F001163DB /* AddPlantNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantNameView.swift; sourceTree = "<group>"; };
+		F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantSummaryView.swift; sourceTree = "<group>"; };
+		F17C291928DCC8DF00E42CB9 /* MRE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MRE.swift; path = Popley/View/MRE.swift; sourceTree = "<group>"; };
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalTests.swift; sourceTree = "<group>"; };
@@ -123,6 +131,9 @@
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
 				F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */,
 				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
+				F1434C0428DDD853001163DB /* AddPlantPictureView.swift */,
+				F1434C0628DDD91F001163DB /* AddPlantNameView.swift */,
+				F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +158,7 @@
 		F1D7E45A28CB3DB9001159FA = {
 			isa = PBXGroup;
 			children = (
+				F17C291928DCC8DF00E42CB9 /* MRE.swift */,
 				F1D7E46528CB3DB9001159FA /* Popley */,
 				F1D7E47628CB3DBA001159FA /* PopleyTests */,
 				F1D7E48028CB3DBA001159FA /* PopleyUITests */,
@@ -398,10 +410,14 @@
 				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
+				F1434C0928DDDA22001163DB /* AddPlantSummaryView.swift in Sources */,
 				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
+				F17C291A28DCC8DF00E42CB9 /* MRE.swift in Sources */,
+				F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */,
 				F1BFABED28DB6AD200440419 /* Page.swift in Sources */,
 				F1BFABEB28DB61CD00440419 /* Picker.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
+				F1434C0728DDD91F001163DB /* AddPlantNameView.swift in Sources */,
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F1BFABE528DB5B6A00440419 /* AddPlantViewModel.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,

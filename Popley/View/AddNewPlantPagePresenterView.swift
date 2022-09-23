@@ -36,7 +36,6 @@ extension AddNewPlantPagePresenterView {
                 //print(image)
                 model.navigateToNextStageOfAddingNewPlant()
             }
-            //.ignoresSafeArea()
     }
     var plantName: some View {
         return VStack {
