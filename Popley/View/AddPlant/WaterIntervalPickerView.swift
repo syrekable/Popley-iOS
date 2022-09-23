@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WaterIntervalPickerView: View {
     @EnvironmentObject var model: Model
-    @Binding var days: Int
+    @Binding var wateredEvery: Int
     @Binding var lastWatered: Date
     
     var body: some View {
@@ -18,11 +18,11 @@ struct WaterIntervalPickerView: View {
                 HStack {
                     Text("Every")
                     Spacer()
-                    Text("\(days) \(days == 1 ? "day" : "days")")
+                    Text("\(wateredEvery) \(wateredEvery == 1 ? "day" : "days")")
                         .foregroundColor(.accentColor)
                 }
                 Divider()
-                Picker("Watering frequency in days", selection: $days) {
+                Picker("Watering frequency in days", selection: $wateredEvery) {
                     ForEach(1...90, id: \.self) { i in
                         Text("\(i) \(i == 1 ? "day" : "days")").tag(i)
                     }
@@ -44,7 +44,7 @@ struct WaterIntervalPickerView: View {
 
 struct WaterIntervalPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        WaterIntervalPickerView(days: .constant(1), lastWatered: .constant(Date()))
+        WaterIntervalPickerView(wateredEvery: .constant(1), lastWatered: .constant(Date()))
             .environmentObject(Model())
             .previewLayout(.sizeThatFits)
     }

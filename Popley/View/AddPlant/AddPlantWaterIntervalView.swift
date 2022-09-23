@@ -1,5 +1,5 @@
 //
-//  AddPlantSummaryView.swift
+//  AddPlantWaterIntervalView.swift
 //  Popley
 //
 //  Created by Jordan Niedzielski on 23/09/2022.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct AddPlantSummaryView: View {
+struct AddPlantWaterIntervalView: View {
     @EnvironmentObject var model: Model
     let name: String
     let image: UIImage
-    let wateredEvery: Int
-    let lastWatered: Date
+    @State private var wateredEvery: Int = 1
+    @State private var lastWatered: Date = Date()
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack {
             HStack {
                 Image(uiImage: image)
                     .resizable()
@@ -30,27 +30,30 @@ struct AddPlantSummaryView: View {
                     .fontWeight(.medium)
                     .frame(maxWidth: 200, alignment: .center)
             }
+            .padding([.horizontal])
             //.padding([.horizontal])
             Divider()
-            Spacer()
-            Button {
-                // TODO: add debounce
-                model.addPlant(named: name, withPicture: image, wateredEvery: wateredEvery, lastWatered: lastWatered)
-                model.navigateToRoot()
-            } label: {
-                ButtonLabel(description: "Add this plant", systemName: "hand.thumbsup.circle")
-            }
+            WaterIntervalPickerView(wateredEvery: $wateredEvery, lastWatered: $lastWatered)
         }
-            .navigationTitle("New plant summary")
-            .padding()// [.horizontal, .bottom]?
+        .navigationTitle("Set watering interval")
+        .toolbar {
+            Button {
+                model.navigateToNextPage(.plantSummary(name, image, wateredEvery, lastWatered))
+            } label: {
+                HStack {
+                    Text("Next")
+                    Image(systemName: "chevron.right")
+                }
+            }
+
+        }
     }
 }
 
-struct AddPlantSummaryView_Previews: PreviewProvider {
+struct AddPlantWaterIntervalView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddPlantSummaryView(name: "Aloes", image: UIImage(named: "plant-aloe")!, wateredEvery: 1, lastWatered: Date())
-                .environmentObject(Model())
+            AddPlantWaterIntervalView(name: "Ziemiokulkas", image: UIImage(named: "plant-zz")!)
         }
     }
 }

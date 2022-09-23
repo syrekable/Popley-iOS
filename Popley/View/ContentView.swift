@@ -34,8 +34,10 @@ struct ContentView: View {
                             AddPlantPictureView(source: source)
                         case .plantName(let image):
                             AddPlantNameView(image: image)
-                        case .plantSummary(let name, let image):
-                            AddPlantSummaryView(name: name, image: image)
+                        case .plantWaterInterval(let name, let image):
+                            AddPlantWaterIntervalView(name: name, image: image)
+                        case .plantSummary(let name, let image, let wateredEvery, let lastWatered):
+                            AddPlantSummaryView(name: name, image: image, wateredEvery: wateredEvery, lastWatered: lastWatered)
                         }
                     }
                     .navigationTitle("Your plants")
