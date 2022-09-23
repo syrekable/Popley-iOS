@@ -14,6 +14,7 @@ struct AddPlantPictureView: View {
     
     var body: some View {
         // TODO: 'next' button if image != nil
+        // TODO: look at MyImages project again and determine what's lacking here
         ImagePicker(sourceType: source == .camera
                     ? .camera
                     : .photoLibrary,

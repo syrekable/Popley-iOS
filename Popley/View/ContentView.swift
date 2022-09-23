@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
-    @EnvironmentObject var addPlantViewModel: AddPlantViewModel
     @State private var isAddingNewPlant: Bool = false
     var body: some View {
         /*
@@ -70,6 +69,5 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(Model())
-            .environmentObject(AddPlantViewModel())
     }
 }
