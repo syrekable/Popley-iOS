@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 enum Page: Hashable {
-    case plantPicture(Picker.Source), plantName(UIImage), plantSummary(String, UIImage)
+    case plantPicture(ImageSourcePicker.Source), plantName(UIImage), plantSummary(String, UIImage)
 }

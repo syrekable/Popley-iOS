@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-enum Picker {
+enum ImageSourcePicker {
     enum Source {
         case camera, library
     }

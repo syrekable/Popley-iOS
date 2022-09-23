@@ -10,7 +10,7 @@ import SwiftUI
 struct AddPlantPictureView: View {
     @EnvironmentObject var model: Model
     @State private var image: UIImage?
-    let source: Picker.Source
+    let source: ImageSourcePicker.Source
     
     var body: some View {
         // TODO: 'next' button if image != nil
