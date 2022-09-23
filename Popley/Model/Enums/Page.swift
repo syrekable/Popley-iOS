@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-enum Page: Identifiable, CaseIterable {
+enum Page {
     var id: Page { self }
-    case plantPicture, plantName, plantSummary
+    case plantPicture, plantName(UIImage), plantSummary(String, UIImage)
 }

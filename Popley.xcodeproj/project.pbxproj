@@ -126,16 +126,24 @@
 		F10D43D128D6371E005C3D81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F1434C0A28DDDE3F001163DB /* AddPlant */,
 				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
 				F1BE15EA28DC708000D94727 /* AddNewPlantPagePresenterView.swift */,
 				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1434C0A28DDDE3F001163DB /* AddPlant */ = {
+			isa = PBXGroup;
+			children = (
 				F1434C0428DDD853001163DB /* AddPlantPictureView.swift */,
 				F1434C0628DDD91F001163DB /* AddPlantNameView.swift */,
 				F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */,
 			);
-			path = View;
+			path = AddPlant;
 			sourceTree = "<group>";
 		};
 		F1BE15E928DC640400D94727 /* ViewModel */ = {
