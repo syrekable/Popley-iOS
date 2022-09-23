@@ -17,22 +17,13 @@ class Model: ObservableObject {
         path.append(plant)
     }
     
-    func addPlant(_ plant: Plant) {
+    func addPlant(named name: String, withPicture picture: UIImage, wateredEvery interval: WaterInterval, lastWatered date: Date) {
+        let plant = Plant(name: name, picture: picture, waterInterval: interval, lastWaterDate: date)
         plants.append(plant)
     }
     
-    // lol
-    func navigateToNextStageOfAddingNewPlant() {
-        switch path.count {
-        case 0:
-            path.append(Page.plantPicture)
-        case 1:
-            path.append(Page.plantName)
-        case 2:
-            path.append(Page.plantSummary)
-        default:
-            fatalError("Unexpected navigation error.")
-        }
+    func navigateToNextPage(_ page: Page) {
+        path.append(page)
     }
     
     func navigateToRoot() {
