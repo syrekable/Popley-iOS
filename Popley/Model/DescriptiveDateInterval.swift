@@ -13,24 +13,16 @@ typealias WaterInterval = DescriptiveDateInterval
 struct DescriptiveDateInterval: Hashable {
     var frequency: Int
     var interval: Interval
-    var asTimeInterval: TimeInterval {
-        let secondsInHour = 3600.0
-        var hoursInInterval = 0.0
-        switch interval {
-        case .day:
-            hoursInInterval = 24.0
-        case .week:
-            hoursInInterval = 7 * 24.0
-        case .month:
-            // FIXME: assumes 30 days in each month
-            hoursInInterval = 30 * 24.0
-        }
-        return Double(frequency) * hoursInInterval * secondsInHour
-    }
     
     init(frequency: Int = 1, interval: Interval = .day) {
         self.frequency = frequency
         self.interval = interval
+    }
+    
+    init?(days: Int) {
+        guard (days >= 1) else { return nil }
+        frequency = 1
+        interval = .day
     }
 }
 
@@ -47,5 +39,22 @@ extension DescriptiveDateInterval: CustomStringConvertible {
     var description: String {
         let interval = self.frequency > 1 || self.frequency == 0 ? "\(self.interval)s" : self.interval.rawValue
         return "\(self.frequency) \(interval)"
+    }
+}
+
+extension DescriptiveDateInterval {
+    var asTimeInterval: TimeInterval {
+        let secondsInHour = 3600.0
+        var hoursInInterval = 0.0
+        switch interval {
+        case .day:
+            hoursInInterval = 24.0
+        case .week:
+            hoursInInterval = 7 * 24.0
+        case .month:
+            // FIXME: assumes 30 days in each month
+            hoursInInterval = 30 * 24.0
+        }
+        return Double(frequency) * hoursInInterval * secondsInHour
     }
 }
