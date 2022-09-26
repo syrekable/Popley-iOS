@@ -44,6 +44,7 @@ struct AddPlantWaterIntervalView: View {
                 HStack {
                     Text("Next")
                     Image(systemName: "chevron.right")
+                        .fontWeight(.semibold)
                 }
             }
 

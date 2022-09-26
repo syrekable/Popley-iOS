@@ -41,24 +41,7 @@ struct ContentView: View {
                     }
                     .navigationTitle("Your plants")
                     .toolbar(content: {
-                        Menu {
-                            Button {
-                                model.useDeviceCamera()
-                                if model.isCameraAvailable {
-                                    model.navigateToNextPage(.plantPicture(.camera))
-                                }
-                             } label: {
-                                 Label("Take a photo", systemImage: "camera")
-                             }
-                             Button {
-                                 model.navigateToNextPage(.plantPicture(.library))
-                             } label: {
-                                 Label("Pick existing", systemImage: "photo")
-                             }
-                        } label: {
-                            Label("add new plant", systemImage: "plus")
-                                .foregroundColor(.accentColor)
-                        }
+                        imageSourcePickerContextMenu
                     })
                     .alert("Error", isPresented: $model.isCameraAlertShown, presenting: model.cameraError) { cameraError in
                         cameraError.button
@@ -76,5 +59,28 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(Model())
+    }
+}
+
+extension ContentView {
+    var imageSourcePickerContextMenu: some View {
+        Menu {
+            Button {
+                model.useDeviceCamera()
+                if model.isCameraAvailable {
+                    model.navigateToNextPage(.plantPicture(.camera))
+                }
+             } label: {
+                 Label("Take a photo", systemImage: "camera")
+             }
+             Button {
+                 model.navigateToNextPage(.plantPicture(.library))
+             } label: {
+                 Label("Pick existing", systemImage: "photo")
+             }
+        } label: {
+            Label("add new plant", systemImage: "plus")
+                .foregroundColor(.accentColor)
+        }
     }
 }
