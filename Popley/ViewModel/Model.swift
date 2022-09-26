@@ -13,6 +13,10 @@ class Model: ObservableObject {
     @Published var path = NavigationPath()
     @Published var plants: [Plant] = Plant.sampleData
     
+    @Published var isCameraAvailable = false
+    @Published var isCameraAlertShown = false
+    @Published var cameraError: ImageSourcePicker.CameraErrorType?
+    
     func navigateToPlant(_ plant: Plant) {
         path.append(plant)
     }
@@ -29,5 +33,15 @@ class Model: ObservableObject {
     
     func navigateToRoot() {
         path.removeLast(path.count)
+    }
+    
+    func useDeviceCamera() {
+        do {
+            try ImageSourcePicker.checkPermissions()
+            isCameraAvailable = true
+        } catch {
+            isCameraAlertShown = true
+            cameraError = ImageSourcePicker.CameraErrorType(error: error as! ImageSourcePicker.PickerError)
+        }
     }
 }
