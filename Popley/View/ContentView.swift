@@ -28,7 +28,6 @@ struct ContentView: View {
                         PlantDetails(plant: plant)
                     }
                     .navigationDestination(for: Page.self) { page in
-                        // case plantPicture(Picker.Source), plantName(UIImage), plantSummary(String, UIImage)
                         switch page {
                         case .plantPicture(let source):
                             AddPlantPictureView(source: source)
@@ -44,12 +43,13 @@ struct ContentView: View {
                     .toolbar(content: {
                         Menu {
                             Button {
-                                model.navigateToNextPage(.plantPicture(.camera))
+                                model.useDeviceCamera()
+                                if model.isCameraAvailable {
+                                    model.navigateToNextPage(.plantPicture(.camera))
+                                }
                              } label: {
                                  Label("Take a photo", systemImage: "camera")
                              }
-                                // TODO: enable
-                                .disabled(true)
                              Button {
                                  model.navigateToNextPage(.plantPicture(.library))
                              } label: {
@@ -60,6 +60,11 @@ struct ContentView: View {
                                 .foregroundColor(.accentColor)
                         }
                     })
+                    .alert("Error", isPresented: $model.isCameraAlertShown, presenting: model.cameraError) { cameraError in
+                        cameraError.button
+                    } message: { cameraError in
+                        Text(cameraError.message)
+                    }
                 }
             }
         }
