@@ -13,7 +13,7 @@ struct AddPlantNameView: View {
     let image: UIImage
     
     var body: some View {
-        VStack {
+        VStack(spacing: 30) {
             Image(uiImage: image)
                 .resizable()
                 .scaledToFit()
@@ -24,14 +24,17 @@ struct AddPlantNameView: View {
             HStack {
                 TextField("New plant's name", text: $plantName)
                     .onSubmit {
-                        // TODO: check if empty
-                        model.navigateToNextPage(.plantWaterInterval(plantName, image))
+                        if !plantName.isEmpty {
+                            model.navigateToNextPage(.plantWaterInterval(plantName, image))
+                        }
                     }
                 Button {
                     model.navigateToNextPage(.plantWaterInterval(plantName, image))
                 } label: {
                     Image(systemName: "arrow.right.circle.fill")
+                        .foregroundColor(plantName.isEmpty ? .gray : .accentColor)
                 }
+                    .disabled(plantName.isEmpty)
             }
             Spacer()
         }
