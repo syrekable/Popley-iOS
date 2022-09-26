@@ -20,21 +20,11 @@ struct PlantDetails: View {
                     Rectangle()
                 }
                 .cornerRadius(10)
-            HStack {
-                Label("Needs water every:", systemImage: "calendar.circle")
-                Spacer()
-                Text(String(describing: plant.waterInterval))
-                    .fontWeight(.semibold)
-            }
-            HStack {
-                Label("Next watering in:", systemImage: "timer")
-                Spacer()
-                Text(String(describing: plant
-                    .timeToWater
-                    .asDescriptiveDateInterval
-                ))
-                    .fontWeight(.semibold)
-            }
+            WaterInvervalLabel(description: "Needs water every:", iconName: "calendar.circle", intervalDescription: String(describing: plant.waterInterval))
+            WaterInvervalLabel(description: "Next watering in:", iconName: "timer", intervalDescription: String(describing: plant
+                .timeToWater
+                .asDescriptiveDateInterval
+            ))
             Spacer()
         }
         .navigationTitle(plant.name)
@@ -46,5 +36,19 @@ struct PlantDetails: View {
 struct PlantDetails_Previews: PreviewProvider {
     static var previews: some View {
         PlantDetails(plant: Plant.sampleData.last!)
+    }
+}
+
+struct WaterInvervalLabel: View {
+    let description: String
+    let iconName: String
+    let intervalDescription: String
+    var body: some View {
+        HStack {
+            Label(description, systemImage: iconName)
+            Spacer()
+            Text(intervalDescription)
+                .fontWeight(.semibold)
+        }
     }
 }

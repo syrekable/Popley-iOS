@@ -32,7 +32,8 @@ struct WaterIntervalPickerView: View {
             .padding()
             .background(Color("Primary"))
             .cornerRadius(10)
-            // TODO: only past and today's date should be chosabke
+            // TODO: only past and today's date should be chosable
+            // TODO: hide on click?
             DatePicker("Last watered", selection: $lastWatered, displayedComponents: [.date])
             // TODO: their vertical padding is half the horizontal
                 .padding()

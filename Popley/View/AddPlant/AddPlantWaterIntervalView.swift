@@ -26,13 +26,13 @@ struct AddPlantWaterIntervalView: View {
                     }
                     .frame(height: 125)
                 Spacer()
+                // TODO: limit lines or scale the size
                 Text(name)
                     .font(.title)
                     .fontWeight(.medium)
                     .frame(maxWidth: 200, alignment: .center)
             }
             .padding([.horizontal])
-            //.padding([.horizontal])
             Divider()
             WaterIntervalPickerView(wateredEvery: $wateredEvery, lastWatered: $lastWatered)
         }

@@ -21,9 +21,13 @@ class Model: ObservableObject {
         path.append(plant)
     }
     
-    func addPlant(named name: String, withPicture picture: UIImage, wateredEvery days: Int, lastWatered date: Date) {
+    func createPlant(named name: String, withPicture picture: UIImage, wateredEvery days: Int, lastWatered date: Date) -> Plant {
         let interval = WaterInterval(days: days)!
         let plant = Plant(name: name, picture: picture, waterInterval: interval, lastWaterDate: date)
+        return plant
+    }
+    
+    func addPlant(_ plant: Plant) {
         plants.append(plant)
     }
     
