@@ -14,7 +14,7 @@ struct AddPlantPictureView: View {
     
     var body: some View {
         // TODO: 'next' button if image != nil
-        // TODO: look at MyImages project again and determine what's lacking here
+        // TODO: hide back navigation button when camera is used
         ImagePicker(sourceType: source == .camera
                     ? .camera
                     : .photoLibrary,
@@ -23,6 +23,7 @@ struct AddPlantPictureView: View {
                 guard let image = image else { return }
                 model.navigateToNextPage(.plantName(image))
             }
+            .ignoresSafeArea()
     }
 }
 

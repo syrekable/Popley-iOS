@@ -14,6 +14,7 @@ struct AddPlantWaterIntervalView: View {
     @State private var wateredEvery: Int = 1
     @State private var lastWatered: Date = Date()
     
+    
     var body: some View {
         VStack {
             HStack {

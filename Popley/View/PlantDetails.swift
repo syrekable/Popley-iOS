@@ -14,6 +14,7 @@ struct PlantDetails: View {
             Image(uiImage: plant.picture)
                 .resizable()
                 .scaledToFill()
+            // FIXME: arbitrary scale that looks like shit on bigger screens
                 .frame(width: 360, height: 300)
                 .mask {
                     Rectangle()
