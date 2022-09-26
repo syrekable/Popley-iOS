@@ -50,8 +50,6 @@ struct ContentView: View {
                              } label: {
                                  Label("Take a photo", systemImage: "camera")
                              }
-                                // TODO: enable
-                                //.disabled(true)
                              Button {
                                  model.navigateToNextPage(.plantPicture(.library))
                              } label: {
@@ -62,6 +60,11 @@ struct ContentView: View {
                                 .foregroundColor(.accentColor)
                         }
                     })
+                    .alert("Error", isPresented: $model.isCameraAlertShown, presenting: model.cameraError) { cameraError in
+                        cameraError.button
+                    } message: { cameraError in
+                        Text(cameraError.message)
+                    }
                 }
             }
         }

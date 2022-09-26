@@ -35,6 +35,8 @@ class Model: ObservableObject {
         path.removeLast(path.count)
     }
     
+    // adopted from Steward Lynch's 'My Images' app
+    // https://youtu.be/yMC16EZHwZU
     func useDeviceCamera() {
         do {
             try ImageSourcePicker.checkPermissions()
