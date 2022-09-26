@@ -11,10 +11,12 @@ struct AddPlantPictureView: View {
     @EnvironmentObject var model: Model
     @State private var image: UIImage?
     let source: ImageSourcePicker.Source
+    // TODO: test
+    var isBackButtonHidden: Bool {
+        return source == .camera && image == nil
+    }
     
     var body: some View {
-        // TODO: 'next' button if image != nil
-        // TODO: hide back navigation button when camera is used
         ImagePicker(sourceType: source == .camera
                     ? .camera
                     : .photoLibrary,
@@ -24,6 +26,20 @@ struct AddPlantPictureView: View {
                 model.navigateToNextPage(.plantName(image))
             }
             .ignoresSafeArea()
+            .navigationBarBackButtonHidden(isBackButtonHidden)
+            .toolbar {
+                if let image = image {
+                    Button {
+                        model.navigateToNextPage(.plantName(image))
+                    } label: {
+                        HStack {
+                            Text("Next")
+                            Image(systemName: "chevron.right")
+                                .fontWeight(.semibold)
+                        }
+                    }
+                }
+            }
     }
 }
 

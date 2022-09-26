@@ -47,7 +47,6 @@ struct AddPlantWaterIntervalView: View {
                         .fontWeight(.semibold)
                 }
             }
-
         }
     }
 }
