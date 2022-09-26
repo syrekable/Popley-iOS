@@ -34,8 +34,8 @@ struct AddPlantSummaryView: View {
                 }
                 Divider()
                 // TODO: 38 days -> "~ 1 month" or "> 1 month" instead of "1 month"?
-                WaterInvervalLabel(description: "Needs water every:", iconName: "calendar.circle", intervalDescription: String(describing: plant.waterInterval))
-                WaterInvervalLabel(description: "Next watering in:", iconName: "timer", intervalDescription: String(describing: plant
+                WaterIntervalLabel(description: "Needs water every:", iconName: "calendar.circle", intervalDescription: String(describing: plant.waterInterval))
+                WaterIntervalLabel(description: "Next watering in:", iconName: "timer", intervalDescription: String(describing: plant
                     .timeToWater
                     .asDescriptiveDateInterval
                 ))

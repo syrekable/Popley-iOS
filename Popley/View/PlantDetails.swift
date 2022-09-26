@@ -20,8 +20,8 @@ struct PlantDetails: View {
                     Rectangle()
                 }
                 .cornerRadius(10)
-            WaterInvervalLabel(description: "Needs water every:", iconName: "calendar.circle", intervalDescription: String(describing: plant.waterInterval))
-            WaterInvervalLabel(description: "Next watering in:", iconName: "timer", intervalDescription: String(describing: plant
+            WaterIntervalLabel(description: "Needs water every:", iconName: "calendar.circle", intervalDescription: String(describing: plant.waterInterval))
+            WaterIntervalLabel(description: "Next watering in:", iconName: "timer", intervalDescription: String(describing: plant
                 .timeToWater
                 .asDescriptiveDateInterval
             ))
@@ -36,19 +36,5 @@ struct PlantDetails: View {
 struct PlantDetails_Previews: PreviewProvider {
     static var previews: some View {
         PlantDetails(plant: Plant.sampleData.last!)
-    }
-}
-
-struct WaterInvervalLabel: View {
-    let description: String
-    let iconName: String
-    let intervalDescription: String
-    var body: some View {
-        HStack {
-            Label(description, systemImage: iconName)
-            Spacer()
-            Text(intervalDescription)
-                .fontWeight(.semibold)
-        }
     }
 }

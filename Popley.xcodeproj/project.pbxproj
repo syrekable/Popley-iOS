@@ -18,6 +18,7 @@
 		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
+		F1A81E4228E1EFAA000DCDC7 /* WaterIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */; };
 		F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE15E728DC631300D94727 /* ButtonLabel.swift */; };
 		F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABE228DB5A8D00440419 /* ImagePicker.swift */; };
 		F1BFABEB28DB61CD00440419 /* ImageSourcePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BFABEA28DB61CD00440419 /* ImageSourcePicker.swift */; };
@@ -71,6 +72,7 @@
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalTests.swift; sourceTree = "<group>"; };
+		F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalLabel.swift; sourceTree = "<group>"; };
 		F1BE15E728DC631300D94727 /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
 		F1BFABE228DB5A8D00440419 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F1BFABEA28DB61CD00440419 /* ImageSourcePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourcePicker.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		F10D43D128D6371E005C3D81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F1A81E4028E1EF9F000DCDC7 /* Shared */,
 				F1434C0A28DDDE3F001163DB /* AddPlant */,
 				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
@@ -145,6 +148,14 @@
 				F1434C0D28DE0195001163DB /* AddPlantWaterIntervalView.swift */,
 			);
 			path = AddPlant;
+			sourceTree = "<group>";
+		};
+		F1A81E4028E1EF9F000DCDC7 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		F1BE15E928DC640400D94727 /* ViewModel */ = {
@@ -420,6 +431,7 @@
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
 				F1434C0928DDDA22001163DB /* AddPlantSummaryView.swift in Sources */,
 				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
+				F1A81E4228E1EFAA000DCDC7 /* WaterIntervalLabel.swift in Sources */,
 				F17C291A28DCC8DF00E42CB9 /* MRE.swift in Sources */,
 				F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */,
 				F1BFABED28DB6AD200440419 /* Page.swift in Sources */,
