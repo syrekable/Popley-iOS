@@ -11,16 +11,17 @@ struct AddPlantPictureView: View {
     @EnvironmentObject var model: Model
     @State private var image: UIImage?
     let source: ImageSourcePicker.Source
-    // TODO: test
     var isBackButtonHidden: Bool {
         return source == .camera && image == nil
     }
-    
+    // FIXME: 'cancel' does not work on camera
+    // FIXME: neither 'cancel' nor 'retake' works when coming back from next screen
     var body: some View {
         ImagePicker(sourceType: source == .camera
                     ? .camera
                     : .photoLibrary,
                     selectedImage: $image)
+            // TODO: disable automatic pushing forward if the user came back from next screen
             .onChange(of: image) { image in
                 guard let image = image else { return }
                 model.navigateToNextPage(.plantName(image))
