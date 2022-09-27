@@ -11,29 +11,20 @@ struct PlantDetails: View {
     let plant: Plant
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Image(plant.picture)
+            Image(uiImage: plant.picture)
                 .resizable()
                 .scaledToFill()
-                .frame(height: 300)
+            // FIXME: arbitrary scale that looks like shit on bigger screens
+                .frame(width: 360, height: 300)
                 .mask {
                     Rectangle()
                 }
                 .cornerRadius(10)
-            HStack {
-                Label("Needs water every:", systemImage: "calendar.circle")
-                Spacer()
-                Text(String(describing: plant.waterInterval))
-                    .fontWeight(.semibold)
-            }
-            HStack {
-                Label("Next watering in:", systemImage: "timer")
-                Spacer()
-                Text(String(describing: plant
-                    .timeToWater
-                    .asDescriptiveDateInterval
-                ))
-                    .fontWeight(.semibold)
-            }
+            WaterIntervalLabel(description: "Needs water every:", iconName: "calendar.circle", intervalDescription: String(describing: plant.waterInterval))
+            WaterIntervalLabel(description: "Next watering in:", iconName: "timer", intervalDescription: String(describing: plant
+                .timeToWater
+                .asDescriptiveDateInterval
+            ))
             Spacer()
         }
         .navigationTitle(plant.name)

@@ -7,18 +7,19 @@
 
 import Foundation
 import Datez
+import UIKit
 
 struct Plant: Identifiable, Hashable {
     var id: UUID
     var name: String
     // TODO: change to actual image
-    var picture: String
+    var picture: UIImage
     var waterInterval: WaterInterval
     var lastWaterDate: Date
     
     var timeToWater: DateInterval {
-        var lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
-        var _remainingTimeToWater = ceil(waterInterval.asTimeInterval - lastWateringUntilNow.duration)
+        let lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
+        let _remainingTimeToWater = ceil(waterInterval.asTimeInterval - lastWateringUntilNow.duration)
         return DateInterval(start: Date(), duration: _remainingTimeToWater)
     }
     
@@ -26,10 +27,10 @@ struct Plant: Identifiable, Hashable {
         self.lastWaterDate = Date()
     }
     
-    init(name: String, picture: String, waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
+    init(name: String, picture: UIImage? = nil, waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
         self.id = UUID()
         self.name = name
-        self.picture = picture
+        self.picture = picture ?? UIImage(systemName: "photo")!
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }
@@ -37,7 +38,7 @@ struct Plant: Identifiable, Hashable {
     init(waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
         self.id = UUID()
         self.name = "IR"
-        self.picture = "IR"
+        self.picture = UIImage(systemName: "photo")!
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }
@@ -45,8 +46,8 @@ struct Plant: Identifiable, Hashable {
 
 extension Plant {
     static let sampleData = [
-        Plant(name: "Ziemiokulas", picture: "plant-zz", waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 1.weeksOfYear.timeInterval),
-        Plant(name: "Aloes", picture: "plant-aloe", waterInterval: .quarterly),
-        Plant(name: "Dracena", picture: "plant-dracena", waterInterval: .everyEightDays, lastWaterDate: Date() - 3.days.timeInterval)
+        Plant(name: "Ziemiokulas", picture: UIImage(named: "plant-zz"), waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 1.weeksOfYear.timeInterval),
+        Plant(name: "Aloes", picture: UIImage(named: "plant-aloe"), waterInterval: .quarterly),
+        Plant(name: "Dracena", picture: UIImage(named: "plant-dracena"), waterInterval: .everyEightDays, lastWaterDate: Date() - 3.days.timeInterval)
     ]
 }

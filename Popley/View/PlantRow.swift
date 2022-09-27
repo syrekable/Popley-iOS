@@ -14,10 +14,11 @@ struct PlantRow: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
-                Image(plant.picture)
+                Image(uiImage: plant.picture)
                     .resizable()
                     .scaledToFill()
-                    .frame(height: 300)
+                // FIXME: arbitrary scale that looks like shit on bigger screens
+                    .frame(width: 360, height: 300)
                 HStack(spacing: 0) {
                     Text(plant.name)
                         .lineLimit(1)
@@ -37,7 +38,8 @@ struct PlantRow: View {
                     } label: {
                         Image(systemName: "info.circle")
                     }
-                    .foregroundColor(Color("Accent"))         
+                    .foregroundColor(Color("Accent"))
+                    .shadow(radius: 3, x: 2, y: 2)
                 }
                 .font(.title)
                 .padding([.top, .trailing])
