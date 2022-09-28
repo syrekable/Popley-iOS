@@ -7,9 +7,8 @@
 
 import Foundation
 
-// TODO: test it!
 class AppSettingsViewModel: ObservableObject {
-    @Published var timeOfDay: NotificationSettings.TimeOfDay
+    @Published var pickedTimeOfDay: NotificationSettings.TimeOfDay
     @Published var notificationSettings: NotificationSettings
     @Published var isExactTimeShown = false
     // TODO: get rid of this somehow?
@@ -18,8 +17,8 @@ class AppSettingsViewModel: ObservableObject {
     
     init() {
         let morning: NotificationSettings.TimeOfDay = .morning
-        timeOfDay = morning
-        // https://stackoverflow.com/a/36082867/12938809
+        pickedTimeOfDay = morning
+        // https://stackoverflow.com/a/36082867/12938809 - Date from DateComponents
         notificationDate = Calendar.current.date(bySettingHour: morning.asDateComponents.hour!, minute: morning.asDateComponents.minute!, second: 0, of: Date())!
         // TODO: read from UserDefaults/AppStorage
         notificationSettings = NotificationSettings(time: morning.asDateComponents)
@@ -27,16 +26,12 @@ class AppSettingsViewModel: ObservableObject {
     
     // TODO: refactor
     func setNotificationTimeWithConvenience() {
-        notificationSettings.time = timeOfDay.asDateComponents
+        notificationSettings.time = pickedTimeOfDay.asDateComponents
+        notificationDate = Calendar.current.date(bySettingHour: pickedTimeOfDay.asDateComponents.hour!, minute: pickedTimeOfDay.asDateComponents.minute!, second: 0, of: Date())!
     }
     
     func setNotificationTimeWithDate() {
-        /*
-         https://stackoverflow.com/a/62441255/12938809
-         var notifTime: Date
-         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: notifTime)
-         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-         */
+//         https://stackoverflow.com/a/62441255/12938809 - DateComponents from Date
         notificationSettings.time = Calendar.current.dateComponents([.hour, .minute], from: notificationDate)
     }
 }

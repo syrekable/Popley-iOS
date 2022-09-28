@@ -15,7 +15,7 @@ struct AppSettingsView: View {
             notificationDelivery
             advanced
         }
-        .onChange(of: appSettingsViewModel.timeOfDay, perform: { newValue in
+        .onChange(of: appSettingsViewModel.pickedTimeOfDay, perform: { newValue in
             appSettingsViewModel.setNotificationTimeWithConvenience()
         })
         .navigationTitle("App Settings")
@@ -25,7 +25,7 @@ struct AppSettingsView: View {
 extension AppSettingsView {
     var notificationDelivery: some View {
         Section {
-            Picker("Time of notification", selection: $appSettingsViewModel.timeOfDay) {
+            Picker("Time of notification", selection: $appSettingsViewModel.pickedTimeOfDay) {
                 ForEach(NotificationSettings.TimeOfDay.allCases) { timeOfDay in
                     Text(String(describing: timeOfDay))
                 }
