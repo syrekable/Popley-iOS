@@ -38,7 +38,7 @@ struct PlantRow: View {
                     } label: {
                         Image(systemName: "info.circle")
                     }
-                    .foregroundColor(Color("Accent"))
+                    .foregroundColor(Color.accentColor)
                     .shadow(radius: 3, x: 2, y: 2)
                 }
                 .font(.title)
@@ -57,7 +57,7 @@ struct PlantRow: View {
                     .font(.title2)
                     .fontWeight(.heavy)
                     .frame(maxWidth: 125)
-                    .foregroundColor(Color("Accent"))
+                    .foregroundColor(Color.accentColor)
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 10) {
@@ -68,7 +68,7 @@ struct PlantRow: View {
                         .font(.title2)
                         .fontWeight(.heavy)
                         .frame(width: 100)
-                        .foregroundColor(Color("Accent"))
+                        .foregroundColor(Color.accentColor)
                 }
             }
             .padding([.horizontal, .bottom])
