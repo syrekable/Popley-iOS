@@ -39,7 +39,7 @@ struct AddPlantWaterIntervalView: View {
         .navigationTitle("Set watering interval")
         .toolbar {
             Button {
-                model.navigateToNextPage(.plantSummary(name, image, wateredEvery, lastWatered))
+                model.navigateToPage(.plantSummary(name, image, wateredEvery, lastWatered))
             } label: {
                 HStack {
                     Text("Next")

@@ -18,7 +18,7 @@ struct AppSettingsView: View {
         .onChange(of: appSettingsViewModel.pickedTimeOfDay, perform: { newValue in
             appSettingsViewModel.setNotificationTimeWithConvenience()
         })
-        .navigationTitle("App Settings")
+        .navigationTitle("Settings")
     }
 }
 

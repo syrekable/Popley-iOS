@@ -24,14 +24,14 @@ struct AddPlantPictureView: View {
             // TODO: disable automatic pushing forward if the user came back from next screen
             .onChange(of: image) { image in
                 guard let image = image else { return }
-                model.navigateToNextPage(.plantName(image))
+                model.navigateToPage(.plantName(image))
             }
             .ignoresSafeArea()
             .navigationBarBackButtonHidden(isBackButtonHidden)
             .toolbar {
                 if let image = image {
                     Button {
-                        model.navigateToNextPage(.plantName(image))
+                        model.navigateToPage(.plantName(image))
                     } label: {
                         HStack {
                             Text("Next")

@@ -31,7 +31,7 @@ class Model: ObservableObject {
         plants.append(plant)
     }
     
-    func navigateToNextPage(_ page: Page) {
+    func navigateToPage(_ page: Page) {
         path.append(page)
     }
     

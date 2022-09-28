@@ -12,9 +12,8 @@ struct PopleyApp: App {
     @StateObject private var model = Model()
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-//                .environmentObject(model)
-            AppSettingsView()
+            ContentView()
+                .environmentObject(model)
         }
     }
 }
