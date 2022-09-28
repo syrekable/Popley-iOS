@@ -25,7 +25,7 @@ final class TypeDescriptionTests: XCTestCase {
     
     func testConvenienceEnumDescription() {
         let expected = ["Morning", "Evening"]
-        for (i, timeOfDay) in NotificationSettings.TimeOfNotification.allCases.enumerated() {
+        for (i, timeOfDay) in NotificationSettings.TimeOfDay.allCases.enumerated() {
             XCTAssertEqual(String(describing: timeOfDay), expected[i])
         }
     }

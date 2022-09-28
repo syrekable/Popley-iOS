@@ -14,14 +14,14 @@ struct NotificationSettings {
 
 // MARK: convenience enum
 extension NotificationSettings {
-    enum TimeOfNotification: Int, CaseIterable, Identifiable {
-        var id: TimeOfNotification { self }
+    enum TimeOfDay: Int, CaseIterable, Identifiable {
+        var id: TimeOfDay { self }
         case morning = 8
         case evening = 18
     }
 }
 
-extension NotificationSettings.TimeOfNotification: CustomStringConvertible {
+extension NotificationSettings.TimeOfDay: CustomStringConvertible {
     var asDateComponents: DateComponents {
         return DateComponents(hour: self.rawValue, minute: 0)
     }

@@ -14,7 +14,7 @@ final class NotificationSettingsTests: XCTestCase {
             DateComponents(hour: 8, minute: 00),
             DateComponents(hour: 18, minute: 00)
         ]
-        for (i, timeOfDay) in NotificationSettings.TimeOfNotification.allCases.enumerated() {
+        for (i, timeOfDay) in NotificationSettings.TimeOfDay.allCases.enumerated() {
             XCTAssertEqual(timeOfDay.asDateComponents, expected[i])
         }
     }

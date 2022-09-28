@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct AppSettingsView: View {
-    @State private var time: NotificationSettings.TimeOfNotification = .morning
-    @State private var isExactTimeShown: Bool = false
+    @StateObject var appSettingsViewModel = AppSettingsViewModel()
+    
     var body: some View {
         Form {
             notificationDelivery
             advanced
         }
+        .onChange(of: appSettingsViewModel.timeOfDay, perform: { newValue in
+            appSettingsViewModel.setNotificationTimeWithConvenience()
+        })
         .navigationTitle("App Settings")
     }
 }
@@ -22,12 +25,12 @@ struct AppSettingsView: View {
 extension AppSettingsView {
     var notificationDelivery: some View {
         Section {
-            Picker("Time of notification", selection: $time) {
-                ForEach(NotificationSettings.TimeOfNotification.allCases) { timeOfDay in
+            Picker("Time of notification", selection: $appSettingsViewModel.timeOfDay) {
+                ForEach(NotificationSettings.TimeOfDay.allCases) { timeOfDay in
                     Text(String(describing: timeOfDay))
                 }
             }
-            .disabled(isExactTimeShown)
+            .disabled(appSettingsViewModel.isExactTimeShown)
         } header: {
             Text("Notification delivery")
         } footer: {
@@ -40,16 +43,19 @@ extension AppSettingsView {
     }
     var advanced: some View {
         Section {
-            Toggle("Remind at a different time", isOn: $isExactTimeShown)
-            if isExactTimeShown {
-                DatePicker(selection: .constant(Date()), displayedComponents: .hourAndMinute) {
+            Toggle("Remind at a different time", isOn: $appSettingsViewModel.isExactTimeShown)
+            if appSettingsViewModel.isExactTimeShown {
+                DatePicker(selection: $appSettingsViewModel.notificationDate, displayedComponents: .hourAndMinute) {
                     Text("Notification time")
+                }
+                .onChange(of: appSettingsViewModel.notificationDate) { newValue in
+                    appSettingsViewModel.setNotificationTimeWithDate()
                 }
             }
         } header: {
             Text("Advanced")
         } footer: {
-            if !isExactTimeShown {
+            if !appSettingsViewModel.isExactTimeShown {
                 Text("Set precise time for the reminder delivery.")
             }
         }

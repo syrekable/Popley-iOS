@@ -7,7 +7,7 @@
 
 import Foundation
 
-// DateComponentsFormatter was the answer all along lmao
+// Date.RelativeFormatStyle shall do it
 typealias WaterInterval = DescriptiveDateInterval
 
 struct DescriptiveDateInterval: Hashable {
