@@ -23,8 +23,8 @@ extension AppSettingsView {
     var notificationDelivery: some View {
         Section {
             Picker("Time of notification", selection: $time) {
-                ForEach(NotificationSettings.TimeOfNotification.allCases) { e in
-                    Text(e.rawValue)
+                ForEach(NotificationSettings.TimeOfNotification.allCases) { timeOfDay in
+                    Text(String(describing: timeOfDay))
                 }
             }
             .disabled(isExactTimeShown)
