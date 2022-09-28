@@ -44,6 +44,11 @@ extension AppSettingsView {
     var advanced: some View {
         Section {
             Toggle("Remind at a different time", isOn: $appSettingsViewModel.isExactTimeShown)
+                .onChange(of: appSettingsViewModel.isExactTimeShown) { newValue in
+                    if !newValue {
+                        appSettingsViewModel.setNotificationTimeWithConvenience()
+                    }
+                }
             if appSettingsViewModel.isExactTimeShown {
                 DatePicker(selection: $appSettingsViewModel.notificationDate, displayedComponents: .hourAndMinute) {
                     Text("Notification time")

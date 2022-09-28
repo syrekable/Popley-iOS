@@ -24,7 +24,7 @@ class AppSettingsViewModel: ObservableObject {
         notificationSettings = NotificationSettings(time: morning.asDateComponents)
     }
     
-    // TODO: refactor
+    // TODO: DRY it up
     func setNotificationTimeWithConvenience() {
         notificationSettings.time = pickedTimeOfDay.asDateComponents
         notificationDate = Calendar.current.date(bySettingHour: pickedTimeOfDay.asDateComponents.hour!, minute: pickedTimeOfDay.asDateComponents.minute!, second: 0, of: Date())!
