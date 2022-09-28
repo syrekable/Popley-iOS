@@ -41,7 +41,16 @@ struct ContentView: View {
                     }
                     .navigationTitle("Your plants")
                     .toolbar(content: {
-                        imageSourcePickerContextMenu
+                        ToolbarItemGroup(placement: .navigationBarLeading) {
+                            Button {
+                                // open settings
+                            } label: {
+                                Image(systemName: "gear")
+                            }
+                        }
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            imageSourcePickerContextMenu
+                        }                       
                     })
                     .alert("Error", isPresented: $model.isCameraAlertShown, presenting: model.cameraError) { cameraError in
                         cameraError.button
