@@ -12,7 +12,6 @@ import UIKit
 struct Plant: Identifiable, Hashable {
     var id: UUID
     var name: String
-    // TODO: change to actual image
     var picture: UIImage
     var waterInterval: WaterInterval
     var lastWaterDate: Date
@@ -34,7 +33,19 @@ struct Plant: Identifiable, Hashable {
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }
-    
+}
+
+// MARK: sample data
+extension Plant {
+    static let sampleData = [
+        Plant(name: "Ziemiokulas", picture: UIImage(named: "plant-zz"), waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 1.weeksOfYear.timeInterval),
+        Plant(name: "Aloes", picture: UIImage(named: "plant-aloe"), waterInterval: .quarterly),
+        Plant(name: "Dracena", picture: UIImage(named: "plant-dracena"), waterInterval: .everyEightDays, lastWaterDate: Date() - 3.days.timeInterval)
+    ]
+}
+
+// MARK: constructor for tests
+extension Plant {
     init(waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
         self.id = UUID()
         self.name = "IR"
@@ -42,12 +53,4 @@ struct Plant: Identifiable, Hashable {
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }
-}
-
-extension Plant {
-    static let sampleData = [
-        Plant(name: "Ziemiokulas", picture: UIImage(named: "plant-zz"), waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 1.weeksOfYear.timeInterval),
-        Plant(name: "Aloes", picture: UIImage(named: "plant-aloe"), waterInterval: .quarterly),
-        Plant(name: "Dracena", picture: UIImage(named: "plant-dracena"), waterInterval: .everyEightDays, lastWaterDate: Date() - 3.days.timeInterval)
-    ]
 }
