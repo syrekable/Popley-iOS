@@ -32,8 +32,6 @@ final class AppSettingsViewModelTests: XCTestCase {
         XCTAssertEqual(model.notificationSettings.time, DateComponents(hour: 21, minute: 37))
     }
     
-    // on change isExactTimeShown set to convenient time
-    
     func testSettingNotificationHourAfterDismissingExactTime() {
         let model = AppSettingsViewModel()
         let morning = NotificationSettings.TimeOfDay.morning
@@ -69,7 +67,7 @@ final class AppSettingsViewModelTests: XCTestCase {
         
         let expected = (
             morning,
-            morning.asDateComponents.asDate!,
+            morning.asDateComponents.asDateWithHoursAndMinutes!,
             NotificationSettings(time: morning.asDateComponents),
             false
         )
@@ -96,7 +94,7 @@ final class AppSettingsViewModelTests: XCTestCase {
         let expected = (
             NotificationSettings(time: evening.asDateComponents),
             evening,
-            evening.asDateComponents.asDate!,
+            evening.asDateComponents.asDateWithHoursAndMinutes,
             false
         )
         
