@@ -16,6 +16,7 @@ struct Plant: Identifiable, Hashable {
     var waterInterval: WaterInterval
     var lastWaterDate: Date
     
+    // FIXME: negative dates
     var timeToWater: DateInterval {
         let lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
         let _remainingTimeToWater = ceil(waterInterval.asTimeInterval - lastWateringUntilNow.duration)

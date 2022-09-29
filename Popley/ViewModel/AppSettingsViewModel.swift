@@ -18,8 +18,7 @@ class AppSettingsViewModel: ObservableObject {
     init() {
         let morning: NotificationSettings.TimeOfDay = .morning
         pickedTimeOfDay = morning
-        // https://stackoverflow.com/a/36082867/12938809 - Date from DateComponents
-        notificationDate = Calendar.current.date(bySettingHour: morning.asDateComponents.hour!, minute: morning.asDateComponents.minute!, second: 0, of: Date())!
+        notificationDate = morning.asDateComponents.asDate!
         // TODO: read from UserDefaults/AppStorage
         notificationSettings = NotificationSettings(time: morning.asDateComponents)
     }
@@ -27,11 +26,10 @@ class AppSettingsViewModel: ObservableObject {
     // TODO: DRY it up
     func setNotificationTimeWithConvenience() {
         notificationSettings.time = pickedTimeOfDay.asDateComponents
-        notificationDate = Calendar.current.date(bySettingHour: pickedTimeOfDay.asDateComponents.hour!, minute: pickedTimeOfDay.asDateComponents.minute!, second: 0, of: Date())!
+        notificationDate = pickedTimeOfDay.asDateComponents.asDate!
     }
     
     func setNotificationTimeWithDate() {
-//         https://stackoverflow.com/a/62441255/12938809 - DateComponents from Date
-        notificationSettings.time = Calendar.current.dateComponents([.hour, .minute], from: notificationDate)
+        notificationSettings.time = notificationDate.asDateComponents
     }
 }
