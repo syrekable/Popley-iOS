@@ -14,11 +14,12 @@ class MockStorage: KeyValueStorable {
         store = [:]
     }
     
-    func double(forKey: String) -> Double {
-        return 4.2
+    func double(forKey key: String) -> Double {
+        guard let value = store[key] else { return 0 }
+        return value
     }
     
-    func set(_: Double, forKey: String) {
-        
+    func set(_ value: Double, forKey key: String) {
+        store[key] = value
     }
 }

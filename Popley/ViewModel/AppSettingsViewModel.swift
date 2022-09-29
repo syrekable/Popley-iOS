@@ -16,10 +16,8 @@ class AppSettingsViewModel: ObservableObject {
     // TODO: computed properrty { get set }
     @Published var isExactTimeShown: Bool
     
-    private static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
-    
-    init() {
-        let timeInterval: TimeInterval = UserDefaults.standard.double(forKey: Self.userDefaultsKeys["time"]!)
+    init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
+        let timeInterval: TimeInterval = storage.double(forKey: Self.userDefaultsKeys["time"]!)
         if timeInterval > 0 {
             // succesfully read from UserDefaults
             let date = Date(timeIntervalSince1970: timeInterval)
@@ -39,7 +37,15 @@ class AppSettingsViewModel: ObservableObject {
             isExactTimeShown = false
         }
     }
-    
+}
+
+// MARK: userDefaultsKeys
+extension AppSettingsViewModel {
+    private static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
+}
+
+// MARK: set notification time
+extension AppSettingsViewModel {
     // TODO: DRY those up
     func setNotificationTimeWithConvenience() {
         notificationSettings.time = pickedTimeOfDay.asDateComponents
@@ -49,7 +55,10 @@ class AppSettingsViewModel: ObservableObject {
     func setNotificationTimeWithDate() {
         notificationSettings.time = pickedNotificationHour.asDateComponents
     }
-    
+}
+
+// MARK: persistence
+extension AppSettingsViewModel {
     /*
      https://stackoverflow.com/a/63019446/12938809
      // save
