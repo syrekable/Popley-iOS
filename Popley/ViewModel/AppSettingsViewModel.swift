@@ -19,6 +19,7 @@ class AppSettingsViewModel: ObservableObject {
     private var storage: KeyValueStorable
     
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
+        // depencendy injection gone wild
         self.storage = storage
         
         let timeInterval: TimeInterval = storage.double(forKey: Self.userDefaultsKeys["time"]!)
@@ -26,11 +27,11 @@ class AppSettingsViewModel: ObservableObject {
             // succesfully read from UserDefaults
             let date = Date(timeIntervalSince1970: timeInterval)
             let settings = NotificationSettings(time: date.asDateComponents)
+            
             notificationSettings = settings
             pickedTimeOfDay = NotificationSettings.TimeOfDay.appropriateTimeOfDay(for: settings.time)
-            // TODO: iff notificationSettings.time is not contained in [.morning, .evening]
-            isExactTimeShown = true
-            pickedNotificationHour = settings.time.asDateWithHoursAndMinutes!
+            isExactTimeShown = NotificationSettings.TimeOfDay.isExact(hour: settings.time)
+            pickedNotificationHour =  settings.time.asDateWithHoursAndMinutes!
         } else {
             // first time in app (settings) or something broke
             let morning: NotificationSettings.TimeOfDay = .morning

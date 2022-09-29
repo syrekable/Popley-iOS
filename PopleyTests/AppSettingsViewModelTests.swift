@@ -95,6 +95,36 @@ final class AppSettingsViewModelTests: XCTestCase {
             NotificationSettings(time: evening.asDateComponents),
             evening,
             evening.asDateComponents.asDateWithHoursAndMinutes,
+            true
+        )
+        
+        XCTAssertEqual(model!.notificationSettings.time, expected.0.time)
+        XCTAssertEqual(model!.pickedTimeOfDay, expected.1)
+        XCTAssertEqual(model!.pickedNotificationHour, expected.2)
+        XCTAssertEqual(model!.isExactTimeShown, expected.3)
+    }
+    
+    func testReadingDifferentHourAsNotificationsTime() {
+        let storage = MockStorage()
+        var model: AppSettingsViewModel? = AppSettingsViewModel(readFrom: storage)
+        
+        let morningTime = DateComponents(hour: 07, minute: 30)
+        
+        // clicked the button
+        model!.isExactTimeShown = true
+        // picked time
+        model!.pickedNotificationHour = morningTime.asDateWithHoursAndMinutes!
+        model!.setNotificationTimeWithDate()
+        
+        // deinitializing
+        model = nil
+        
+        model = AppSettingsViewModel(readFrom: storage)
+        
+        let expected = (
+            NotificationSettings(time: morningTime),
+            NotificationSettings.TimeOfDay.morning,
+            morningTime.asDateWithHoursAndMinutes!,
             false
         )
         

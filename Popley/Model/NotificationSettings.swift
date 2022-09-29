@@ -41,15 +41,20 @@ extension NotificationSettings.TimeOfDay {
         return DateComponents(hour: self.rawValue, minute: 0)
     }
     
-    private static let morningHours: ClosedRange<DateComponents> = DateComponents(hour: 00, minute: 00)...DateComponents(hour: 15, minute: 00)
+    private static let morningHours: ClosedRange<DateComponents> = DateComponents(hour: 0, minute: 0)...DateComponents(hour: 15, minute: 0)
     
     static func appropriateTimeOfDay(for time: DateComponents) -> Self {
         var timeOfDay: Self?
-        if morningHours.contains(time) {
+        // this is precisely CloseRange.contains, but it did not work that way for some reason
+        if time >= morningHours.lowerBound && time <= morningHours.upperBound {
             timeOfDay = .morning
         } else {
             timeOfDay = .evening
         }
         return timeOfDay!
+    }
+    
+    static func isExact(hour: DateComponents) -> Bool {
+        return hour == Self.morning.asDateComponents || hour == Self.evening.asDateComponents
     }
 }

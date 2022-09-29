@@ -19,6 +19,8 @@ extension DateComponents {
 
 extension DateComponents: Comparable {
     public static func < (lhs: DateComponents, rhs: DateComponents) -> Bool {
-        return lhs.hour! < rhs.hour! || lhs.minute! < rhs.minute!
+        print(lhs.description, rhs.description)
+        let _a =  lhs.hour! < rhs.hour! || lhs.minute! < rhs.minute!
+        return _a
     }
 }
