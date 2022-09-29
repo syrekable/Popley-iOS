@@ -50,10 +50,10 @@ extension AppSettingsView {
                     }
                 }
             if appSettingsViewModel.isExactTimeShown {
-                DatePicker(selection: $appSettingsViewModel.notificationDate, displayedComponents: .hourAndMinute) {
+                DatePicker(selection: $appSettingsViewModel.pickedNotificationHour, displayedComponents: .hourAndMinute) {
                     Text("Notification time")
                 }
-                .onChange(of: appSettingsViewModel.notificationDate) { newValue in
+                .onChange(of: appSettingsViewModel.pickedNotificationHour) { newValue in
                     appSettingsViewModel.setNotificationTimeWithDate()
                 }
             }

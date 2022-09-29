@@ -18,14 +18,14 @@ final class AppSettingsViewModelTests: XCTestCase {
         
         XCTAssertNotEqual(before, model.notificationSettings.time)
         XCTAssertEqual(model.notificationSettings.time, NotificationSettings.TimeOfDay.evening.asDateComponents)
-        XCTAssertEqual(model.notificationDate, Calendar.current.date(bySettingHour: 18, minute: 00, second: 0, of: Date())!)
+        XCTAssertEqual(model.pickedNotificationHour, Calendar.current.date(bySettingHour: 18, minute: 00, second: 0, of: Date())!)
     }
     
     func testSettingNotificationHourWithDate() {
         let model = AppSettingsViewModel()
         let before = model.notificationSettings.time
         
-        model.notificationDate = Calendar.current.date(bySettingHour: 21, minute: 37, second: 0, of: Date())!
+        model.pickedNotificationHour = Calendar.current.date(bySettingHour: 21, minute: 37, second: 0, of: Date())!
         model.setNotificationTimeWithDate()
         
         XCTAssertEqual(before, NotificationSettings.TimeOfDay.morning.asDateComponents)
@@ -41,7 +41,7 @@ final class AppSettingsViewModelTests: XCTestCase {
         model.isExactTimeShown = true
         XCTAssertEqual(model.notificationSettings.time, morning.asDateComponents)
         
-        model.notificationDate = Date()
+        model.pickedNotificationHour = Date()
         model.setNotificationTimeWithDate()
         
         XCTAssertNotEqual(model.notificationSettings.time, morning.asDateComponents)

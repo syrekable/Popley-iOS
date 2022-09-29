@@ -8,28 +8,56 @@
 import Foundation
 
 class AppSettingsViewModel: ObservableObject {
-    @Published var pickedTimeOfDay: NotificationSettings.TimeOfDay
     @Published var notificationSettings: NotificationSettings
-    @Published var isExactTimeShown = false
-    // TODO: get rid of this somehow?
-    // workaround for DatePicker
-    @Published var notificationDate: Date
+    
+    @Published var pickedTimeOfDay: NotificationSettings.TimeOfDay
+    @Published var pickedNotificationHour: Date
+    
+    // TODO: computed properrty { get set }
+    @Published var isExactTimeShown: Bool
+    
+    private static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
     
     init() {
-        let morning: NotificationSettings.TimeOfDay = .morning
-        pickedTimeOfDay = morning
-        notificationDate = morning.asDateComponents.asDate!
-        // TODO: read from UserDefaults/AppStorage
-        notificationSettings = NotificationSettings(time: morning.asDateComponents)
+        let timeInterval: TimeInterval = UserDefaults.standard.double(forKey: Self.userDefaultsKeys["time"]!)
+        if timeInterval > 0 {
+            // succesfully read from UserDefaults
+            let date = Date(timeIntervalSince1970: timeInterval)
+            let settings = NotificationSettings(time: date.asDateComponents)
+            notificationSettings = settings
+            // TODO: set according to which one is closer, i.e. has smaller distance to the notificationSettings.time
+            pickedTimeOfDay = .morning
+            // TODO: iff notificationSettings.time is not contained in [.morning, .evening]
+            isExactTimeShown = true
+            pickedNotificationHour = settings.time.asDate!
+        } else {
+            // first time in app (settings) or something broke
+            let morning: NotificationSettings.TimeOfDay = .morning
+            pickedTimeOfDay = morning
+            pickedNotificationHour = morning.asDateComponents.asDate!
+            notificationSettings = NotificationSettings(time: morning.asDateComponents)
+            isExactTimeShown = false
+        }
     }
     
-    // TODO: DRY it up
+    // TODO: DRY those up
     func setNotificationTimeWithConvenience() {
         notificationSettings.time = pickedTimeOfDay.asDateComponents
-        notificationDate = pickedTimeOfDay.asDateComponents.asDate!
+        pickedNotificationHour = pickedTimeOfDay.asDateComponents.asDate!
     }
     
     func setNotificationTimeWithDate() {
-        notificationSettings.time = notificationDate.asDateComponents
+        notificationSettings.time = pickedNotificationHour.asDateComponents
+    }
+    
+    /*
+     // save
+     UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: key)
+
+     // read
+     let date = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: key))
+     */
+    func save() {
+        UserDefaults.standard.set(notificationSettings.time.asDate!, forKey: Self.userDefaultsKeys["time"]!)
     }
 }
