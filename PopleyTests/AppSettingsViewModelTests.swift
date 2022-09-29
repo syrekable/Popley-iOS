@@ -137,4 +137,6 @@ final class AppSettingsViewModelTests: XCTestCase {
         XCTAssertEqual(model!.pickedNotificationHour, expected.2)
         XCTAssertEqual(model!.isExactTimeShown, expected.3)
     }
+    
+    // TODO: test saving before quitting
 }

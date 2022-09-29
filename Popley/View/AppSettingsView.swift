@@ -25,6 +25,7 @@ struct AppSettingsView: View {
 extension AppSettingsView {
     var notificationDelivery: some View {
         Section {
+            // TODO: change on user tap, but without changing the hour to convenience
             Picker("Time of notification", selection: $appSettingsViewModel.pickedTimeOfDay) {
                 ForEach(NotificationSettings.TimeOfDay.allCases) { timeOfDay in
                     Text(String(describing: timeOfDay))

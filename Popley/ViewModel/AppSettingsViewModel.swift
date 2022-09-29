@@ -31,7 +31,7 @@ class AppSettingsViewModel: ObservableObject {
             print(settings.time)
             notificationSettings = settings
             pickedTimeOfDay = NotificationSettings.TimeOfDay.appropriateTimeOfDay(for: settings.time)
-            isExactTimeShown = NotificationSettings.TimeOfDay.isExact(hour: settings.time)
+            isExactTimeShown = !NotificationSettings.TimeOfDay.isExact(hour: settings.time)
             pickedNotificationHour =  settings.time.asDateWithHoursAndMinutes!
         } else {
             // first time in app (settings) or something broke
@@ -41,7 +41,6 @@ class AppSettingsViewModel: ObservableObject {
             notificationSettings = NotificationSettings(time: morning.asDateComponents)
             isExactTimeShown = false
         }
-        print(timeInterval)
     }
     
     deinit {
