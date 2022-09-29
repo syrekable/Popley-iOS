@@ -53,4 +53,12 @@ final class AppSettingsViewModelTests: XCTestCase {
         // it works in the context of UI
         // XCTAssertEqual(model.notificationSettings.time, morning.asDateComponents)
     }
+    
+    /*
+     to actually test the userdefaults with dependency injection
+     https://codereview.stackexchange.com/a/153240
+     * methods I need:
+        - double(forKey: String) -> Double
+        - set(Double, forKey: String)
+     */
 }

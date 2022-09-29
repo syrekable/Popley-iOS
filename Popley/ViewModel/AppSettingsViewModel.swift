@@ -51,13 +51,14 @@ class AppSettingsViewModel: ObservableObject {
     }
     
     /*
+     https://stackoverflow.com/a/63019446/12938809
      // save
      UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: key)
 
      // read
      let date = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: key))
      */
-    func save() {
-        UserDefaults.standard.set(notificationSettings.time.asDate!, forKey: Self.userDefaultsKeys["time"]!)
+    func save(to storage: KeyValueStorable = UserDefaults.standard) {
+        storage.set(notificationSettings.time.asDate!.timeIntervalSince1970, forKey: Self.userDefaultsKeys["time"]!)
     }
 }

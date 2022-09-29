@@ -48,6 +48,9 @@
 		F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */; };
 		F1E21B5528E59E1C0091D484 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5428E59E1C0091D484 /* DateComponents.swift */; };
 		F1E21B5728E59FB20091D484 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5628E59FB20091D484 /* Date.swift */; };
+		F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */; };
+		F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */; };
+		F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5F28E5B38A0091D484 /* MockStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,9 @@
 		F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDescriptionTests.swift; sourceTree = "<group>"; };
 		F1E21B5428E59E1C0091D484 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
 		F1E21B5628E59FB20091D484 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorable.swift; sourceTree = "<group>"; };
+		F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		F1E21B5F28E5B38A0091D484 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +220,7 @@
 		F1D7E46528CB3DB9001159FA /* Popley */ = {
 			isa = PBXGroup;
 			children = (
+				F1E21B5828E5B2970091D484 /* Protocol */,
 				F1BE15E928DC640400D94727 /* ViewModel */,
 				F1BFABE128DB5A7900440419 /* UIViewRepresentable */,
 				F10D43D128D6371E005C3D81 /* View */,
@@ -261,6 +268,7 @@
 		F1D7E49028CB4903001159FA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F1E21B5B28E5B33C0091D484 /* Test */,
 				F1D7E49328CB4974001159FA /* Model */,
 				F1D7E49128CB4914001159FA /* CornerRadius.swift */,
 			);
@@ -289,6 +297,7 @@
 		F1D7E4A128CB811E001159FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F1E21B5E28E5B37B0091D484 /* Test */,
 				F1D7E4A628CB82AE001159FA /* Enums */,
 				F1D7E49F28CB8090001159FA /* Plant.swift */,
 				F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */,
@@ -305,6 +314,30 @@
 				F1BFABEC28DB6AD200440419 /* Page.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		F1E21B5828E5B2970091D484 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F1E21B5B28E5B33C0091D484 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		F1E21B5E28E5B37B0091D484 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F1E21B5F28E5B38A0091D484 /* MockStorage.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,8 +493,10 @@
 				F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */,
 				F1BFABED28DB6AD200440419 /* Page.swift in Sources */,
 				F1BFABEB28DB61CD00440419 /* ImageSourcePicker.swift in Sources */,
+				F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */,
 				F1748A9128E47425005C6A8B /* AppSettingsView.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
+				F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */,
 				F1434C0728DDD91F001163DB /* AddPlantNameView.swift in Sources */,
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
@@ -472,6 +507,7 @@
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
 				F1434C0E28DE0195001163DB /* AddPlantWaterIntervalView.swift in Sources */,
 				F1434C0C28DDEA2B001163DB /* WaterIntervalPickerView.swift in Sources */,
+				F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */,
 				F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
