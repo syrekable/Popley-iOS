@@ -46,7 +46,7 @@
 		F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */; };
 		F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A428CB82A6001159FA /* Interval.swift */; };
 		F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */; };
-		F1E21B5528E59E1C0091D484 /* DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5428E59E1C0091D484 /* DateComponents.swift */; };
+		F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */; };
 		F1E21B5728E59FB20091D484 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5628E59FB20091D484 /* Date.swift */; };
 		F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */; };
 		F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */; };
@@ -111,7 +111,7 @@
 		F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveDateInterval.swift; sourceTree = "<group>"; };
 		F1D7E4A428CB82A6001159FA /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDescriptionTests.swift; sourceTree = "<group>"; };
-		F1E21B5428E59E1C0091D484 /* DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponents.swift; sourceTree = "<group>"; };
+		F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+Extension.swift"; sourceTree = "<group>"; };
 		F1E21B5628E59FB20091D484 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorable.swift; sourceTree = "<group>"; };
 		F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 			children = (
 				F1D7E49428CB498D001159FA /* RoundedCorner.swift */,
 				F19A86A328D33F1A00C9EA4A /* DateInterval.swift */,
-				F1E21B5428E59E1C0091D484 /* DateComponents.swift */,
+				F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */,
 				F1E21B5628E59FB20091D484 /* Date.swift */,
 			);
 			path = Model;
@@ -481,7 +481,7 @@
 				F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */,
 				F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */,
 				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
-				F1E21B5528E59E1C0091D484 /* DateComponents.swift in Sources */,
+				F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */,
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
 				F1748A8F28E469B5005C6A8B /* NotificationSettings.swift in Sources */,

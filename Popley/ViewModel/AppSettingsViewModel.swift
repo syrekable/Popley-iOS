@@ -27,8 +27,7 @@ class AppSettingsViewModel: ObservableObject {
             let date = Date(timeIntervalSince1970: timeInterval)
             let settings = NotificationSettings(time: date.asDateComponents)
             notificationSettings = settings
-            // TODO: set according to which one is closer, i.e. has smaller distance to the notificationSettings.time
-            pickedTimeOfDay = .morning
+            pickedTimeOfDay = NotificationSettings.TimeOfDay.appropriateTimeOfDay(for: settings.time)
             // TODO: iff notificationSettings.time is not contained in [.morning, .evening]
             isExactTimeShown = true
             pickedNotificationHour = settings.time.asDateWithHoursAndMinutes!

@@ -21,10 +21,8 @@ extension NotificationSettings {
     }
 }
 
+// MARK: description
 extension NotificationSettings.TimeOfDay: CustomStringConvertible {
-    var asDateComponents: DateComponents {
-        return DateComponents(hour: self.rawValue, minute: 0)
-    }
     var description: String {
         var _description: String?
         switch self {
@@ -34,5 +32,24 @@ extension NotificationSettings.TimeOfDay: CustomStringConvertible {
             _description = "Evening"
         }
         return _description!
+    }
+}
+
+// MARK: conversion and distance
+extension NotificationSettings.TimeOfDay {
+    var asDateComponents: DateComponents {
+        return DateComponents(hour: self.rawValue, minute: 0)
+    }
+    
+    private static let morningHours: ClosedRange<DateComponents> = DateComponents(hour: 00, minute: 00)...DateComponents(hour: 15, minute: 00)
+    
+    static func appropriateTimeOfDay(for time: DateComponents) -> Self {
+        var timeOfDay: Self?
+        if morningHours.contains(time) {
+            timeOfDay = .morning
+        } else {
+            timeOfDay = .evening
+        }
+        return timeOfDay!
     }
 }
