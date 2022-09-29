@@ -18,6 +18,7 @@ class AppSettingsViewModel: ObservableObject {
     
     private var storage: KeyValueStorable
     
+    
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
         // depencendy injection gone wild
         self.storage = storage
@@ -27,7 +28,7 @@ class AppSettingsViewModel: ObservableObject {
             // succesfully read from UserDefaults
             let date = Date(timeIntervalSince1970: timeInterval)
             let settings = NotificationSettings(time: date.asDateComponents)
-            
+            print(settings.time)
             notificationSettings = settings
             pickedTimeOfDay = NotificationSettings.TimeOfDay.appropriateTimeOfDay(for: settings.time)
             isExactTimeShown = NotificationSettings.TimeOfDay.isExact(hour: settings.time)
@@ -40,6 +41,7 @@ class AppSettingsViewModel: ObservableObject {
             notificationSettings = NotificationSettings(time: morning.asDateComponents)
             isExactTimeShown = false
         }
+        print(timeInterval)
     }
     
     deinit {

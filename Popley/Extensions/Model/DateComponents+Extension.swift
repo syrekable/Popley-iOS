@@ -17,10 +17,11 @@ extension DateComponents {
     }
 }
 
+// https://stackoverflow.com/a/64516065/12938809
 extension DateComponents: Comparable {
     public static func < (lhs: DateComponents, rhs: DateComponents) -> Bool {
-        print(lhs.description, rhs.description)
-        let _a =  lhs.hour! < rhs.hour! || lhs.minute! < rhs.minute!
-        return _a
+        let now = Date()
+        let calendar = Calendar.current
+        return calendar.date(byAdding: lhs, to: now)! < calendar.date(byAdding: rhs, to: now)!
     }
 }

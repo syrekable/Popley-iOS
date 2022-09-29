@@ -10,7 +10,8 @@ import XCTest
 
 final class AppSettingsViewModelTests: XCTestCase {
     func testSettingNotificationHourWithConvenience() {
-        let model = AppSettingsViewModel()
+        let storage = MockStorage()
+        let model = AppSettingsViewModel(readFrom: storage)
         let before = model.notificationSettings.time
         
         model.pickedTimeOfDay = .evening
@@ -22,7 +23,8 @@ final class AppSettingsViewModelTests: XCTestCase {
     }
     
     func testSettingNotificationHourWithDate() {
-        let model = AppSettingsViewModel()
+        let storage = MockStorage()
+        let model = AppSettingsViewModel(readFrom: storage)
         let before = model.notificationSettings.time
         
         model.pickedNotificationHour = Calendar.current.date(bySettingHour: 21, minute: 37, second: 0, of: Date())!
@@ -33,7 +35,8 @@ final class AppSettingsViewModelTests: XCTestCase {
     }
     
     func testSettingNotificationHourAfterDismissingExactTime() {
-        let model = AppSettingsViewModel()
+        let storage = MockStorage()
+        let model = AppSettingsViewModel(readFrom: storage)
         let morning = NotificationSettings.TimeOfDay.morning
         
         model.isExactTimeShown = true
@@ -83,6 +86,7 @@ final class AppSettingsViewModelTests: XCTestCase {
         var model: AppSettingsViewModel? = AppSettingsViewModel(readFrom: storage)
         
         let evening: NotificationSettings.TimeOfDay = .evening
+        // picked evening from picker
         model!.pickedTimeOfDay = evening
         model!.setNotificationTimeWithConvenience()
         
@@ -95,7 +99,7 @@ final class AppSettingsViewModelTests: XCTestCase {
             NotificationSettings(time: evening.asDateComponents),
             evening,
             evening.asDateComponents.asDateWithHoursAndMinutes,
-            true
+            false
         )
         
         XCTAssertEqual(model!.notificationSettings.time, expected.0.time)
@@ -125,7 +129,7 @@ final class AppSettingsViewModelTests: XCTestCase {
             NotificationSettings(time: morningTime),
             NotificationSettings.TimeOfDay.morning,
             morningTime.asDateWithHoursAndMinutes!,
-            false
+            true
         )
         
         XCTAssertEqual(model!.notificationSettings.time, expected.0.time)

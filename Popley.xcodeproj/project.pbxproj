@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F103F4F628E5E297007648A7 /* DateComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103F4F528E5E297007648A7 /* DateComponentsTests.swift */; };
+		F103F4F828E6093A007648A7 /* NotificationSettings.TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103F4F728E6093A007648A7 /* NotificationSettings.TimeOfDay.swift */; };
 		F10D43D328D63778005C3D81 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D43D228D63778005C3D81 /* Model.swift */; };
 		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
 		F131714328E4946A005E759D /* AppSettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F103F4F528E5E297007648A7 /* DateComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentsTests.swift; sourceTree = "<group>"; };
+		F103F4F728E6093A007648A7 /* NotificationSettings.TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.TimeOfDay.swift; sourceTree = "<group>"; };
 		F10D43D228D63778005C3D81 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
 		F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModelTests.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */,
 				F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */,
 				F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */,
+				F103F4F528E5E297007648A7 /* DateComponentsTests.swift */,
 			);
 			path = PopleyTests;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				F1D7E4A428CB82A6001159FA /* Interval.swift */,
 				F1BFABEA28DB61CD00440419 /* ImageSourcePicker.swift */,
 				F1BFABEC28DB6AD200440419 /* Page.swift */,
+				F103F4F728E6093A007648A7 /* NotificationSettings.TimeOfDay.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
+				F103F4F828E6093A007648A7 /* NotificationSettings.TimeOfDay.swift in Sources */,
 				F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */,
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
 				F1E21B5728E59FB20091D484 /* Date.swift in Sources */,
@@ -519,6 +526,7 @@
 				F1C9451C28D212B30005345B /* PlantTests.swift in Sources */,
 				F1748A9328E4824F005C6A8B /* NotificationSettingsTests.swift in Sources */,
 				F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */,
+				F103F4F628E5E297007648A7 /* DateComponentsTests.swift in Sources */,
 				F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */,
 				F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */,
 				F1D7E47828CB3DBA001159FA /* PopleyTests.swift in Sources */,
