@@ -28,7 +28,7 @@ class AppSettingsViewModel: ObservableObject {
             // succesfully read from UserDefaults
             let date = Date(timeIntervalSince1970: timeInterval)
             let settings = NotificationSettings(time: date.asDateComponents)
-            print(settings.time)
+
             notificationSettings = settings
             pickedTimeOfDay = NotificationSettings.TimeOfDay.appropriateTimeOfDay(for: settings.time)
             isExactTimeShown = !NotificationSettings.TimeOfDay.isExact(hour: settings.time)

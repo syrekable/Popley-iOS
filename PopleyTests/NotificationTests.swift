@@ -12,14 +12,17 @@ final class NotificationTests: XCTestCase {
     func testCorrectTimeSetAsTriggerForNewPlant() {
         let storage = MockStorage.withMorningNotificationHour()
         let notificationManager = MockNotificationCenter()
-        let model = Model()
+        let model = Model(readFrom: storage)
         
         let plant = Plant(waterInterval: WaterInterval(), lastWaterDate: Date())
-        let nextWateringDate = Date(timeIntervalSince1970: plant.timeToWater.duration)
+        let expectedNextTriggerDate = Date(timeIntervalSince1970: plant.timeToWater.duration)
             .addingTimeInterval(
-                storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!
+                storage
+                    .double(
+                        forKey: AppSettingsViewModel.userDefaultsKeys["time"]!
                               ))
-        print(nextWateringDate)
+        
+        //print(expectedNextTriggerDate)
         // DateComponents.date
         
         model.addPlant(plant, notificationManager: notificationManager)
@@ -30,8 +33,8 @@ final class NotificationTests: XCTestCase {
             if requests.count == 1 {
                 let trigger = requests.first!.trigger
                 XCTAssertNotNil(trigger)
-                guard let trigger = trigger as? UNTimeIntervalNotificationTrigger else { return }
-                XCTAssertEqual(trigger.nextTriggerDate(), nextWateringDate)
+                guard let trigger = trigger as? UNCalendarNotificationTrigger else { return }
+                XCTAssertEqual(trigger.nextTriggerDate(), expectedNextTriggerDate)
             }
         }
     }
