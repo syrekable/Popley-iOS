@@ -26,6 +26,7 @@ class MockStorage: KeyValueStorable {
 
 // MARK: sample data
 extension MockStorage {
+    /// A function returning `MockStorage` with notification time set to `NotificationSettings.TimeOfDay.morning`, that is 08:00.
     static func withMorningNotificationHour() -> MockStorage {
         let storage = MockStorage()
         let wateringTime = NotificationSettings

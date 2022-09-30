@@ -55,7 +55,7 @@ extension Model {
 extension Model {
     private func makeRequest(for plant: Plant) -> UNNotificationRequest? {
         let content = UNMutableNotificationContent()
-        let trigger: UNNotificationTrigger? = nil
+        let trigger: UNTimeIntervalNotificationTrigger? = nil
         return UNNotificationRequest(identifier: "id", content: content, trigger: trigger)
     }
 }
