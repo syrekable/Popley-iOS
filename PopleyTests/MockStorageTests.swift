@@ -19,7 +19,7 @@ final class MockStorageTests: XCTestCase {
             .asDateWithHoursAndMinutes!
             .timeIntervalSince1970
         
-        let storage = MockStorage.withMorningNotificationHour()
+        let storage = MockStorage.withMorningNotificationTime()
         
         XCTAssertNotNil(storage.double(forKey: key))
         XCTAssertEqual(wateringTime, storage.double(forKey: key))

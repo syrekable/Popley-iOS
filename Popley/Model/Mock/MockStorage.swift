@@ -8,11 +8,7 @@
 import Foundation
 
 class MockStorage: KeyValueStorable {
-    private var store: [String: Double]
-    
-    init() {
-        store = [:]
-    }
+    private var store: [String: Double] = [:]
     
     func double(forKey key: String) -> Double {
         guard let value = store[key] else { return 0 }
@@ -26,8 +22,9 @@ class MockStorage: KeyValueStorable {
 
 // MARK: sample data
 extension MockStorage {
+    private static let key = AppSettingsViewModel.userDefaultsKeys["time"]!
     /// A function returning `MockStorage` with notification time set to `NotificationSettings.TimeOfDay.morning`, that is 08:00.
-    static func withMorningNotificationHour() -> MockStorage {
+    static func withMorningNotificationTime() -> MockStorage {
         let storage = MockStorage()
         let wateringTime = NotificationSettings
             .TimeOfDay
@@ -35,7 +32,16 @@ extension MockStorage {
             .asDateComponents
             .asDateWithHoursAndMinutes!
             .timeIntervalSince1970
-        let key = AppSettingsViewModel.userDefaultsKeys["time"]!
+        storage.set(wateringTime, forKey: key)
+        return storage
+    }
+    
+    /// A function returning `MockStorage` with notification time set to 21:37.
+    static func withCustomNotificationTime() -> MockStorage {
+        let storage = MockStorage()
+        let wateringTime = DateComponents(hour: 21, minute: 37)
+            .asDateWithHoursAndMinutes!
+            .timeIntervalSince1970
         storage.set(wateringTime, forKey: key)
         return storage
     }

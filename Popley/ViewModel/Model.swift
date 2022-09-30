@@ -18,6 +18,8 @@ class Model: ObservableObject {
     @Published var isCameraAlertShown = false
     @Published var cameraError: ImageSourcePicker.CameraErrorType?
     
+    @Published var isNotificationAuthorized = false
+    
     private var storage: KeyValueStorable
     
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
@@ -59,10 +61,25 @@ extension Model {
 
 // MARK: notifications
 extension Model {
+    func requestAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
+            // TODO: bądźmy łagodni
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+            DispatchQueue.main.async {
+                self.isNotificationAuthorized = granted
+            }
+        }
+    }
+    
     private func makeRequest(for plant: Plant) -> UNNotificationRequest {
         let content = UNMutableNotificationContent()
+        content.title = "Popley"
+        content.subtitle = "Your plants are thirsty!"
+        content.body = "At least one of your plants needs water. Open Popley to find out, which!"
 
-        let notificationTime: DateComponents = Date(
+        let storedNotificationTime: DateComponents = Date(
             timeIntervalSince1970: storage
                 .double(
                     forKey:
@@ -70,29 +87,10 @@ extension Model {
                 )).asDateComponents
         let triggerTime = DateComponents(
             day: Date().distance(to: plant.timeToWater.end).totalDays,
-            hour: notificationTime.hour,
-            minute: notificationTime.minute
+            hour: storedNotificationTime.hour,
+            minute: storedNotificationTime.minute
         )
-        
-        /*
-         DateComponents(
-             day: Date().distance(to: plant.timeToWater.end),
-             hour: notificationTime.hour,
-             minute: notificationTime.minute)
-         */
-        
-        // DateInterval.end -> plant.timeToWater.end
-        // Date.distance(to: ) -> Date().distance(to: plant.timeToWater.end)
-        // notificationTime = Date(timeIntervalSince1970: storage.double(forKey: Self.userDefaultsKeys["time"]!)).asDateComponents!
-        // DateComponents(day: Date().distance(to: plant.timeToWater.end), hour: notificationTime.hour, minute: notificationTime.minute)
-        /*
-         let timeInterval: TimeInterval = storage.double(forKey: Self.userDefaultsKeys["time"]!)
-         if timeInterval > 0 {
-             // succesfully read from UserDefaults
-             let date = Date(timeIntervalSince1970: timeInterval)
-             let settings = NotificationSettings(time: date.asDateComponents)
-         */
-        
+
         let trigger: UNCalendarNotificationTrigger? =
         UNCalendarNotificationTrigger(dateMatching: triggerTime, repeats: false)
         

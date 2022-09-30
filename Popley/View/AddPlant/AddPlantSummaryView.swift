@@ -41,12 +41,13 @@ struct AddPlantSummaryView: View {
                 ))
                 Spacer()
                 Button {
-                    // TODO: add debounce
                     model.addPlant(plant)
                     model.navigateToRoot()
                 } label: {
                     ButtonLabel(description: "Add this plant", systemName: "hand.thumbsup.circle")
                 }
+                .disabled(!model.isNotificationAuthorized)
+                .opacity(model.isNotificationAuthorized ? 1 : 0.6)
             } else {
                 ProgressView()
             }
@@ -55,7 +56,9 @@ struct AddPlantSummaryView: View {
             .padding()// [.horizontal, .bottom]?
             .onAppear {
                 plant = model.createPlant(named: name, withPicture: image, wateredEvery: wateredEvery, lastWatered: lastWatered)
+                model.requestAuthorization()
             }
+            
     }
 }
 
