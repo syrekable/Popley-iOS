@@ -73,6 +73,15 @@ extension Model {
         }
     }
     
+    // TODO: refactor as in https://betterprogramming.pub/implementing-clean-mvvm-with-swiftui-10c52d503d67
+    func refreshAuthorizationStatus() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                self.isNotificationAuthorized = settings.authorizationStatus == .authorized
+            }
+        }
+    }
+    
     private func makeRequest(for plant: Plant) -> UNNotificationRequest {
         let content = UNMutableNotificationContent()
         content.title = "Popley"

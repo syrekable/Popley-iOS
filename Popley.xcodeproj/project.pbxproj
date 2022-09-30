@@ -58,6 +58,7 @@
 		F1ED5BAE28E6FF2F00C7EA13 /* NotificationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BAD28E6FF2F00C7EA13 /* NotificationManaging.swift */; };
 		F1ED5BB028E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BAF28E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift */; };
 		F1ED5BB228E700C900C7EA13 /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BB128E700C900C7EA13 /* MockNotificationCenter.swift */; };
+		F1ED5BB428E7471000C7EA13 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BB328E7471000C7EA13 /* ConditionalModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		F1ED5BAD28E6FF2F00C7EA13 /* NotificationManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManaging.swift; sourceTree = "<group>"; };
 		F1ED5BAF28E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNUserNotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		F1ED5BB128E700C900C7EA13 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
+		F1ED5BB328E7471000C7EA13 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			children = (
 				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
 				F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */,
+				F1ED5BB328E7471000C7EA13 /* ConditionalModifier.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				F1ED5BB228E700C900C7EA13 /* MockNotificationCenter.swift in Sources */,
 				F1E21B5728E59FB20091D484 /* Date.swift in Sources */,
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
+				F1ED5BB428E7471000C7EA13 /* ConditionalModifier.swift in Sources */,
 				F1434C0E28DE0195001163DB /* AddPlantWaterIntervalView.swift in Sources */,
 				F1434C0C28DDEA2B001163DB /* WaterIntervalPickerView.swift in Sources */,
 				F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */,

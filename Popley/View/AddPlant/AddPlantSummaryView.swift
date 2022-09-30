@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddPlantSummaryView: View {
+    @Environment(\.scenePhase) var scene
     @EnvironmentObject var model: Model
     @State private var plant: Plant?
     let name: String
@@ -46,7 +47,9 @@ struct AddPlantSummaryView: View {
                     ProgressView()
                 }
             }
-            .overlay(.ultraThinMaterial.opacity(0.7))
+            .if(!model.isNotificationAuthorized) { view in
+                view.overlay(.ultraThinMaterial.opacity(0.7))
+            }
             if !model.isNotificationAuthorized {
                 Color("Secondary").opacity(0.4)
                     .cornerRadius(15)
@@ -60,6 +63,9 @@ struct AddPlantSummaryView: View {
             plant = model.createPlant(named: name, withPicture: image, wateredEvery: wateredEvery, lastWatered: lastWatered)
             model.requestAuthorization()
         }
+        .onChange(of: scene, perform: { value in
+            model.refreshAuthorizationStatus()
+        })
     }
 }
 
