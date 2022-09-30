@@ -53,6 +53,8 @@
 		F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */; };
 		F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */; };
 		F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5F28E5B38A0091D484 /* MockStorage.swift */; };
+		F1ED5BA928E6F43000C7EA13 /* NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BA828E6F43000C7EA13 /* NotificationTests.swift */; };
+		F1ED5BAB28E6F72D00C7EA13 /* MockStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorable.swift; sourceTree = "<group>"; };
 		F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		F1E21B5F28E5B38A0091D484 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
+		F1ED5BA828E6F43000C7EA13 /* NotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTests.swift; sourceTree = "<group>"; };
+		F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +261,8 @@
 				F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */,
 				F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */,
 				F103F4F528E5E297007648A7 /* DateComponentsTests.swift */,
+				F1ED5BA828E6F43000C7EA13 /* NotificationTests.swift */,
+				F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */,
 			);
 			path = PopleyTests;
 			sourceTree = "<group>";
@@ -524,9 +530,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C9451C28D212B30005345B /* PlantTests.swift in Sources */,
+				F1ED5BA928E6F43000C7EA13 /* NotificationTests.swift in Sources */,
 				F1748A9328E4824F005C6A8B /* NotificationSettingsTests.swift in Sources */,
 				F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */,
 				F103F4F628E5E297007648A7 /* DateComponentsTests.swift in Sources */,
+				F1ED5BAB28E6F72D00C7EA13 /* MockStorageTests.swift in Sources */,
 				F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */,
 				F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */,
 				F1D7E47828CB3DBA001159FA /* PopleyTests.swift in Sources */,

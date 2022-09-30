@@ -50,7 +50,7 @@ class AppSettingsViewModel: ObservableObject {
 
 // MARK: userDefaultsKeys
 extension AppSettingsViewModel {
-    private static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
+    static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
 }
 
 // MARK: set notification time

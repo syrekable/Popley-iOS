@@ -23,3 +23,18 @@ class MockStorage: KeyValueStorable {
         store[key] = value
     }
 }
+
+extension MockStorage {
+    static func withMorningNotificationHour() -> MockStorage {
+        let storage = MockStorage()
+        let wateringTime = NotificationSettings
+            .TimeOfDay
+            .morning
+            .asDateComponents
+            .asDateWithHoursAndMinutes!
+            .timeIntervalSince1970
+        let key = AppSettingsViewModel.userDefaultsKeys["time"]!
+        storage.set(wateringTime, forKey: key)
+        return storage
+    }
+}

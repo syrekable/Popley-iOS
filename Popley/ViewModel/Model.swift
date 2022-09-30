@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-@MainActor
+//@MainActor
 class Model: ObservableObject {
     @Published var path = NavigationPath()
     @Published var plants: [Plant] = Plant.sampleData
