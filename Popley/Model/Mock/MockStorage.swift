@@ -24,6 +24,7 @@ class MockStorage: KeyValueStorable {
     }
 }
 
+// MARK: sample data
 extension MockStorage {
     static func withMorningNotificationHour() -> MockStorage {
         let storage = MockStorage()

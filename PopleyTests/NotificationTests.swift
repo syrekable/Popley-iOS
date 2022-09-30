@@ -10,11 +10,15 @@ import Datez
 
 final class NotificationTests: XCTestCase {
     func testCorrectTimeSetAsTriggerForNewPlant() {
-        let storage = MockStorage()
-        
-        
+        let storage = MockStorage.withMorningNotificationHour()
+        let notificationManager = MockNotificationCenter()
         let model = Model()
-        
         let plant = Plant(waterInterval: WaterInterval(), lastWaterDate: Date())
+        
+        model.addPlant(plant, notificationManager: notificationManager)
+        
+        notificationManager.getPendingNotificationRequests { requests in
+            XCTAssert(!requests.isEmpty)
+        }
     }
 }
