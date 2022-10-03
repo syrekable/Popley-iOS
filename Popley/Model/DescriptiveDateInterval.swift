@@ -8,6 +8,9 @@
 import Foundation
 
 // Date.RelativeFormatStyle shall do it
+/// A type facilitates periodical temporal operations. It's used for convenience when working with anything that requires to be repeated after a certain count of intervals.
+///
+/// Defaults to 1 day.
 typealias WaterInterval = DescriptiveDateInterval
 
 /// A type facilitates periodical temporal operations. It's used for convenience when working with anything that requires to be repeated after a certain count of intervals.
@@ -15,6 +18,7 @@ struct DescriptiveDateInterval: Hashable {
     var frequency: Int
     var interval: Interval
     
+    /// Defaults to 1 day.
     init(frequency: Int = 1, interval: Interval = .day) {
         self.frequency = frequency
         self.interval = interval

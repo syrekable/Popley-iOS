@@ -15,13 +15,15 @@ final class NotificationTests: XCTestCase {
         let model = Model(readFrom: storage)
         
         let plant = Plant(waterInterval: WaterInterval(), lastWaterDate: Date())
+        
+        let storedNotificationTime = storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!)
         let expectedNextTriggerDate = Date(timeIntervalSince1970: plant.timeToWater.duration)
-            .addingTimeInterval(
-                storage
-                    .double(
-                        forKey: AppSettingsViewModel.userDefaultsKeys["time"]!
-                              ))
+            .addingTimeInterval(storedNotificationTime)
         model.addPlant(plant, notificationManager: notificationManager)
+        
+        // storedNotificationTime is correct
+        // triggerTime in Model is computed properly
+        // specifying 'days' in DateComponents for trigger catapults .nextTriggerDate to November
         
         notificationManager.getPendingNotificationRequests { requests in
             XCTAssert(!requests.isEmpty)
@@ -29,8 +31,11 @@ final class NotificationTests: XCTestCase {
             if requests.count == 1 {
                 let trigger = requests.first!.trigger
                 XCTAssertNotNil(trigger)
-                guard let trigger = trigger as? UNCalendarNotificationTrigger else { return }
-                XCTAssertEqual(trigger.nextTriggerDate(), expectedNextTriggerDate)
+                guard let trigger = trigger as? UNTimeIntervalNotificationTrigger else { return }
+                let now = Date()
+                XCTAssertEqual(now.distance(to: trigger.nextTriggerDate()!),
+                               now.distance(to: expectedNextTriggerDate), accuracy: 0.1)
+                
             }
         }
     }
