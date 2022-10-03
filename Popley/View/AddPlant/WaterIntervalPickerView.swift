@@ -33,7 +33,10 @@ struct WaterIntervalPickerView: View {
             .background(Color("Primary"))
             .cornerRadius(10)
             // TODO: hide on click?
-            DatePicker("Last watered", selection: $lastWatered, in: ...Date(), displayedComponents: [.date])
+            DatePicker("Last watered",
+                       selection: $lastWatered,
+                       in: WaterIntervalPickerViewModel.makeDateRange(from: lastWatered, for: wateredEvery),
+                       displayedComponents: [.date])
             // TODO: their vertical padding is half the horizontal
                 .padding()
                 .background(Color("Primary"))

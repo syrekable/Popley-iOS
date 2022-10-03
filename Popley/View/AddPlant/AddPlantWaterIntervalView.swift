@@ -52,9 +52,10 @@ struct AddPlantWaterIntervalView: View {
 }
 
 struct AddPlantWaterIntervalView_Previews: PreviewProvider {
+    static let plant = Plant.sampleData.first!
     static var previews: some View {
         NavigationStack {
-            AddPlantWaterIntervalView(name: "Ziemiokulkas", image: UIImage(named: "plant-zz")!)
+            AddPlantWaterIntervalView(name: plant.name, image: plant.picture)
         }
     }
 }
