@@ -28,7 +28,7 @@ class AppSettingsViewModel: ObservableObject {
             // succesfully read from UserDefaults
             let date = Date(timeIntervalSince1970: timeInterval)
             let settings = NotificationSettings(time: date.asDateComponents)
-            print(settings.time)
+
             notificationSettings = settings
             pickedTimeOfDay = NotificationSettings.TimeOfDay.appropriateTimeOfDay(for: settings.time)
             isExactTimeShown = !NotificationSettings.TimeOfDay.isExact(hour: settings.time)
@@ -50,7 +50,7 @@ class AppSettingsViewModel: ObservableObject {
 
 // MARK: userDefaultsKeys
 extension AppSettingsViewModel {
-    private static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
+    static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
 }
 
 // MARK: set notification time

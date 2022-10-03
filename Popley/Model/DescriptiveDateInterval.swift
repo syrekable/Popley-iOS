@@ -8,12 +8,17 @@
 import Foundation
 
 // Date.RelativeFormatStyle shall do it
+/// A type facilitates periodical temporal operations. It's used for convenience when working with anything that requires to be repeated after a certain count of intervals.
+///
+/// Defaults to 1 day.
 typealias WaterInterval = DescriptiveDateInterval
 
+/// A type facilitates periodical temporal operations. It's used for convenience when working with anything that requires to be repeated after a certain count of intervals.
 struct DescriptiveDateInterval: Hashable {
     var frequency: Int
     var interval: Interval
     
+    /// Defaults to 1 day.
     init(frequency: Int = 1, interval: Interval = .day) {
         self.frequency = frequency
         self.interval = interval
@@ -41,6 +46,7 @@ struct DescriptiveDateInterval: Hashable {
     }
 }
 
+// MARK: sample data
 extension DescriptiveDateInterval {
     static let everyEightDays = DescriptiveDateInterval(frequency: 8, interval: .day)
     static let everyTwoWeeks = DescriptiveDateInterval(frequency: 2, interval: .week)
@@ -57,7 +63,9 @@ extension DescriptiveDateInterval: CustomStringConvertible {
     }
 }
 
+// MARK: type conversion
 extension DescriptiveDateInterval {
+    /// Returns the number of seconds in this interval.
     var asTimeInterval: TimeInterval {
         let secondsInHour = 3600.0
         var hoursInInterval = 0.0
