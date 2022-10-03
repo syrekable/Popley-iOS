@@ -93,22 +93,12 @@ extension Model {
                     forKey:
                         AppSettingsViewModel.userDefaultsKeys["time"]!
                 )
-        /*
-         let triggerTime = DateComponents(
-             day: Date().distance(to: plant.timeToWater.end).totalDays,
-             hour: storedNotificationTime.hour,
-             minute: storedNotificationTime.minute
-         )
-         */
+        
         // desperation over declarativeness
         let triggerTime =  Date().distance(to: plant.timeToWater.end) + storedNotificationTime - Date().timeIntervalSince1970
         
         print("Trigger time in Model: \(triggerTime)")
 
-        /*
-         let trigger: UNCalendarNotificationTrigger? =
-         UNCalendarNotificationTrigger(dateMatching: triggerTime, repeats: false)
-         */
         let trigger: UNTimeIntervalNotificationTrigger? = UNTimeIntervalNotificationTrigger(timeInterval: triggerTime, repeats: false)
         
         return UNNotificationRequest(identifier: "id", content: content, trigger: trigger)
