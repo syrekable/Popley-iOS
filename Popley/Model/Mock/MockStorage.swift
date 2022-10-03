@@ -37,7 +37,7 @@ extension MockStorage {
     }
     
     /// A function returning `MockStorage` with notification time set to 21:37.
-    static func withCustomNotificationTime() -> MockStorage {
+    static func withSpecificNotificationTime() -> MockStorage {
         let storage = MockStorage()
         let wateringTime = DateComponents(hour: 21, minute: 37)
             .asDateWithHoursAndMinutes!
