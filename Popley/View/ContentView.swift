@@ -37,11 +37,22 @@ struct ContentView: View {
                             AddPlantWaterIntervalView(name: name, image: image)
                         case .plantSummary(let name, let image, let wateredEvery, let lastWatered):
                             AddPlantSummaryView(name: name, image: image, wateredEvery: wateredEvery, lastWatered: lastWatered)
+                        case .appSettings:
+                            AppSettingsView()
                         }
                     }
                     .navigationTitle("Your plants")
                     .toolbar(content: {
-                        imageSourcePickerContextMenu
+                        ToolbarItemGroup(placement: .navigationBarLeading) {
+                            Button {
+                                model.navigateToPage(.appSettings)
+                            } label: {
+                                Image(systemName: "gear")
+                            }
+                        }
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            imageSourcePickerContextMenu
+                        }
                     })
                     .alert("Error", isPresented: $model.isCameraAlertShown, presenting: model.cameraError) { cameraError in
                         cameraError.button
@@ -68,13 +79,13 @@ extension ContentView {
             Button {
                 model.useDeviceCamera()
                 if model.isCameraAvailable {
-                    model.navigateToNextPage(.plantPicture(.camera))
+                    model.navigateToPage(.plantPicture(.camera))
                 }
              } label: {
                  Label("Take a photo", systemImage: "camera")
              }
              Button {
-                 model.navigateToNextPage(.plantPicture(.library))
+                 model.navigateToPage(.plantPicture(.library))
              } label: {
                  Label("Pick existing", systemImage: "photo")
              }

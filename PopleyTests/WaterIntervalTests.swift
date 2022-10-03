@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Datez
 @testable import Popley
 
 final class WaterIntervalTests: XCTestCase {
@@ -57,5 +58,16 @@ final class WaterIntervalTests: XCTestCase {
             let interval = WaterInterval(days: day)
             XCTAssertEqual(expected[i], interval?.description)
         }
+    }
+    
+    func testRestrictingWateringRangeToOneDayLessThanWateringFrequency() {
+        let date = Date()
+        let waterEvery = 3
+        let expected: ClosedRange<Date> = (Date() - (3 - 1).day.timeInterval)...Date()
+        
+        let range = WaterIntervalPickerViewModel.makeDateRange(from: date, for: waterEvery)
+        
+        XCTAssertEqual(range.lowerBound.timeIntervalSince1970, expected.lowerBound.timeIntervalSince1970, accuracy: 0.1)
+        XCTAssertEqual(range.upperBound.timeIntervalSince1970, expected.upperBound.timeIntervalSince1970, accuracy: 0.1)
     }
 }

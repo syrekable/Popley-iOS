@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F103F4F628E5E297007648A7 /* DateComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103F4F528E5E297007648A7 /* DateComponentsTests.swift */; };
+		F103F4F828E6093A007648A7 /* NotificationSettings.TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103F4F728E6093A007648A7 /* NotificationSettings.TimeOfDay.swift */; };
 		F10D43D328D63778005C3D81 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D43D228D63778005C3D81 /* Model.swift */; };
 		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
+		F131714328E4946A005E759D /* AppSettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */; };
 		F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0428DDD853001163DB /* AddPlantPictureView.swift */; };
 		F1434C0728DDD91F001163DB /* AddPlantNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0628DDD91F001163DB /* AddPlantNameView.swift */; };
 		F1434C0928DDDA22001163DB /* AddPlantSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */; };
 		F1434C0C28DDEA2B001163DB /* WaterIntervalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0B28DDEA2B001163DB /* WaterIntervalPickerView.swift */; };
 		F1434C0E28DE0195001163DB /* AddPlantWaterIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0D28DE0195001163DB /* AddPlantWaterIntervalView.swift */; };
+		F1748A8F28E469B5005C6A8B /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A8E28E469B5005C6A8B /* NotificationSettings.swift */; };
+		F1748A9128E47425005C6A8B /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9028E47425005C6A8B /* AppSettingsView.swift */; };
+		F1748A9328E4824F005C6A8B /* NotificationSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */; };
+		F1748A9528E48635005C6A8B /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9428E48635005C6A8B /* AppSettingsViewModel.swift */; };
 		F17C291A28DCC8DF00E42CB9 /* MRE.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C291928DCC8DF00E42CB9 /* MRE.swift */; };
 		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
+		F183BAF828EB135100CA272A /* WaterIntervalPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F183BAF728EB135100CA272A /* WaterIntervalPickerViewModel.swift */; };
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
 		F1A81E4228E1EFAA000DCDC7 /* WaterIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */; };
@@ -41,6 +49,17 @@
 		F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */; };
 		F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A428CB82A6001159FA /* Interval.swift */; };
 		F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */; };
+		F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */; };
+		F1E21B5728E59FB20091D484 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5628E59FB20091D484 /* Date.swift */; };
+		F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */; };
+		F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */; };
+		F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5F28E5B38A0091D484 /* MockStorage.swift */; };
+		F1ED5BA928E6F43000C7EA13 /* NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BA828E6F43000C7EA13 /* NotificationTests.swift */; };
+		F1ED5BAB28E6F72D00C7EA13 /* MockStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */; };
+		F1ED5BAE28E6FF2F00C7EA13 /* NotificationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BAD28E6FF2F00C7EA13 /* NotificationManaging.swift */; };
+		F1ED5BB028E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BAF28E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift */; };
+		F1ED5BB228E700C900C7EA13 /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BB128E700C900C7EA13 /* MockNotificationCenter.swift */; };
+		F1ED5BB428E7471000C7EA13 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED5BB328E7471000C7EA13 /* ConditionalModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,15 +80,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F103F4F528E5E297007648A7 /* DateComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentsTests.swift; sourceTree = "<group>"; };
+		F103F4F728E6093A007648A7 /* NotificationSettings.TimeOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.TimeOfDay.swift; sourceTree = "<group>"; };
 		F10D43D228D63778005C3D81 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
+		F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModelTests.swift; sourceTree = "<group>"; };
 		F1434C0428DDD853001163DB /* AddPlantPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantPictureView.swift; sourceTree = "<group>"; };
 		F1434C0628DDD91F001163DB /* AddPlantNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantNameView.swift; sourceTree = "<group>"; };
 		F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantSummaryView.swift; sourceTree = "<group>"; };
 		F1434C0B28DDEA2B001163DB /* WaterIntervalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalPickerView.swift; sourceTree = "<group>"; };
 		F1434C0D28DE0195001163DB /* AddPlantWaterIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantWaterIntervalView.swift; sourceTree = "<group>"; };
+		F1748A8E28E469B5005C6A8B /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		F1748A9028E47425005C6A8B /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
+		F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTests.swift; sourceTree = "<group>"; };
+		F1748A9428E48635005C6A8B /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
 		F17C291928DCC8DF00E42CB9 /* MRE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MRE.swift; path = Popley/View/MRE.swift; sourceTree = "<group>"; };
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
+		F183BAF728EB135100CA272A /* WaterIntervalPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalPickerViewModel.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalTests.swift; sourceTree = "<group>"; };
 		F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalLabel.swift; sourceTree = "<group>"; };
@@ -96,6 +123,17 @@
 		F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptiveDateInterval.swift; sourceTree = "<group>"; };
 		F1D7E4A428CB82A6001159FA /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDescriptionTests.swift; sourceTree = "<group>"; };
+		F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+Extension.swift"; sourceTree = "<group>"; };
+		F1E21B5628E59FB20091D484 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorable.swift; sourceTree = "<group>"; };
+		F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		F1E21B5F28E5B38A0091D484 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
+		F1ED5BA828E6F43000C7EA13 /* NotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTests.swift; sourceTree = "<group>"; };
+		F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageTests.swift; sourceTree = "<group>"; };
+		F1ED5BAD28E6FF2F00C7EA13 /* NotificationManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManaging.swift; sourceTree = "<group>"; };
+		F1ED5BAF28E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNUserNotificationCenter+Extension.swift"; sourceTree = "<group>"; };
+		F1ED5BB128E700C900C7EA13 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
+		F1ED5BB328E7471000C7EA13 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +171,7 @@
 				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
-				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
+				F1748A9028E47425005C6A8B /* AppSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,7 +191,9 @@
 		F1A81E4028E1EF9F000DCDC7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F1BE15E728DC631300D94727 /* ButtonLabel.swift */,
 				F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */,
+				F1ED5BB328E7471000C7EA13 /* ConditionalModifier.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -162,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				F10D43D228D63778005C3D81 /* Model.swift */,
+				F1748A9428E48635005C6A8B /* AppSettingsViewModel.swift */,
+				F183BAF728EB135100CA272A /* WaterIntervalPickerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,6 +240,7 @@
 		F1D7E46528CB3DB9001159FA /* Popley */ = {
 			isa = PBXGroup;
 			children = (
+				F1E21B5828E5B2970091D484 /* Protocol */,
 				F1BE15E928DC640400D94727 /* ViewModel */,
 				F1BFABE128DB5A7900440419 /* UIViewRepresentable */,
 				F10D43D128D6371E005C3D81 /* View */,
@@ -227,6 +270,11 @@
 				F1C9451B28D212B30005345B /* PlantTests.swift */,
 				F181844228D32DB80077596E /* WaterIntervalTests.swift */,
 				F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */,
+				F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */,
+				F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */,
+				F103F4F528E5E297007648A7 /* DateComponentsTests.swift */,
+				F1ED5BA828E6F43000C7EA13 /* NotificationTests.swift */,
+				F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */,
 			);
 			path = PopleyTests;
 			sourceTree = "<group>";
@@ -243,6 +291,7 @@
 		F1D7E49028CB4903001159FA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F1E21B5B28E5B33C0091D484 /* Test */,
 				F1D7E49328CB4974001159FA /* Model */,
 				F1D7E49128CB4914001159FA /* CornerRadius.swift */,
 			);
@@ -254,6 +303,8 @@
 			children = (
 				F1D7E49428CB498D001159FA /* RoundedCorner.swift */,
 				F19A86A328D33F1A00C9EA4A /* DateInterval.swift */,
+				F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */,
+				F1E21B5628E59FB20091D484 /* Date.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,9 +320,11 @@
 		F1D7E4A128CB811E001159FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F1E21B5E28E5B37B0091D484 /* Mock */,
 				F1D7E4A628CB82AE001159FA /* Enums */,
 				F1D7E49F28CB8090001159FA /* Plant.swift */,
 				F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */,
+				F1748A8E28E469B5005C6A8B /* NotificationSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,8 +335,36 @@
 				F1D7E4A428CB82A6001159FA /* Interval.swift */,
 				F1BFABEA28DB61CD00440419 /* ImageSourcePicker.swift */,
 				F1BFABEC28DB6AD200440419 /* Page.swift */,
+				F103F4F728E6093A007648A7 /* NotificationSettings.TimeOfDay.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		F1E21B5828E5B2970091D484 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */,
+				F1ED5BAD28E6FF2F00C7EA13 /* NotificationManaging.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F1E21B5B28E5B33C0091D484 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F1E21B5C28E5B3540091D484 /* UserDefaults+Extension.swift */,
+				F1ED5BAF28E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		F1E21B5E28E5B37B0091D484 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				F1E21B5F28E5B38A0091D484 /* MockStorage.swift */,
+				F1ED5BB128E700C900C7EA13 /* MockNotificationCenter.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,25 +508,39 @@
 				F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */,
 				F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */,
 				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
+				F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */,
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
+				F1748A8F28E469B5005C6A8B /* NotificationSettings.swift in Sources */,
 				F1434C0928DDDA22001163DB /* AddPlantSummaryView.swift in Sources */,
+				F1ED5BAE28E6FF2F00C7EA13 /* NotificationManaging.swift in Sources */,
+				F1748A9528E48635005C6A8B /* AppSettingsViewModel.swift in Sources */,
 				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
 				F1A81E4228E1EFAA000DCDC7 /* WaterIntervalLabel.swift in Sources */,
 				F17C291A28DCC8DF00E42CB9 /* MRE.swift in Sources */,
 				F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */,
 				F1BFABED28DB6AD200440419 /* Page.swift in Sources */,
 				F1BFABEB28DB61CD00440419 /* ImageSourcePicker.swift in Sources */,
+				F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */,
+				F1748A9128E47425005C6A8B /* AppSettingsView.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
+				F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */,
 				F1434C0728DDD91F001163DB /* AddPlantNameView.swift in Sources */,
+				F1ED5BB028E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift in Sources */,
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
+				F183BAF828EB135100CA272A /* WaterIntervalPickerViewModel.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
+				F103F4F828E6093A007648A7 /* NotificationSettings.TimeOfDay.swift in Sources */,
 				F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */,
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
+				F1ED5BB228E700C900C7EA13 /* MockNotificationCenter.swift in Sources */,
+				F1E21B5728E59FB20091D484 /* Date.swift in Sources */,
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
+				F1ED5BB428E7471000C7EA13 /* ConditionalModifier.swift in Sources */,
 				F1434C0E28DE0195001163DB /* AddPlantWaterIntervalView.swift in Sources */,
 				F1434C0C28DDEA2B001163DB /* WaterIntervalPickerView.swift in Sources */,
+				F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */,
 				F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,10 +550,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C9451C28D212B30005345B /* PlantTests.swift in Sources */,
+				F1ED5BA928E6F43000C7EA13 /* NotificationTests.swift in Sources */,
+				F1748A9328E4824F005C6A8B /* NotificationSettingsTests.swift in Sources */,
 				F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */,
+				F103F4F628E5E297007648A7 /* DateComponentsTests.swift in Sources */,
+				F1ED5BAB28E6F72D00C7EA13 /* MockStorageTests.swift in Sources */,
 				F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */,
 				F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */,
 				F1D7E47828CB3DBA001159FA /* PopleyTests.swift in Sources */,
+				F131714328E4946A005E759D /* AppSettingsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

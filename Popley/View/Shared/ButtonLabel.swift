@@ -20,7 +20,7 @@ struct ButtonLabel: View {
         .padding()
         .foregroundColor(Color("Secondary"))
         .background {
-            Color("Accent")
+            Color.accentColor
         }
         .cornerRadius(15)
     }

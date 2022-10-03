@@ -7,19 +7,7 @@
 
 import Foundation
 
+/// Enum for working with seleted intervals - days, weeks and months.
 enum Interval: String, CaseIterable, Hashable {
     case day, week, month
-    
-    static var allCases: [Interval] {
-        [.day, .week, .month]
-    }
 }
-
-/*
- extension Interval: CustomStringConvertible {
-     var description: String {
-         self.rawValue.capitalized
-     }
- }
- */
-
