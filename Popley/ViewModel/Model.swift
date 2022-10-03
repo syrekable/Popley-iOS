@@ -88,19 +88,14 @@ extension Model {
         content.subtitle = "Your plants are thirsty!"
         content.body = "At least one of your plants needs water. Open Popley to find out, which!"
 
-        let storedNotificationTime: TimeInterval =  storage
-                .double(
-                    forKey:
-                        AppSettingsViewModel.userDefaultsKeys["time"]!
-                )
+        let storedNotificationTime: TimeInterval =  storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!)
         
         // desperation over declarativeness
         let triggerTime =  Date().distance(to: plant.timeToWater.end) + storedNotificationTime - Date().timeIntervalSince1970
-        
-        print("Trigger time in Model: \(triggerTime)")
 
         let trigger: UNTimeIntervalNotificationTrigger? = UNTimeIntervalNotificationTrigger(timeInterval: triggerTime, repeats: false)
         
+        // TODO: meaningful request id
         return UNNotificationRequest(identifier: "id", content: content, trigger: trigger)
     }
 }
@@ -117,5 +112,14 @@ extension Model {
             isCameraAlertShown = true
             cameraError = ImageSourcePicker.CameraErrorType(error: error as! ImageSourcePicker.PickerError)
         }
+    }
+}
+
+// MARK: states for UI testing
+extension Model {
+    static func withNotificationsEnabled() -> Model {
+        let model = Model()
+        model.isNotificationAuthorized = true
+        return model
     }
 }
