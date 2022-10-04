@@ -26,6 +26,7 @@ struct Plant: Identifiable, Codable {
     }
 }
 
+// MARK: Hashable
 extension Plant: Hashable {
     static func == (lhs: Plant, rhs: Plant) -> Bool {
         return lhs.id == rhs.id
