@@ -14,7 +14,7 @@ import Foundation
 typealias WaterInterval = DescriptiveDateInterval
 
 /// A type facilitates periodical temporal operations. It's used for convenience when working with anything that requires to be repeated after a certain count of intervals.
-struct DescriptiveDateInterval: Hashable {
+struct DescriptiveDateInterval: Hashable, Codable {
     var frequency: Int
     var interval: Interval
     

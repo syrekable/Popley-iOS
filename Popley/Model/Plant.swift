@@ -9,7 +9,7 @@ import Foundation
 import Datez
 import UIKit
 
-struct Plant: Identifiable {
+struct Plant: Identifiable, Codable {
     var id: UUID
     var name: String
     var imageWrapper: UIImageWrapper

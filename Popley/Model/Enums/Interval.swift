@@ -8,6 +8,6 @@
 import Foundation
 
 /// Enum for working with seleted intervals - days, weeks and months.
-enum Interval: String, CaseIterable, Hashable {
+enum Interval: String, CaseIterable, Hashable, Codable {
     case day, week, month
 }
