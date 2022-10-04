@@ -106,4 +106,11 @@ final class PlantTests: XCTestCase {
             .asDescriptiveDateInterval
             .description)
     }
+    
+    func testNegativeTimeToWater() {
+        let lastWaterDate = Date() - 2.day.timeInterval
+        let plant = Plant(waterInterval: WaterInterval(), lastWaterDate: lastWaterDate)
+        
+        XCTAssertEqual(plant.timeToWater.duration.totalDays, 0)
+    }
 }

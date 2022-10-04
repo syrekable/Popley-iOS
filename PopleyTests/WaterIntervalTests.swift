@@ -70,4 +70,11 @@ final class WaterIntervalTests: XCTestCase {
         XCTAssertEqual(range.lowerBound.timeIntervalSince1970, expected.lowerBound.timeIntervalSince1970, accuracy: 0.1)
         XCTAssertEqual(range.upperBound.timeIntervalSince1970, expected.upperBound.timeIntervalSince1970, accuracy: 0.1)
     }
+    
+    func testCryForWater() {
+        let lastWaterDate = Date() - 2.day.timeInterval
+        let plant = Plant(waterInterval: WaterInterval(), lastWaterDate: lastWaterDate)
+        
+        XCTAssertEqual(plant.timeToWater.asDescriptiveDateInterval.description, "Today!")
+    }
 }

@@ -58,8 +58,14 @@ extension DescriptiveDateInterval {
 // I resort to creating this type in order to have human-readable interval information
 extension DescriptiveDateInterval: CustomStringConvertible {
     var description: String {
-        let interval = self.frequency > 1 || self.frequency == 0 ? "\(self.interval)s" : self.interval.rawValue
-        return "\(self.frequency) \(interval)"
+        var _description: String?
+        if frequency > 0 {
+            let interval = frequency > 1 || frequency == 0 ? "\(interval)s" : interval.rawValue
+            _description = "\(frequency) \(interval)"
+        } else {
+            _description = "Today!"
+        }
+        return _description!
     }
 }
 

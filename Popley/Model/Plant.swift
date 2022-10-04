@@ -35,11 +35,16 @@ extension Plant: Hashable {
 
 // MARK: methods and computed properties
 extension Plant {
-    // FIXME: negative dates
-    var timeToWater: DateInterval {
+    var timeToWater: DateInterval  {
+        var _timeToWater: DateInterval?
         let lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
         let _remainingTimeToWater = ceil(waterInterval.asTimeInterval - lastWateringUntilNow.duration)
-        return DateInterval(start: Date(), duration: _remainingTimeToWater)
+        if _remainingTimeToWater > 0 {
+            _timeToWater = DateInterval(start: Date(), duration: _remainingTimeToWater)
+        } else {
+            _timeToWater = DateInterval()
+        }
+        return _timeToWater!
     }
     
     mutating func water() -> Void {
