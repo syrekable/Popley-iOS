@@ -28,4 +28,27 @@ extension FileManager {
             throw MyImageError.readImageError
         }
     }
+    
+    func saveDocument(contents: String) throws {
+        let url = Self.docDirURL.appendingPathComponent(fileName)
+        do {
+            try contents.write(to: url, atomically: true, encoding: .utf8)
+        } catch {
+            throw MyImageError.saveError
+        }
+    }
+    
+    func saveImage(_ id: String, image: UIImage) throws {
+        // TODO: think about the compression quality
+        if let data = image.jpegData(compressionQuality: 0.75) {
+            let imageURL = FileManager.docDirURL.appendingPathComponent("\(id).jpeg")
+            do {
+                try data.write(to: imageURL)
+            } catch {
+                throw MyImageError.saveImageError
+            }
+        } else {
+            throw MyImageError.saveImageError
+        }
+    }
 }

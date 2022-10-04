@@ -21,6 +21,8 @@ class Model: ObservableObject {
     @Published var isNotificationAuthorized = false
     
     private var storage: KeyValueStorable
+    // workaround for adopting picture saving logic presented in 'My Images' app series
+    private var plantPicture: UIImage?
     
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
         self.storage = storage
@@ -46,16 +48,25 @@ extension Model {
 extension Model {
     func createPlant(named name: String, withPicture picture: UIImage, wateredEvery days: Int, lastWatered date: Date) -> Plant {
         let interval = WaterInterval(days: days)!
-        let plant = Plant(name: name, picture: picture, waterInterval: interval, lastWaterDate: date)
+        let plant = Plant(name: name, waterInterval: interval, lastWaterDate: date)
+        plantPicture = picture
         return plant
     }
     
     // TODO: completion handle if scheduling notification fails
     /// Adds a new `plant` to the user's collection, optionally scheduling notification for watering if none is set for `plant.TimeToWater`.
     func addPlant(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
+        if let image = self.plantPicture {
+            do {
+                try FileManager().saveImage("\(plant.id)", image: image)
+            } catch {
+                fatalError("Wzięło i zdechło")
+            }
+        }
         let request = makeRequest(for: plant)
         manager.add(request, withCompletionHandler: nil)
         plants.append(plant)
+        saveMyImagesJSONFile()
     }
 }
 
@@ -121,5 +132,32 @@ extension Model {
         let model = Model()
         model.isNotificationAuthorized = true
         return model
+    }
+}
+
+// MARK: data persistence
+extension Model {
+    // TODO: show caught errors
+    private func saveMyImagesJSONFile() {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(plants)
+            let jsonString = String(decoding: data, as: UTF8.self)
+            do {
+                try FileManager().saveDocument(contents: jsonString)
+            } catch {
+                /*
+                 isFileAlertShown = true
+                 appError = MyImageError.ErrorType(error: error as! MyImageError)
+                 */
+                print(error.localizedDescription)
+            }
+        } catch {
+            /*
+             isFileAlertShown = true
+             appError = MyImageError.ErrorType(error: .encodingError)
+             */
+            print(error.localizedDescription)
+        }
     }
 }
