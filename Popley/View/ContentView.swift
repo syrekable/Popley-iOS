@@ -66,6 +66,12 @@ struct ContentView: View {
                     }
                 }
             }
+            .sheet(isPresented: $model.isShowingThirstyPlants) {
+                Text("I'm thirsty!")
+            }
+            .onAppear {
+                model.checkForThirstyPlants()
+            }
         }
     }
 }
@@ -73,8 +79,16 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(Model())
+        NavigationStack {
+            ContentView()
+                .environmentObject(Model.withWateredPlants())
+        }
+            .previewDisplayName("With watered plants")
+        NavigationStack {
+            ContentView()
+                .environmentObject(Model.withThirstyPlants())
+        }
+            .previewDisplayName("With thirsty plants")
     }
 }
 

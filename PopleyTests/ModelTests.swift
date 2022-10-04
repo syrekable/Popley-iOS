@@ -12,7 +12,15 @@ import Datez
 final class ModelTests: XCTestCase {
     func testShowingThirstyPlants() {
         let model = Model.withThirstyPlants()
+        model.checkForThirstyPlants()
         
-        XCTAssert(model.isShowingThirstyPlants)
+        XCTAssertTrue(model.isShowingThirstyPlants)
+    }
+    
+    func testShowingWateredPlants() {
+        let model = Model.withWateredPlants()
+        model.checkForThirstyPlants()
+        
+        XCTAssertFalse(model.isShowingThirstyPlants)
     }
 }

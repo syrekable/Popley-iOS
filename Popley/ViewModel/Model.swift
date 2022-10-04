@@ -19,6 +19,7 @@ class Model: ObservableObject {
     @Published var cameraError: ImageSourcePicker.CameraErrorType?
     
     @Published var isNotificationAuthorized = false
+    @Published var isShowingThirstyPlants: Bool = false
     
     private var storage: KeyValueStorable
     // workaround for adopting picture saving logic presented in 'My Images' app series
@@ -78,10 +79,15 @@ extension Model {
         plants.append(plant)
         saveMyImagesJSONFile()
     }
-    
-    var isShowingThirstyPlants: Bool {
-        return plants.contains(where: { plant in plant.timeToWater.duration <= 0} )
+
+    // blegh
+    /// A procedure that checks if there are any `plants` with `timeToWater <= 0` and sets `isShowingThirstyPlants`.
+    ///
+    /// The only reason it exists is that `sheet` needs `Binding<Bool>` instead of `Bool`, which could have been a computed property.
+    func checkForThirstyPlants() {
+        isShowingThirstyPlants = plants.contains(where: { plant in plant.timeToWater.duration <= 0} )
     }
+    
 }
 
 // MARK: notifications
@@ -151,6 +157,13 @@ extension Model {
     static func withThirstyPlants() -> Model {
         let model = Model()
         model.plants = Plant.thirstyPlants
+        model.didLaunchBefore = true
+        return model
+    }
+    static func withWateredPlants() -> Model {
+        let model = Model()
+        model.plants = Plant.sampleData
+        model.didLaunchBefore = true
         return model
     }
 }
