@@ -12,7 +12,7 @@ import UIKit
 struct Plant: Identifiable, Hashable {
     var id: UUID
     var name: String
-    var picture: UIImage
+    var picture: MyImage
     var waterInterval: WaterInterval
     var lastWaterDate: Date
     
@@ -30,7 +30,7 @@ struct Plant: Identifiable, Hashable {
     init(name: String, picture: UIImage? = nil, waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
         self.id = UUID()
         self.name = name
-        self.picture = picture ?? UIImage(systemName: "photo")!
+        self.picture = picture
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }
