@@ -99,6 +99,7 @@ extension Model {
         content.subtitle = "Your plants are thirsty!"
         content.body = "At least one of your plants needs water. Open Popley to find out, which!"
 
+        // FIXME: disintegrates on first launch due to this
         let storedNotificationTime: TimeInterval =  storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!)
         
         // desperation over declarativeness
