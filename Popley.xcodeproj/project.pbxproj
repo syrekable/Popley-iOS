@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F103F4F628E5E297007648A7 /* DateComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103F4F528E5E297007648A7 /* DateComponentsTests.swift */; };
 		F10D43D328D63778005C3D81 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D43D228D63778005C3D81 /* Model.swift */; };
+		F11A1C8828EC39FE0022E326 /* UIImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A1C8728EC39FE0022E326 /* UIImageWrapper.swift */; };
+		F11A1C8A28EC3A360022E326 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A1C8928EC3A360022E326 /* FileManager+Extension.swift */; };
+		F11A1C8D28EC3AC90022E326 /* MyImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A1C8C28EC3AC90022E326 /* MyImageError.swift */; };
 		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
 		F131714328E4946A005E759D /* AppSettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */; };
 		F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0428DDD853001163DB /* AddPlantPictureView.swift */; };
@@ -20,7 +23,6 @@
 		F1748A9128E47425005C6A8B /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9028E47425005C6A8B /* AppSettingsView.swift */; };
 		F1748A9328E4824F005C6A8B /* NotificationSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */; };
 		F1748A9528E48635005C6A8B /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9428E48635005C6A8B /* AppSettingsViewModel.swift */; };
-		F17C291A28DCC8DF00E42CB9 /* MRE.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C291928DCC8DF00E42CB9 /* MRE.swift */; };
 		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
 		F183BAF828EB135100CA272A /* WaterIntervalPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F183BAF728EB135100CA272A /* WaterIntervalPickerViewModel.swift */; };
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
@@ -81,6 +83,9 @@
 /* Begin PBXFileReference section */
 		F103F4F528E5E297007648A7 /* DateComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentsTests.swift; sourceTree = "<group>"; };
 		F10D43D228D63778005C3D81 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F11A1C8728EC39FE0022E326 /* UIImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageWrapper.swift; sourceTree = "<group>"; };
+		F11A1C8928EC3A360022E326 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		F11A1C8C28EC3AC90022E326 /* MyImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageError.swift; sourceTree = "<group>"; };
 		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
 		F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModelTests.swift; sourceTree = "<group>"; };
 		F1434C0428DDD853001163DB /* AddPlantPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantPictureView.swift; sourceTree = "<group>"; };
@@ -92,7 +97,6 @@
 		F1748A9028E47425005C6A8B /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
 		F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTests.swift; sourceTree = "<group>"; };
 		F1748A9428E48635005C6A8B /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
-		F17C291928DCC8DF00E42CB9 /* MRE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MRE.swift; path = Popley/View/MRE.swift; sourceTree = "<group>"; };
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F183BAF728EB135100CA272A /* WaterIntervalPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalPickerViewModel.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
@@ -174,6 +178,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F11A1C8B28EC3AC20022E326 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F11A1C8C28EC3AC90022E326 /* MyImageError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		F1434C0A28DDDE3F001163DB /* AddPlant */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +229,6 @@
 		F1D7E45A28CB3DB9001159FA = {
 			isa = PBXGroup;
 			children = (
-				F17C291928DCC8DF00E42CB9 /* MRE.swift */,
 				F1D7E46528CB3DB9001159FA /* Popley */,
 				F1D7E47628CB3DBA001159FA /* PopleyTests */,
 				F1D7E48028CB3DBA001159FA /* PopleyUITests */,
@@ -238,6 +249,7 @@
 		F1D7E46528CB3DB9001159FA /* Popley */ = {
 			isa = PBXGroup;
 			children = (
+				F11A1C8B28EC3AC20022E326 /* Error */,
 				F1E21B5828E5B2970091D484 /* Protocol */,
 				F1BE15E928DC640400D94727 /* ViewModel */,
 				F1BFABE128DB5A7900440419 /* UIViewRepresentable */,
@@ -303,6 +315,7 @@
 				F19A86A328D33F1A00C9EA4A /* DateInterval.swift */,
 				F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */,
 				F1E21B5628E59FB20091D484 /* Date.swift */,
+				F11A1C8928EC3A360022E326 /* FileManager+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +336,7 @@
 				F1D7E49F28CB8090001159FA /* Plant.swift */,
 				F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */,
 				F1748A8E28E469B5005C6A8B /* NotificationSettings.swift */,
+				F11A1C8728EC39FE0022E326 /* UIImageWrapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -511,11 +525,13 @@
 				F1748A8F28E469B5005C6A8B /* NotificationSettings.swift in Sources */,
 				F1434C0928DDDA22001163DB /* AddPlantSummaryView.swift in Sources */,
 				F1ED5BAE28E6FF2F00C7EA13 /* NotificationManaging.swift in Sources */,
+				F11A1C8A28EC3A360022E326 /* FileManager+Extension.swift in Sources */,
+				F11A1C8D28EC3AC90022E326 /* MyImageError.swift in Sources */,
 				F1748A9528E48635005C6A8B /* AppSettingsViewModel.swift in Sources */,
 				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
 				F1A81E4228E1EFAA000DCDC7 /* WaterIntervalLabel.swift in Sources */,
-				F17C291A28DCC8DF00E42CB9 /* MRE.swift in Sources */,
 				F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */,
+				F11A1C8828EC39FE0022E326 /* UIImageWrapper.swift in Sources */,
 				F1BFABED28DB6AD200440419 /* Page.swift in Sources */,
 				F1BFABEB28DB61CD00440419 /* ImageSourcePicker.swift in Sources */,
 				F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */,
