@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct MyImage: Identifiable, Codable {
-    var id = UUID()
+struct MyImage: Identifiable, Hashable, Codable {
+    let id: UUID
     
     var image: UIImage {
         do {

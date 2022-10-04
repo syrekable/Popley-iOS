@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+let fileName = "Popley.json"
+
 extension FileManager {
     static var docDirURL: URL {
         return Self.default.urls(for: .documentDirectory, in: .userDomainMask).first!
