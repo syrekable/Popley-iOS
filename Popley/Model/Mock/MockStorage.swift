@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// Class used for testing anything that needs access to UserDefaults or that kind of storage.
+///
+/// Although it could be used directly, it is advised to get storage from provided static builder methods.
 class MockStorage: KeyValueStorable {
     private var doubleStore: [String: Double] = [:]
     private var boolStore: [String: Bool] = [:]

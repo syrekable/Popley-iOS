@@ -51,6 +51,7 @@
 		F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A428CB82A6001159FA /* Interval.swift */; };
 		F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */; };
 		F1DDD8DA28EC753900745565 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DDD8D928EC753900745565 /* ModelTests.swift */; };
+		F1DDD8DC28EC912200745565 /* PlantRowCompact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */; };
 		F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */; };
 		F1E21B5728E59FB20091D484 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5628E59FB20091D484 /* Date.swift */; };
 		F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */; };
@@ -127,6 +128,7 @@
 		F1D7E4A428CB82A6001159FA /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDescriptionTests.swift; sourceTree = "<group>"; };
 		F1DDD8D928EC753900745565 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRowCompact.swift; sourceTree = "<group>"; };
 		F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+Extension.swift"; sourceTree = "<group>"; };
 		F1E21B5628E59FB20091D484 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorable.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
 				F1748A9028E47425005C6A8B /* AppSettingsView.swift */,
+				F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,17 +280,12 @@
 		F1D7E47628CB3DBA001159FA /* PopleyTests */ = {
 			isa = PBXGroup;
 			children = (
+				F1DDD8DF28EC939100745565 /* Mock */,
+				F1DDD8DE28EC938300745565 /* ViewModel */,
+				F1DDD8DD28EC937400745565 /* Model */,
 				F1D7E47728CB3DBA001159FA /* PopleyTests.swift */,
-				F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */,
-				F1C9451B28D212B30005345B /* PlantTests.swift */,
-				F181844228D32DB80077596E /* WaterIntervalTests.swift */,
-				F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */,
-				F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */,
-				F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */,
-				F103F4F528E5E297007648A7 /* DateComponentsTests.swift */,
 				F1ED5BA828E6F43000C7EA13 /* NotificationTests.swift */,
-				F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */,
-				F1DDD8D928EC753900745565 /* ModelTests.swift */,
+				F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */,
 			);
 			path = PopleyTests;
 			sourceTree = "<group>";
@@ -352,6 +350,35 @@
 				F1BFABEC28DB6AD200440419 /* Page.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		F1DDD8DD28EC937400745565 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */,
+				F181844228D32DB80077596E /* WaterIntervalTests.swift */,
+				F103F4F528E5E297007648A7 /* DateComponentsTests.swift */,
+				F1C9451B28D212B30005345B /* PlantTests.swift */,
+				F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1DDD8DE28EC938300745565 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F131714228E4946A005E759D /* AppSettingsViewModelTests.swift */,
+				F1DDD8D928EC753900745565 /* ModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F1DDD8DF28EC939100745565 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED5BAA28E6F72D00C7EA13 /* MockStorageTests.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		F1E21B5828E5B2970091D484 /* Protocol */ = {
@@ -540,6 +567,7 @@
 				F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */,
 				F1748A9128E47425005C6A8B /* AppSettingsView.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
+				F1DDD8DC28EC912200745565 /* PlantRowCompact.swift in Sources */,
 				F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */,
 				F1434C0728DDD91F001163DB /* AddPlantNameView.swift in Sources */,
 				F1ED5BB028E6FFA400C7EA13 /* UNUserNotificationCenter+Extension.swift in Sources */,

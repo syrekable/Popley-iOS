@@ -65,6 +65,7 @@ extension Model {
     }
     
     // TODO: completion handle if scheduling notification fails
+    // TODO: refactor; manager as self.manager
     /// Adds a new `plant` to the user's collection, optionally scheduling notification for watering if none is set for `plant.TimeToWater`.
     func addPlant(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
         if let image = self.plantPicture {
@@ -80,7 +81,6 @@ extension Model {
         saveMyImagesJSONFile()
     }
 
-    // blegh
     /// A procedure that checks if there are any `plants` with `timeToWater <= 0` and sets `isShowingThirstyPlants`.
     ///
     /// The only reason it exists is that `sheet` needs `Binding<Bool>` instead of `Bool`, which could have been a computed property.
@@ -88,6 +88,14 @@ extension Model {
         isShowingThirstyPlants = plants.contains(where: { plant in plant.timeToWater.duration <= 0} )
     }
     
+    /// Resets the last watering time of `plant` and schedules reminder for next watering.
+    func water(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
+        var _plant = plant
+        _plant.water()
+        let request = makeRequest(for: _plant)
+        manager.add(request, withCompletionHandler: nil)
+        plants.replace([plant], with: [_plant]) // I'm kinda scared
+    }
 }
 
 // MARK: notifications
@@ -119,7 +127,6 @@ extension Model {
         content.subtitle = "Your plants are thirsty!"
         content.body = "At least one of your plants needs water. Open Popley to find out, which!"
 
-        // FIXME: disintegrates on first launch due to this
         let storedNotificationTime: TimeInterval =  storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!)
         
         // desperation over declarativeness
@@ -149,19 +156,19 @@ extension Model {
 
 // MARK: states for UI/unit testing
 extension Model {
-    static func withNotificationsEnabled() -> Model {
-        let model = Model()
+    static func withNotificationsEnabled(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
+        let model = Model(readFrom: storage)
         model.isNotificationAuthorized = true
         return model
     }
-    static func withThirstyPlants() -> Model {
-        let model = Model()
+    static func withThirstyPlants(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
+        let model = Model(readFrom: storage)
         model.plants = Plant.thirstyPlants
         model.didLaunchBefore = true
         return model
     }
-    static func withWateredPlants() -> Model {
-        let model = Model()
+    static func withWateredPlants(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
+        let model = Model(readFrom: storage)
         model.plants = Plant.sampleData
         model.didLaunchBefore = true
         return model

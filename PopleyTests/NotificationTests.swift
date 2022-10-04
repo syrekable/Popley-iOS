@@ -16,7 +16,7 @@ final class NotificationTests: XCTestCase {
     /// * asserts count of the requests is equal to `desired`
     /// * checks if the trigger(s) created succesfully
     /// * checks if the date (expressed as `TimeInterval`) is in accurate enough
-    private func doTest(notificationManager: NotificationManaging, expected: Date, desired count: Int = 1) {
+    static func doTest(notificationManager: NotificationManaging, expected: Date, desired count: Int = 1) {
         notificationManager.getPendingNotificationRequests { requests in
             XCTAssert(!requests.isEmpty)
             XCTAssertEqual(requests.count, count)
@@ -45,7 +45,7 @@ final class NotificationTests: XCTestCase {
             .addingTimeInterval(storedNotificationTime)
         model.addPlant(plant, notificationManager: notificationManager)
         
-        doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
+        Self.doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
     }
     
     func testEveryThreeDaysTriggerWithSpecificHour() {
@@ -61,7 +61,7 @@ final class NotificationTests: XCTestCase {
         
         model.addPlant(plant, notificationManager: notificationManager)
         
-        doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
+        Self.doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
     }
     
     func testEveryTwoWeeksTriggerWithConvenience() {
@@ -80,7 +80,7 @@ final class NotificationTests: XCTestCase {
         
         model.addPlant(plant, notificationManager: notificationManager)
         
-        doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
+        Self.doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
     }
     
     func testEveryTwoMonthsTriggerWithSpecificHour() {
@@ -96,6 +96,6 @@ final class NotificationTests: XCTestCase {
         
         model.addPlant(plant, notificationManager: notificationManager)
         
-        doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
+        Self.doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
     }
 }
