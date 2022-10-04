@@ -22,6 +22,7 @@ class AppSettingsViewModel: ObservableObject {
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
         // depencendy injection gone wild
         self.storage = storage
+        storage.set(true, forKey: AppSettingsViewModel.userDefaultsKeys["launched-before"]!)
         
         let timeInterval: TimeInterval = storage.double(forKey: Self.userDefaultsKeys["time"]!)
         if timeInterval > 0 {
@@ -50,7 +51,10 @@ class AppSettingsViewModel: ObservableObject {
 
 // MARK: userDefaultsKeys
 extension AppSettingsViewModel {
-    static let userDefaultsKeys: [String: String] = ["time": "NOTIFICATION_TIME"]
+    static let userDefaultsKeys: [String: String] = [
+        "time": "NOTIFICATION_TIME",
+        "launched-before": "LAUNCHED_BEFORE"
+    ]
 }
 
 // MARK: set notification time
