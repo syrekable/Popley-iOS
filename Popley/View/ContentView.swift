@@ -24,6 +24,11 @@ struct ContentView: View {
                         PlantRow(plant: plant,
                                  navigateToPlantDetailsAction: model.navigateToPlant)
                     }
+                    .task {
+                        if FileManager().documentExist(named: fileName) {
+                            model.loadMyImagesJSONFile()
+                        }
+                    }
                     .navigationDestination(for: Plant.self) { plant in
                         PlantDetails(plant: plant)
                     }
@@ -73,6 +78,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+// MARK: grouped subviews
 extension ContentView {
     var imageSourcePickerContextMenu: some View {
         Menu {
