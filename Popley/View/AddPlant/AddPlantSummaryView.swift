@@ -95,12 +95,12 @@ struct AddPlantSummaryView_Previews: PreviewProvider {
     static let plant = Plant.sampleData.last!
     static var previews: some View {
         NavigationStack {
-            AddPlantSummaryView(name: plant.name, image: plant.picture, wateredEvery: plant.waterInterval.frequency, lastWatered: Date())
+            AddPlantSummaryView(name: plant.name, image: plant.imageWrapper.image, wateredEvery: plant.waterInterval.frequency, lastWatered: Date())
                 .environmentObject(Model())
         }
             .previewDisplayName("Notifications disabled")
         NavigationStack {
-            AddPlantSummaryView(name: plant.name, image: plant.picture, wateredEvery: plant.waterInterval.frequency, lastWatered: Date())
+            AddPlantSummaryView(name: plant.name, image: plant.imageWrapper.image, wateredEvery: plant.waterInterval.frequency, lastWatered: Date())
                 .environmentObject(Model.withNotificationsEnabled())
                 
         }

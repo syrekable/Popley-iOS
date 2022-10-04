@@ -10,9 +10,9 @@ import SwiftUI
 
 //@MainActor
 class Model: ObservableObject {
-    @Published var path = NavigationPath()
+    @Published var path: NavigationPath
     
-    @Published var plants: [Plant] = Plant.sampleData
+    @Published var plants = [Plant]()
     
     @Published var isCameraAvailable = false
     @Published var isCameraAlertShown = false
@@ -21,9 +21,21 @@ class Model: ObservableObject {
     @Published var isNotificationAuthorized = false
     
     private var storage: KeyValueStorable
+    // workaround for adopting picture saving logic presented in 'My Images' app series
+    private var plantPicture: UIImage?
+    private var didLaunchBefore: Bool
     
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
         self.storage = storage
+        self.didLaunchBefore = storage.bool(forKey: AppSettingsViewModel.userDefaultsKeys["launched-before"]!)
+        var _path: NavigationPath?
+        if didLaunchBefore {
+            _path = NavigationPath()
+        } else {
+            _path = NavigationPath([Page.appSettings])
+        }
+        self.path = _path!
+        loadMyImagesJSONFile()
     }
 }
 
@@ -46,16 +58,25 @@ extension Model {
 extension Model {
     func createPlant(named name: String, withPicture picture: UIImage, wateredEvery days: Int, lastWatered date: Date) -> Plant {
         let interval = WaterInterval(days: days)!
-        let plant = Plant(name: name, picture: picture, waterInterval: interval, lastWaterDate: date)
+        let plant = Plant(name: name, waterInterval: interval, lastWaterDate: date)
+        plantPicture = picture
         return plant
     }
     
     // TODO: completion handle if scheduling notification fails
     /// Adds a new `plant` to the user's collection, optionally scheduling notification for watering if none is set for `plant.TimeToWater`.
     func addPlant(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
+        if let image = self.plantPicture {
+            do {
+                try FileManager().saveImage("\(plant.id)", image: image)
+            } catch {
+                fatalError("Wzięło i zdechło")
+            }
+        }
         let request = makeRequest(for: plant)
         manager.add(request, withCompletionHandler: nil)
         plants.append(plant)
+        saveMyImagesJSONFile()
     }
 }
 
@@ -88,6 +109,7 @@ extension Model {
         content.subtitle = "Your plants are thirsty!"
         content.body = "At least one of your plants needs water. Open Popley to find out, which!"
 
+        // FIXME: disintegrates on first launch due to this
         let storedNotificationTime: TimeInterval =  storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!)
         
         // desperation over declarativeness
@@ -121,5 +143,52 @@ extension Model {
         let model = Model()
         model.isNotificationAuthorized = true
         return model
+    }
+}
+
+// MARK: data persistence
+// TODO: show caught read/write errors
+extension Model {
+    private func saveMyImagesJSONFile() {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(plants)
+            let jsonString = String(decoding: data, as: UTF8.self)
+            do {
+                try FileManager().saveDocument(contents: jsonString)
+            } catch {
+                /*
+                 isFileAlertShown = true
+                 appError = MyImageError.ErrorType(error: error as! MyImageError)
+                 */
+                print(error.localizedDescription)
+            }
+        } catch {
+            /*
+             isFileAlertShown = true
+             appError = MyImageError.ErrorType(error: .encodingError)
+             */
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loadMyImagesJSONFile() {
+        do {
+            let data = try FileManager().readDocument()
+            let decoder = JSONDecoder()
+            do {
+                plants = try decoder.decode([Plant].self, from: data)
+            } catch {
+                /*
+                 isFileAlertShown = true
+                 appError = MyImageError.ErrorType(error: .decodingError)
+                 */
+            }
+        } catch {
+            /*
+             isFileAlertShown = true
+             appError = MyImageError.ErrorType(error: error as! MyImageError)
+             */
+        }
     }
 }

@@ -9,13 +9,32 @@ import Foundation
 import Datez
 import UIKit
 
-struct Plant: Identifiable, Hashable {
+struct Plant: Identifiable, Codable {
     var id: UUID
     var name: String
-    var picture: UIImage
+    var imageWrapper: UIImageWrapper
     var waterInterval: WaterInterval
     var lastWaterDate: Date
     
+    init(name: String, picture: UIImage? = nil, waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
+        let id = UUID()
+        self.id = id
+        self.name = name
+        self.imageWrapper = UIImageWrapper(id: id)
+        self.waterInterval = waterInterval
+        self.lastWaterDate = lastWaterDate ?? Date()
+    }
+}
+
+// MARK: Hashable
+extension Plant: Hashable {
+    static func == (lhs: Plant, rhs: Plant) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+// MARK: methods and computed properties
+extension Plant {
     // FIXME: negative dates
     var timeToWater: DateInterval {
         let lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
@@ -25,14 +44,6 @@ struct Plant: Identifiable, Hashable {
     
     mutating func water() -> Void {
         self.lastWaterDate = Date()
-    }
-    
-    init(name: String, picture: UIImage? = nil, waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
-        self.id = UUID()
-        self.name = name
-        self.picture = picture ?? UIImage(systemName: "photo")!
-        self.waterInterval = waterInterval
-        self.lastWaterDate = lastWaterDate ?? Date()
     }
 }
 
@@ -48,9 +59,10 @@ extension Plant {
 // MARK: constructor for tests
 extension Plant {
     init(waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
-        self.id = UUID()
+        let id = UUID()
+        self.id = id
         self.name = "IR"
-        self.picture = UIImage(systemName: "photo")!
+        self.imageWrapper = UIImageWrapper(id: id)
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }

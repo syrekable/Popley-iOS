@@ -10,4 +10,6 @@ import Foundation
 protocol KeyValueStorable {
     func double(forKey: String) -> Double
     func set(_: Double, forKey: String)
+    func bool(forKey: String) -> Bool
+    func set(_: Bool, forKey: String)
 }
