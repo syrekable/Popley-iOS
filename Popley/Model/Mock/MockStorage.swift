@@ -8,15 +8,25 @@
 import Foundation
 
 class MockStorage: KeyValueStorable {
-    private var store: [String: Double] = [:]
+    private var doubleStore: [String: Double] = [:]
+    private var boolStore: [String: Bool] = [:]
     
     func double(forKey key: String) -> Double {
-        guard let value = store[key] else { return 0 }
+        guard let value = doubleStore[key] else { return 0 }
         return value
     }
     
     func set(_ value: Double, forKey key: String) {
-        store[key] = value
+        doubleStore[key] = value
+    }
+    
+    func bool(forKey key: String) -> Bool {
+        guard let value = boolStore[key] else { return false }
+        return value
+    }
+    
+    func set(_ value: Bool, forKey key: String) {
+        boolStore[key] = value
     }
 }
 

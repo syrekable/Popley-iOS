@@ -10,7 +10,7 @@ import SwiftUI
 
 //@MainActor
 class Model: ObservableObject {
-    @Published var path = NavigationPath()
+    @Published var path: NavigationPath
     
     @Published var plants = [Plant]()
     
@@ -23,9 +23,18 @@ class Model: ObservableObject {
     private var storage: KeyValueStorable
     // workaround for adopting picture saving logic presented in 'My Images' app series
     private var plantPicture: UIImage?
+    private var didLaunchBefore: Bool
     
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
         self.storage = storage
+        self.didLaunchBefore = storage.bool(forKey: AppSettingsViewModel.userDefaultsKeys["launched-before"]!)
+        var _path: NavigationPath?
+        if didLaunchBefore {
+            _path = NavigationPath()
+        } else {
+            _path = NavigationPath([Page.appSettings])
+        }
+        self.path = _path!
     }
 }
 
