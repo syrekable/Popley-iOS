@@ -12,7 +12,7 @@ import SwiftUI
 class Model: ObservableObject {
     @Published var path = NavigationPath()
     
-    @Published var plants: [Plant] = Plant.sampleData
+    @Published var plants = [Plant]()
     
     @Published var isCameraAvailable = false
     @Published var isCameraAlertShown = false
@@ -136,8 +136,8 @@ extension Model {
 }
 
 // MARK: data persistence
+// TODO: show caught read/write errors
 extension Model {
-    // TODO: show caught errors
     private func saveMyImagesJSONFile() {
         let encoder = JSONEncoder()
         do {
@@ -158,6 +158,26 @@ extension Model {
              appError = MyImageError.ErrorType(error: .encodingError)
              */
             print(error.localizedDescription)
+        }
+    }
+    
+    func loadMyImagesJSONFile() {
+        do {
+            let data = try FileManager().readDocument()
+            let decoder = JSONDecoder()
+            do {
+                plants = try decoder.decode([Plant].self, from: data)
+            } catch {
+                /*
+                 isFileAlertShown = true
+                 appError = MyImageError.ErrorType(error: .decodingError)
+                 */
+            }
+        } catch {
+            /*
+             isFileAlertShown = true
+             appError = MyImageError.ErrorType(error: error as! MyImageError)
+             */
         }
     }
 }

@@ -14,19 +14,9 @@ extension FileManager {
     static var docDirURL: URL {
         return Self.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
-
-    func readImage(with id: UUID) throws -> UIImage {
-        let imageURL = FileManager.docDirURL.appendingPathComponent("\(id).jpeg")
-        do {
-            let imageData = try Data(contentsOf: imageURL)
-            if let image = UIImage(data: imageData) {
-                return image
-            } else {
-                throw MyImageError.readImageError
-            }
-        } catch {
-            throw MyImageError.readImageError
-        }
+    
+    func documentExist(named docName: String) -> Bool {
+        fileExists(atPath: Self.docDirURL.appendingPathComponent(docName).path)
     }
     
     func saveDocument(contents: String) throws {
@@ -35,6 +25,15 @@ extension FileManager {
             try contents.write(to: url, atomically: true, encoding: .utf8)
         } catch {
             throw MyImageError.saveError
+        }
+    }
+    
+    func readDocument() throws -> Data {
+        let url = Self.docDirURL.appendingPathComponent(fileName)
+        do {
+            return try Data(contentsOf: url)
+        } catch {
+            throw MyImageError.readError
         }
     }
     
@@ -49,6 +48,20 @@ extension FileManager {
             }
         } else {
             throw MyImageError.saveImageError
+        }
+    }
+    
+    func readImage(with id: UUID) throws -> UIImage {
+        let imageURL = FileManager.docDirURL.appendingPathComponent("\(id).jpeg")
+        do {
+            let imageData = try Data(contentsOf: imageURL)
+            if let image = UIImage(data: imageData) {
+                return image
+            } else {
+                throw MyImageError.readImageError
+            }
+        } catch {
+            throw MyImageError.readImageError
         }
     }
 }
