@@ -78,6 +78,10 @@ extension Model {
         plants.append(plant)
         saveMyImagesJSONFile()
     }
+    
+    var isShowingThirstyPlants: Bool {
+        return plants.contains(where: { plant in plant.timeToWater.duration <= 0} )
+    }
 }
 
 // MARK: notifications
@@ -137,11 +141,16 @@ extension Model {
     }
 }
 
-// MARK: states for UI testing
+// MARK: states for UI/unit testing
 extension Model {
     static func withNotificationsEnabled() -> Model {
         let model = Model()
         model.isNotificationAuthorized = true
+        return model
+    }
+    static func withThirstyPlants() -> Model {
+        let model = Model()
+        model.plants = Plant.thirstyPlants
         return model
     }
 }

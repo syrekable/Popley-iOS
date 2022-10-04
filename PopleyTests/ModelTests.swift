@@ -10,5 +10,9 @@ import Datez
 @testable import Popley
 
 final class ModelTests: XCTestCase {
-    
+    func testShowingThirstyPlants() {
+        let model = Model.withThirstyPlants()
+        
+        XCTAssert(model.isShowingThirstyPlants)
+    }
 }
