@@ -35,6 +35,7 @@ class Model: ObservableObject {
             _path = NavigationPath([Page.appSettings])
         }
         self.path = _path!
+        loadMyImagesJSONFile()
     }
 }
 

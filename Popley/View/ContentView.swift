@@ -26,7 +26,10 @@ struct ContentView: View {
                     }
                     .task {
                         if FileManager().documentExist(named: fileName) {
+                            print("something")
                             model.loadMyImagesJSONFile()
+                        } else {
+                            print("nothing")
                         }
                     }
                     .navigationDestination(for: Plant.self) { plant in
