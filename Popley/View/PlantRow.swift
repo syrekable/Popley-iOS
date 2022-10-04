@@ -14,7 +14,7 @@ struct PlantRow: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
-                Image(uiImage: plant.picture)
+                Image(uiImage: plant.imageWrapper.image)
                     .resizable()
                     .scaledToFill()
                 // FIXME: arbitrary scale that looks like shit on bigger screens

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F103F4F628E5E297007648A7 /* DateComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103F4F528E5E297007648A7 /* DateComponentsTests.swift */; };
 		F10D43D328D63778005C3D81 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10D43D228D63778005C3D81 /* Model.swift */; };
-		F11A1C8828EC39FE0022E326 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A1C8728EC39FE0022E326 /* MyImage.swift */; };
+		F11A1C8828EC39FE0022E326 /* UIImageWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A1C8728EC39FE0022E326 /* UIImageWrapper.swift */; };
 		F11A1C8A28EC3A360022E326 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A1C8928EC3A360022E326 /* FileManager+Extension.swift */; };
 		F11A1C8D28EC3AC90022E326 /* MyImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A1C8C28EC3AC90022E326 /* MyImageError.swift */; };
 		F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1272E0C28CF53A7009E0274 /* PlantDetails.swift */; };
@@ -83,7 +83,7 @@
 /* Begin PBXFileReference section */
 		F103F4F528E5E297007648A7 /* DateComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateComponentsTests.swift; sourceTree = "<group>"; };
 		F10D43D228D63778005C3D81 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		F11A1C8728EC39FE0022E326 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
+		F11A1C8728EC39FE0022E326 /* UIImageWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageWrapper.swift; sourceTree = "<group>"; };
 		F11A1C8928EC3A360022E326 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		F11A1C8C28EC3AC90022E326 /* MyImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageError.swift; sourceTree = "<group>"; };
 		F1272E0C28CF53A7009E0274 /* PlantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetails.swift; sourceTree = "<group>"; };
@@ -336,7 +336,7 @@
 				F1D7E49F28CB8090001159FA /* Plant.swift */,
 				F1D7E4A228CB8130001159FA /* DescriptiveDateInterval.swift */,
 				F1748A8E28E469B5005C6A8B /* NotificationSettings.swift */,
-				F11A1C8728EC39FE0022E326 /* MyImage.swift */,
+				F11A1C8728EC39FE0022E326 /* UIImageWrapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,7 +531,7 @@
 				F10D43D328D63778005C3D81 /* Model.swift in Sources */,
 				F1A81E4228E1EFAA000DCDC7 /* WaterIntervalLabel.swift in Sources */,
 				F1434C0528DDD853001163DB /* AddPlantPictureView.swift in Sources */,
-				F11A1C8828EC39FE0022E326 /* MyImage.swift in Sources */,
+				F11A1C8828EC39FE0022E326 /* UIImageWrapper.swift in Sources */,
 				F1BFABED28DB6AD200440419 /* Page.swift in Sources */,
 				F1BFABEB28DB61CD00440419 /* ImageSourcePicker.swift in Sources */,
 				F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */,

@@ -11,7 +11,7 @@ struct PlantDetails: View {
     let plant: Plant
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Image(uiImage: plant.picture)
+            Image(uiImage: plant.imageWrapper.image)
                 .resizable()
                 .scaledToFill()
             // FIXME: arbitrary scale that looks like shit on bigger screens

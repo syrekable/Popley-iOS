@@ -12,7 +12,7 @@ import UIKit
 struct Plant: Identifiable {
     var id: UUID
     var name: String
-    var picture: MyImage
+    var imageWrapper: UIImageWrapper
     var waterInterval: WaterInterval
     var lastWaterDate: Date
     
@@ -20,7 +20,7 @@ struct Plant: Identifiable {
         let id = UUID()
         self.id = id
         self.name = name
-        self.picture = MyImage(id: id)
+        self.imageWrapper = UIImageWrapper(id: id)
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }
@@ -58,9 +58,10 @@ extension Plant {
 // MARK: constructor for tests
 extension Plant {
     init(waterInterval: WaterInterval, lastWaterDate: Date? = nil) {
-        self.id = UUID()
+        let id = UUID()
+        self.id = id
         self.name = "IR"
-        self.picture = UIImage(systemName: "photo")!
+        self.imageWrapper = UIImageWrapper(id: id)
         self.waterInterval = waterInterval
         self.lastWaterDate = lastWaterDate ?? Date()
     }

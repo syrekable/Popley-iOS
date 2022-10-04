@@ -55,7 +55,7 @@ struct AddPlantWaterIntervalView_Previews: PreviewProvider {
     static let plant = Plant.sampleData.first!
     static var previews: some View {
         NavigationStack {
-            AddPlantWaterIntervalView(name: plant.name, image: plant.picture)
+            AddPlantWaterIntervalView(name: plant.name, image: plant.imageWrapper.image)
         }
     }
 }
