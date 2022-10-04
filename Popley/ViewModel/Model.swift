@@ -85,7 +85,7 @@ extension Model {
     ///
     /// The only reason it exists is that `sheet` needs `Binding<Bool>` instead of `Bool`, which could have been a computed property.
     func checkForThirstyPlants() {
-        isShowingThirstyPlants = plants.contains(where: { plant in plant.timeToWater.duration <= 0} )
+        isShowingThirstyPlants = thirstyPlants.count > 0
     }
     
     /// Resets the last watering time of `plant` and schedules reminder for next watering.
@@ -95,6 +95,12 @@ extension Model {
         let request = makeRequest(for: _plant)
         manager.add(request, withCompletionHandler: nil)
         plants.replace([plant], with: [_plant]) // I'm kinda scared
+    }
+    
+    var thirstyPlants: [Plant] {
+        return plants.filter { plant in
+            plant.timeToWater.duration <= 0
+        }
     }
 }
 

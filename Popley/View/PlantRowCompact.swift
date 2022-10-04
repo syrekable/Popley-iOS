@@ -19,13 +19,12 @@ struct PlantRowCompact: View {
                     Circle()
                 }
                 .frame(height: 125/2)
-            
             Text(plant.name)
                 .font(.title)
                 .fontWeight(.medium)
                 .frame(maxWidth: 200, alignment: .center)
             Button {
-                //plant.water()
+                model.water(plant)
             } label: {
                 Image(systemName: "drop.circle")
                     .resizable()
@@ -33,7 +32,6 @@ struct PlantRowCompact: View {
                     .frame(height: 125/2)
             }
         }
-        .padding()
     }
 }
 

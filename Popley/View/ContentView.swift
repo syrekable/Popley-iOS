@@ -67,7 +67,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $model.isShowingThirstyPlants) {
-                Text("I'm thirsty!")
+                ThirstyPlantList()
             }
             .onAppear {
                 model.checkForThirstyPlants()

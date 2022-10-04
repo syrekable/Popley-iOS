@@ -52,6 +52,7 @@
 		F1D7E4A828CB8D47001159FA /* TypeDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */; };
 		F1DDD8DA28EC753900745565 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DDD8D928EC753900745565 /* ModelTests.swift */; };
 		F1DDD8DC28EC912200745565 /* PlantRowCompact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */; };
+		F1DDD8E128EC9FDB00745565 /* ThirstyPlantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DDD8E028EC9FDB00745565 /* ThirstyPlantList.swift */; };
 		F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */; };
 		F1E21B5728E59FB20091D484 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5628E59FB20091D484 /* Date.swift */; };
 		F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */; };
@@ -129,6 +130,7 @@
 		F1D7E4A728CB8D47001159FA /* TypeDescriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeDescriptionTests.swift; sourceTree = "<group>"; };
 		F1DDD8D928EC753900745565 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRowCompact.swift; sourceTree = "<group>"; };
+		F1DDD8E028EC9FDB00745565 /* ThirstyPlantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirstyPlantList.swift; sourceTree = "<group>"; };
 		F1E21B5428E59E1C0091D484 /* DateComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponents+Extension.swift"; sourceTree = "<group>"; };
 		F1E21B5628E59FB20091D484 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F1E21B5928E5B2C20091D484 /* KeyValueStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorable.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
 				F1748A9028E47425005C6A8B /* AppSettingsView.swift */,
 				F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */,
+				F1DDD8E028EC9FDB00745565 /* ThirstyPlantList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */,
 				F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */,
 				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
+				F1DDD8E128EC9FDB00745565 /* ThirstyPlantList.swift in Sources */,
 				F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */,
 				F1D7E46928CB3DB9001159FA /* ContentView.swift in Sources */,
 				F1D7E46728CB3DB9001159FA /* PopleyApp.swift in Sources */,
