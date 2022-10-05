@@ -15,10 +15,10 @@ struct PlantRowCompact: View {
             Image(uiImage: plant.imageWrapper.image)
                 .resizable()
                 .scaledToFit()
-                .mask {
-                    Circle()
-                }
-                .frame(height: 125/2)
+                .clipShape(Circle())
+                // kinda even
+                .overlay(Circle().stroke(Color("Secondary"), lineWidth: 4))
+                .frame(height: 60)
             Text(plant.name)
                 .font(.title)
                 .fontWeight(.medium)
@@ -29,7 +29,7 @@ struct PlantRowCompact: View {
                 Image(systemName: "drop.circle")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 125/2)
+                    .frame(height: 62)
             }
         }
     }
