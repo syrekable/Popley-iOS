@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-//@MainActor
 class Model: ObservableObject {
     @Published var path: NavigationPath
     
@@ -81,15 +80,16 @@ extension Model {
         plants.append(plant)
         saveMyImagesJSONFile()
     }
-
+    
     /// A procedure that checks if there are any `plants` with `timeToWater <= 0` and sets `isShowingThirstyPlants`.
     ///
     /// The only reason it exists is that `sheet` needs `Binding<Bool>` instead of `Bool`, which could have been a computed property.
     func checkForThirstyPlants() {
-        let _thirstyPlants = plants.filter { plant in
-            plant.timeToWater.duration <= 0
+        // publishing from background warning might be a bug in Xcode 14.0 beta 5
+        // https://www.donnywals.com/xcode-14-publishing-changes-from-within-view-updates-is-not-allowed-this-will-cause-undefined-behavior/
+        DispatchQueue.main.async { [unowned self] in
+            isShowingThirstyPlants = thirstyPlants.count > 0
         }
-        isShowingThirstyPlants = _thirstyPlants.count > 0
     }
     
     /// Resets the last watering time of `plant` and schedules reminder for next watering.
@@ -98,6 +98,12 @@ extension Model {
         plants[index].water() // mutating the actual element in the array
         let request = makeRequest(for: plants[index])
         manager.add(request, withCompletionHandler: nil)
+    }
+    
+    var thirstyPlants: [Plant] {
+        return plants.filter { plant in
+            plant.timeToWater.duration <= 0
+        }
     }
 }
 

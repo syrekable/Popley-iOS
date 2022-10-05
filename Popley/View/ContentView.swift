@@ -71,6 +71,9 @@ struct ContentView: View {
             .onAppear {
                 model.checkForThirstyPlants()
             }
+            .onChange(of: model.plants) { _ in
+                model.checkForThirstyPlants()
+            }
         }
     }
 }
