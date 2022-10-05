@@ -98,4 +98,25 @@ final class NotificationTests: XCTestCase {
         
         Self.doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
     }
+    
+    // THIS TEST WILL NOT SUCCEED IF YOU TRY TO RUN IT AFTER 21:37
+    /*
+     // don't know how to put it in the test language, but the trigger.nextTriggerDate is correct
+     func testHackingNotificationForTheSameDay() {
+         let storage = MockStorage.withSpecificNotificationTime()
+         let storedNotificationTime = storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!)
+         let notificationManager = MockNotificationCenter()
+         let model = Model(readFrom: storage)
+         
+         let plant = Plant(waterInterval: WaterInterval(), lastWaterDate: Date() - 1.day.timeInterval)
+        
+     // how to express 'today at a specific hour'? lol
+         let expectedNextTriggerDate = Date(timeIntervalSince1970: Date().timeIntervalSince1970 + storedNotificationTime)
+         
+         model.addPlant(plant, notificationManager: notificationManager)
+         
+         Self.doTest(notificationManager: notificationManager, expected: expectedNextTriggerDate)
+     }
+     */
+
 }

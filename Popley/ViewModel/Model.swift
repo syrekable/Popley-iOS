@@ -36,7 +36,6 @@ class Model: ObservableObject {
         }
         self.path = _path!
         loadMyImagesJSONFile()
-        plants += Plant.thirstyPlants
     }
 }
 
@@ -98,6 +97,7 @@ extension Model {
         plants[index].water() // mutating the actual element in the array
         let request = makeRequest(for: plants[index])
         manager.add(request, withCompletionHandler: nil)
+        saveMyImagesJSONFile()
     }
     
     var thirstyPlants: [Plant] {
@@ -141,7 +141,11 @@ extension Model {
         // desperation over declarativeness
         let triggerTime =  Date().distance(to: plant.timeToWater.end) + storedNotificationTime - Date().timeIntervalSince1970
 
-        let trigger: UNTimeIntervalNotificationTrigger? = UNTimeIntervalNotificationTrigger(timeInterval: triggerTime, repeats: false)
+        var trigger: UNTimeIntervalNotificationTrigger?
+        
+        if triggerTime > 0 {
+            trigger = UNTimeIntervalNotificationTrigger(timeInterval: triggerTime, repeats: false)
+        }
         
         // TODO: meaningful request id
         return UNNotificationRequest(identifier: "id", content: content, trigger: trigger)
