@@ -13,6 +13,7 @@ class Model: ObservableObject {
     @Published var path: NavigationPath
     
     @Published var plants = [Plant]()
+    @Published var thirstyPlants = [Plant]()
     
     @Published var isCameraAvailable = false
     @Published var isCameraAlertShown = false
@@ -37,6 +38,7 @@ class Model: ObservableObject {
         }
         self.path = _path!
         loadMyImagesJSONFile()
+        plants += Plant.thirstyPlants
     }
 }
 
@@ -85,7 +87,11 @@ extension Model {
     ///
     /// The only reason it exists is that `sheet` needs `Binding<Bool>` instead of `Bool`, which could have been a computed property.
     func checkForThirstyPlants() {
-        isShowingThirstyPlants = thirstyPlants.count > 0
+        let _thirstyPlants = plants.filter { plant in
+            plant.timeToWater.duration <= 0
+        }
+        isShowingThirstyPlants = _thirstyPlants.count > 0
+        thirstyPlants = _thirstyPlants
     }
     
     /// Resets the last watering time of `plant` and schedules reminder for next watering.
@@ -96,12 +102,15 @@ extension Model {
         manager.add(request, withCompletionHandler: nil)
         plants.replace([plant], with: [_plant]) // I'm kinda scared
     }
+    /*
+     // since only @Published properties trigger an update, I cannot use that
+     var thirstyPlants: [Plant] {
+         return plants.filter { plant in
+             plant.timeToWater.duration <= 0
+         }
+     }
+     */
     
-    var thirstyPlants: [Plant] {
-        return plants.filter { plant in
-            plant.timeToWater.duration <= 0
-        }
-    }
 }
 
 // MARK: notifications

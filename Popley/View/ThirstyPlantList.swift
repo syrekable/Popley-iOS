@@ -26,12 +26,8 @@ struct ThirstyPlantList: View {
                         }
                     }
                 }.padding([.horizontal])
-                    
             }
             .navigationTitle("Plants to water")
-            .onChange(of: model.thirstyPlants.count) { newValue in
-                model.checkForThirstyPlants()
-            }
         }
     }
 }
