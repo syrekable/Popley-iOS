@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
-    @State private var isAddingNewPlant: Bool = false
+    @State var updater = 0 // *sigh*
     var body: some View {
         /*
          TODO:
@@ -20,7 +20,7 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     // TODO: sorting
-                    ForEach(model.plants.reversed()) { plant in
+                    ForEach(model.plants) { plant in
                         PlantRow(plant: plant,
                                  navigateToPlantDetailsAction: model.navigateToPlant)
                     }
@@ -72,7 +72,13 @@ struct ContentView: View {
             .onAppear {
                 model.checkForThirstyPlants()
             }
-        }
+            .onChange(of: model.isShowingThirstyPlants) { newValue in
+                if !newValue {
+                    updater += 1
+                }
+            }
+        // FIXME: get to know why mutating the element of the @Published array does not trigger re-rendering and delete this monstrocity
+        }.id(updater)
     }
 }
 

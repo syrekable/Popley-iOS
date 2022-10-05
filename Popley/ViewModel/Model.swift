@@ -12,8 +12,7 @@ import SwiftUI
 class Model: ObservableObject {
     @Published var path: NavigationPath
     
-    @Published var plants = [Plant]()
-    @Published var thirstyPlants = [Plant]()
+    @Published var plants: [Plant] = []
     
     @Published var isCameraAvailable = false
     @Published var isCameraAlertShown = false
@@ -91,26 +90,20 @@ extension Model {
             plant.timeToWater.duration <= 0
         }
         isShowingThirstyPlants = _thirstyPlants.count > 0
-        thirstyPlants = _thirstyPlants
     }
     
     /// Resets the last watering time of `plant` and schedules reminder for next watering.
     func water(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
-        var _plant = plant
-        _plant.water()
-        let request = makeRequest(for: _plant)
+        /*
+         Although I mutate a property of the original element of the array,
+         which should, in principle, count as mutating the array itself and
+         trigger UI rendering, I still need to rely on hacks to get through.
+         */
+        let index = plants.firstIndex(of: plant)!
+        plants[index].water() // mutating the actual element in the array
+        let request = makeRequest(for: plants[index])
         manager.add(request, withCompletionHandler: nil)
-        plants.replace([plant], with: [_plant]) // I'm kinda scared
     }
-    /*
-     // since only @Published properties trigger an update, I cannot use that
-     var thirstyPlants: [Plant] {
-         return plants.filter { plant in
-             plant.timeToWater.duration <= 0
-         }
-     }
-     */
-    
 }
 
 // MARK: notifications

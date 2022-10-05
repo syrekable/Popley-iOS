@@ -21,7 +21,9 @@ struct ThirstyPlantList: View {
                         }
                     }
                     VStack {
-                        ForEach(model.thirstyPlants) { plant in
+                        ForEach(model.plants.filter { plant in
+                            plant.timeToWater.duration <= 0
+                        }) { plant in
                             PlantRowCompact(plant: plant)
                         }
                     }
