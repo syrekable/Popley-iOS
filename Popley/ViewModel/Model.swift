@@ -94,11 +94,6 @@ extension Model {
     
     /// Resets the last watering time of `plant` and schedules reminder for next watering.
     func water(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
-        /*
-         Although I mutate a property of the original element of the array,
-         which should, in principle, count as mutating the array itself and
-         trigger UI rendering, I still need to rely on hacks to get through.
-         */
         let index = plants.firstIndex(of: plant)!
         plants[index].water() // mutating the actual element in the array
         let request = makeRequest(for: plants[index])

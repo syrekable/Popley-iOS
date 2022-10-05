@@ -28,8 +28,10 @@ struct Plant: Identifiable, Codable {
 
 // MARK: Hashable
 extension Plant: Hashable {
+    // COMPARISON MECHANISM ENABLING VIEW RELOAD TAKES INTO ACCOUNT THE PROPERTIES THAT SHALL MUTATE
+    // https://stackoverflow.com/a/73708191/12938809
     static func == (lhs: Plant, rhs: Plant) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id && lhs.lastWaterDate == rhs.lastWaterDate
     }
 }
 
