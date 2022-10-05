@@ -8,17 +8,17 @@
 import Foundation
 import SwiftUI
 
-//@MainActor
 class Model: ObservableObject {
     @Published var path: NavigationPath
     
-    @Published var plants = [Plant]()
+    @Published var plants: [Plant] = []
     
     @Published var isCameraAvailable = false
     @Published var isCameraAlertShown = false
     @Published var cameraError: ImageSourcePicker.CameraErrorType?
     
     @Published var isNotificationAuthorized = false
+    @Published var isShowingThirstyPlants: Bool = false
     
     private var storage: KeyValueStorable
     // workaround for adopting picture saving logic presented in 'My Images' app series
@@ -64,6 +64,7 @@ extension Model {
     }
     
     // TODO: completion handle if scheduling notification fails
+    // TODO: refactor; manager as self.manager
     /// Adds a new `plant` to the user's collection, optionally scheduling notification for watering if none is set for `plant.TimeToWater`.
     func addPlant(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
         if let image = self.plantPicture {
@@ -77,6 +78,32 @@ extension Model {
         manager.add(request, withCompletionHandler: nil)
         plants.append(plant)
         saveMyImagesJSONFile()
+    }
+    
+    /// A procedure that checks if there are any `plants` with `timeToWater <= 0` and sets `isShowingThirstyPlants`.
+    ///
+    /// The only reason it exists is that `sheet` needs `Binding<Bool>` instead of `Bool`, which could have been a computed property.
+    func checkForThirstyPlants() {
+        // publishing from background warning might be a bug in Xcode 14.0 beta 5
+        // https://www.donnywals.com/xcode-14-publishing-changes-from-within-view-updates-is-not-allowed-this-will-cause-undefined-behavior/
+        DispatchQueue.main.async { [unowned self] in
+            isShowingThirstyPlants = thirstyPlants.count > 0
+        }
+    }
+    
+    /// Resets the last watering time of `plant` and schedules reminder for next watering.
+    func water(_ plant: Plant, notificationManager manager: NotificationManaging = UNUserNotificationCenter.current()) {
+        let index = plants.firstIndex(of: plant)!
+        plants[index].water() // mutating the actual element in the array
+        let request = makeRequest(for: plants[index])
+        manager.add(request, withCompletionHandler: nil)
+        saveMyImagesJSONFile()
+    }
+    
+    var thirstyPlants: [Plant] {
+        return plants.filter { plant in
+            plant.timeToWater.duration <= 0
+        }
     }
 }
 
@@ -109,13 +136,16 @@ extension Model {
         content.subtitle = "Your plants are thirsty!"
         content.body = "At least one of your plants needs water. Open Popley to find out, which!"
 
-        // FIXME: disintegrates on first launch due to this
         let storedNotificationTime: TimeInterval =  storage.double(forKey: AppSettingsViewModel.userDefaultsKeys["time"]!)
         
         // desperation over declarativeness
         let triggerTime =  Date().distance(to: plant.timeToWater.end) + storedNotificationTime - Date().timeIntervalSince1970
 
-        let trigger: UNTimeIntervalNotificationTrigger? = UNTimeIntervalNotificationTrigger(timeInterval: triggerTime, repeats: false)
+        var trigger: UNTimeIntervalNotificationTrigger?
+        
+        if triggerTime > 0 {
+            trigger = UNTimeIntervalNotificationTrigger(timeInterval: triggerTime, repeats: false)
+        }
         
         // TODO: meaningful request id
         return UNNotificationRequest(identifier: "id", content: content, trigger: trigger)
@@ -137,11 +167,23 @@ extension Model {
     }
 }
 
-// MARK: states for UI testing
+// MARK: states for UI/unit testing
 extension Model {
-    static func withNotificationsEnabled() -> Model {
-        let model = Model()
+    static func withNotificationsEnabled(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
+        let model = Model(readFrom: storage)
         model.isNotificationAuthorized = true
+        return model
+    }
+    static func withThirstyPlants(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
+        let model = Model(readFrom: storage)
+        model.plants = Plant.thirstyPlants
+        model.didLaunchBefore = true
+        return model
+    }
+    static func withWateredPlants(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
+        let model = Model(readFrom: storage)
+        model.plants = Plant.sampleData
+        model.didLaunchBefore = true
         return model
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
-    @State private var isAddingNewPlant: Bool = false
     var body: some View {
         /*
          TODO:
@@ -20,16 +19,13 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     // TODO: sorting
-                    ForEach(model.plants.reversed()) { plant in
+                    ForEach(model.plants) { plant in
                         PlantRow(plant: plant,
                                  navigateToPlantDetailsAction: model.navigateToPlant)
                     }
                     .task {
                         if FileManager().documentExist(named: fileName) {
-                            print("something")
                             model.loadMyImagesJSONFile()
-                        } else {
-                            print("nothing")
                         }
                     }
                     .navigationDestination(for: Plant.self) { plant in
@@ -69,6 +65,16 @@ struct ContentView: View {
                     }
                 }
             }
+            .sheet(isPresented: $model.isShowingThirstyPlants) {
+                ThirstyPlantList()
+                    .interactiveDismissDisabled()
+            }
+            .onAppear {
+                model.checkForThirstyPlants()
+            }
+            .onChange(of: model.plants) { _ in
+                model.checkForThirstyPlants()
+            }
         }
     }
 }
@@ -76,8 +82,16 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(Model())
+        NavigationStack {
+            ContentView()
+                .environmentObject(Model.withWateredPlants())
+        }
+            .previewDisplayName("With watered plants")
+        NavigationStack {
+            ContentView()
+                .environmentObject(Model.withThirstyPlants())
+        }
+            .previewDisplayName("With thirsty plants")
     }
 }
 

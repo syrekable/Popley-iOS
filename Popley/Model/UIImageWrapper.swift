@@ -15,7 +15,7 @@ struct UIImageWrapper: Identifiable, Hashable, Codable {
             return try FileManager().readImage(with: id)
         } catch {
             // TODO: something pretty
-            return UIImage(systemName: "photo.circle")!
+            return UIImage(named: "sample-plant")!
         }
     }
 }

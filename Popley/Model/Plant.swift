@@ -28,18 +28,25 @@ struct Plant: Identifiable, Codable {
 
 // MARK: Hashable
 extension Plant: Hashable {
+    // COMPARISON MECHANISM ENABLING VIEW RELOAD TAKES INTO ACCOUNT THE PROPERTIES THAT SHALL MUTATE
+    // https://stackoverflow.com/a/73708191/12938809
     static func == (lhs: Plant, rhs: Plant) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id && lhs.lastWaterDate == rhs.lastWaterDate
     }
 }
 
 // MARK: methods and computed properties
 extension Plant {
-    // FIXME: negative dates
-    var timeToWater: DateInterval {
+    var timeToWater: DateInterval  {
+        var _timeToWater: DateInterval?
         let lastWateringUntilNow = DateInterval(start: lastWaterDate, end: Date())
         let _remainingTimeToWater = ceil(waterInterval.asTimeInterval - lastWateringUntilNow.duration)
-        return DateInterval(start: Date(), duration: _remainingTimeToWater)
+        if _remainingTimeToWater > 0 {
+            _timeToWater = DateInterval(start: Date(), duration: _remainingTimeToWater)
+        } else {
+            _timeToWater = DateInterval()
+        }
+        return _timeToWater!
     }
     
     mutating func water() -> Void {
@@ -53,6 +60,11 @@ extension Plant {
         Plant(name: "Ziemiokulas", picture: UIImage(named: "plant-zz"), waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 1.weeksOfYear.timeInterval),
         Plant(name: "Aloes", picture: UIImage(named: "plant-aloe"), waterInterval: .quarterly),
         Plant(name: "Dracena", picture: UIImage(named: "plant-dracena"), waterInterval: .everyEightDays, lastWaterDate: Date() - 3.days.timeInterval)
+    ]
+    static let thirstyPlants = [
+        Plant(name: "Ziemiokulas", picture: UIImage(named: "plant-zz"), waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 2.weeksOfYear.timeInterval),
+        Plant(name: "Aloes", picture: UIImage(named: "plant-aloe"), waterInterval: .quarterly, lastWaterDate: Date() - 5.weekOfYear.timeInterval),
+        Plant(name: "Dracena", picture: UIImage(named: "plant-dracena"), waterInterval: .everyEightDays, lastWaterDate: Date() - 9.days.timeInterval)
     ]
 }
 
