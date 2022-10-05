@@ -20,6 +20,8 @@ class Model: ObservableObject {
     @Published var isNotificationAuthorized = false
     @Published var isShowingThirstyPlants: Bool = false
     
+    var sorting: SortingOption = .byName(.ascending)
+    
     private var storage: KeyValueStorable
     // workaround for adopting picture saving logic presented in 'My Images' app series
     private var plantPicture: UIImage?
@@ -232,5 +234,31 @@ extension Model {
              appError = MyImageError.ErrorType(error: error as! MyImageError)
              */
         }
+    }
+}
+
+// MARK: sorting
+extension Model {
+    // TODO: make it shorter? It's, like, returning a function with an operand
+    var sortedPlants: [Plant] {
+        var _sorted: [Plant]?
+        switch sorting {
+        case .byName(let order):
+            _sorted =
+                order == .ascending
+                    ? plants.sorted(by: { a, b in a.name < b.name })
+                    : plants.sorted(by: { a, b in a.name > b.name })
+        case .byTimeToWater(let order):
+            _sorted =
+                order == .ascending
+                    ? plants.sorted(by: { a, b in a.timeToWater < b.timeToWater })
+                    : plants.sorted(by: { a, b in a.timeToWater > b.timeToWater })
+        case .byLastWaterDate(let order):
+            _sorted =
+                order == .ascending
+                    ? plants.sorted(by: { a, b in a.lastWaterDate < b.lastWaterDate })
+                    : plants.sorted(by: { a, b in a.lastWaterDate > b.lastWaterDate })
+        }
+        return _sorted!
     }
 }

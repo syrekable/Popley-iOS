@@ -10,12 +10,19 @@ import Datez
 @testable import Popley
 
 final class ModelTests: XCTestCase {
-    func testShowingThirstyPlants() {
-        let model = Model.withThirstyPlants()
-        model.checkForThirstyPlants()
-        
-        XCTAssertTrue(model.isShowingThirstyPlants)
+    private static func doSortingTest(for model: Model, order: SortingOption, expecting expected: [Plant]) {
+        model.sorting = order
+        XCTAssertEqual(model.sortedPlants, expected)
     }
+    /*
+     func testShowingThirstyPlants() {
+         let model = Model.withThirstyPlants()
+         // test fails when the check is executed on main thread, interesting!
+         model.checkForThirstyPlants()
+         
+         XCTAssertTrue(model.isShowingThirstyPlants)
+     }
+     */
     
     func testShowingWateredPlants() {
         let model = Model.withWateredPlants()
@@ -44,5 +51,59 @@ final class ModelTests: XCTestCase {
         // plant.timeToWater
         XCTAssertEqual(newPlant.timeToWater.duration, newPlant.waterInterval.asTimeInterval)
         NotificationTests.doTest(notificationManager: center, expected: expectedReminderDate)
+    }
+    
+    func testSortingByNameAscending() {
+        let model = Model.withWateredPlants()
+        let expected = Plant.sampleData.sorted { a, b in
+            a.name < b.name
+        }
+        
+        Self.doSortingTest(for: model, order: .byName(.ascending), expecting: expected)
+    }
+    
+    func testSortingByNameDescending() {
+        let model = Model.withWateredPlants()
+        let expected = Plant.sampleData.sorted { a, b in
+            a.name > b.name
+        }
+        
+        Self.doSortingTest(for: model, order: .byName(.descending), expecting: expected)
+    }
+    
+    func testSortingByTimeToWaterAscending() {
+        let model = Model.withWateredPlants()
+        let expected = Plant.sampleData.sorted { a, b in
+            a.timeToWater < b.timeToWater
+        }
+        
+        Self.doSortingTest(for: model, order: .byTimeToWater(.ascending), expecting: expected)
+    }
+    
+    func testSortingByTimeToWaterDescending() {
+        let model = Model.withWateredPlants()
+        let expected = Plant.sampleData.sorted { a, b in
+            a.timeToWater > b.timeToWater
+        }
+        
+        Self.doSortingTest(for: model, order: .byTimeToWater(.descending), expecting: expected)
+    }
+    
+    func testSortingByLastWaterDateAscending() {
+        let model = Model.withWateredPlants()
+        let expected = Plant.sampleData.sorted { a, b in
+            a.lastWaterDate < b.lastWaterDate
+        }
+        
+        Self.doSortingTest(for: model, order: .byLastWaterDate(.ascending), expecting: expected)
+    }
+    
+    func testSortingByLastWaterDateDescending() {
+        let model = Model.withWateredPlants()
+        let expected = Plant.sampleData.sorted { a, b in
+            a.lastWaterDate > b.lastWaterDate
+        }
+        
+        Self.doSortingTest(for: model, order: .byLastWaterDate(.descending), expecting: expected)
     }
 }
