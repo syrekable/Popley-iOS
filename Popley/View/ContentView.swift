@@ -67,6 +67,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $model.isShowingThirstyPlants) {
                 ThirstyPlantList()
+                    .interactiveDismissDisabled()
             }
             .onAppear {
                 model.checkForThirstyPlants()
