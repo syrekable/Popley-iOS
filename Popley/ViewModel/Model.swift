@@ -88,7 +88,7 @@ extension Model {
     func checkForThirstyPlants() {
         // publishing from background warning might be a bug in Xcode 14.0 beta 5
         // https://www.donnywals.com/xcode-14-publishing-changes-from-within-view-updates-is-not-allowed-this-will-cause-undefined-behavior/
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             isShowingThirstyPlants = thirstyPlants.count > 0
         }
     }
@@ -251,8 +251,8 @@ extension Model {
         case .byTimeToWater(let order):
             _sorted =
                 order == .ascending
-                    ? plants.sorted(by: { a, b in a.timeToWater < b.timeToWater })
-                    : plants.sorted(by: { a, b in a.timeToWater > b.timeToWater })
+            ? plants.sorted(by: { a, b in a.timeToWater.duration < b.timeToWater.duration })
+                    : plants.sorted(by: { a, b in a.timeToWater.duration > b.timeToWater.duration })
         case .byLastWaterDate(let order):
             _sorted =
                 order == .ascending
