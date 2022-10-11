@@ -20,6 +20,11 @@
 		F1434C0928DDDA22001163DB /* AddPlantSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */; };
 		F1434C0C28DDEA2B001163DB /* WaterIntervalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0B28DDEA2B001163DB /* WaterIntervalPickerView.swift */; };
 		F1434C0E28DE0195001163DB /* AddPlantWaterIntervalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1434C0D28DE0195001163DB /* AddPlantWaterIntervalView.swift */; };
+		F14DE14F28F5A95100C672B8 /* PageView in Frameworks */ = {isa = PBXBuildFile; productRef = F14DE14E28F5A95100C672B8 /* PageView */; };
+		F14DE15228F5A9FB00C672B8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DE15128F5A9FB00C672B8 /* WelcomeView.swift */; };
+		F14DE15428F5AA7300C672B8 /* FeatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DE15328F5AA7300C672B8 /* FeatureListView.swift */; };
+		F14DE15628F5AAB000C672B8 /* ExploreSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DE15528F5AAB000C672B8 /* ExploreSettingsView.swift */; };
+		F14DE15828F5AB3300C672B8 /* WelcomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DE15728F5AB3300C672B8 /* WelcomeContainerView.swift */; };
 		F1748A8F28E469B5005C6A8B /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A8E28E469B5005C6A8B /* NotificationSettings.swift */; };
 		F1748A9128E47425005C6A8B /* AppSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9028E47425005C6A8B /* AppSettingsView.swift */; };
 		F1748A9328E4824F005C6A8B /* NotificationSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */; };
@@ -99,6 +104,10 @@
 		F1434C0828DDDA22001163DB /* AddPlantSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantSummaryView.swift; sourceTree = "<group>"; };
 		F1434C0B28DDEA2B001163DB /* WaterIntervalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalPickerView.swift; sourceTree = "<group>"; };
 		F1434C0D28DE0195001163DB /* AddPlantWaterIntervalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantWaterIntervalView.swift; sourceTree = "<group>"; };
+		F14DE15128F5A9FB00C672B8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		F14DE15328F5AA7300C672B8 /* FeatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureListView.swift; sourceTree = "<group>"; };
+		F14DE15528F5AAB000C672B8 /* ExploreSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreSettingsView.swift; sourceTree = "<group>"; };
+		F14DE15728F5AB3300C672B8 /* WelcomeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContainerView.swift; sourceTree = "<group>"; };
 		F1748A8E28E469B5005C6A8B /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		F1748A9028E47425005C6A8B /* AppSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsView.swift; sourceTree = "<group>"; };
 		F1748A9228E4824F005C6A8B /* NotificationSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTests.swift; sourceTree = "<group>"; };
@@ -154,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D7E49B28CB64B9001159FA /* Algorithms in Frameworks */,
+				F14DE14F28F5A95100C672B8 /* PageView in Frameworks */,
 				F1C9451F28D21FE40005345B /* Datez in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +188,7 @@
 		F10D43D128D6371E005C3D81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F14DE15028F5A9ED00C672B8 /* Welcome */,
 				F190BAC128EEC91C00D0247D /* ContentView */,
 				F190BAC028EEC81000D0247D /* Modal */,
 				F190BABF28EEC7FC00D0247D /* Rows */,
@@ -207,6 +218,17 @@
 				F1434C0D28DE0195001163DB /* AddPlantWaterIntervalView.swift */,
 			);
 			path = AddPlant;
+			sourceTree = "<group>";
+		};
+		F14DE15028F5A9ED00C672B8 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				F14DE15128F5A9FB00C672B8 /* WelcomeView.swift */,
+				F14DE15328F5AA7300C672B8 /* FeatureListView.swift */,
+				F14DE15528F5AAB000C672B8 /* ExploreSettingsView.swift */,
+				F14DE15728F5AB3300C672B8 /* WelcomeContainerView.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		F190BABF28EEC7FC00D0247D /* Rows */ = {
@@ -460,6 +482,7 @@
 			packageProductDependencies = (
 				F1D7E49A28CB64B9001159FA /* Algorithms */,
 				F1C9451E28D21FE40005345B /* Datez */,
+				F14DE14E28F5A95100C672B8 /* PageView */,
 			);
 			productName = Popley;
 			productReference = F1D7E46328CB3DB9001159FA /* Popley.app */;
@@ -536,6 +559,7 @@
 			packageReferences = (
 				F1D7E49928CB64B9001159FA /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 				F1C9451D28D21FE40005345B /* XCRemoteSwiftPackageReference "Datez" */,
+				F14DE14D28F5A95100C672B8 /* XCRemoteSwiftPackageReference "PageView" */,
 			);
 			productRefGroup = F1D7E46428CB3DB9001159FA /* Products */;
 			projectDirPath = "";
@@ -580,7 +604,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1BE15E828DC631300D94727 /* ButtonLabel.swift in Sources */,
+				F14DE15228F5A9FB00C672B8 /* WelcomeView.swift in Sources */,
 				F1BFABE328DB5A8D00440419 /* ImagePicker.swift in Sources */,
+				F14DE15428F5AA7300C672B8 /* FeatureListView.swift in Sources */,
 				F1D7E49528CB498D001159FA /* RoundedCorner.swift in Sources */,
 				F1DDD8E128EC9FDB00745565 /* ThirstyPlantList.swift in Sources */,
 				F1E21B5528E59E1C0091D484 /* DateComponents+Extension.swift in Sources */,
@@ -601,6 +627,7 @@
 				F1BFABEB28DB61CD00440419 /* ImageSourcePicker.swift in Sources */,
 				F1E21B6028E5B38A0091D484 /* MockStorage.swift in Sources */,
 				F1748A9128E47425005C6A8B /* AppSettingsView.swift in Sources */,
+				F14DE15628F5AAB000C672B8 /* ExploreSettingsView.swift in Sources */,
 				F1D7E49828CB4EB2001159FA /* StyleGuide.swift in Sources */,
 				F1DDD8DC28EC912200745565 /* PlantRowCompact.swift in Sources */,
 				F1E21B5A28E5B2C20091D484 /* KeyValueStorable.swift in Sources */,
@@ -609,6 +636,7 @@
 				F1272E0D28CF53A7009E0274 /* PlantDetails.swift in Sources */,
 				F183BAF828EB135100CA272A /* WaterIntervalPickerViewModel.swift in Sources */,
 				F1D7E4A028CB8090001159FA /* Plant.swift in Sources */,
+				F14DE15828F5AB3300C672B8 /* WelcomeContainerView.swift in Sources */,
 				F1D7E4A528CB82A6001159FA /* Interval.swift in Sources */,
 				F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */,
 				F1D7E49E28CB7E64001159FA /* PlantRow.swift in Sources */,
@@ -963,6 +991,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F14DE14D28F5A95100C672B8 /* XCRemoteSwiftPackageReference "PageView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fredyshox/PageView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 		F1C9451D28D21FE40005345B /* XCRemoteSwiftPackageReference "Datez" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftKitz/Datez.git";
@@ -982,6 +1018,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F14DE14E28F5A95100C672B8 /* PageView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F14DE14D28F5A95100C672B8 /* XCRemoteSwiftPackageReference "PageView" */;
+			productName = PageView;
+		};
 		F1C9451E28D21FE40005345B /* Datez */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F1C9451D28D21FE40005345B /* XCRemoteSwiftPackageReference "Datez" */;
