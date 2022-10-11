@@ -26,6 +26,7 @@
 		F1748A9528E48635005C6A8B /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1748A9428E48635005C6A8B /* AppSettingsViewModel.swift */; };
 		F181844328D32DB80077596E /* WaterIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181844228D32DB80077596E /* WaterIntervalTests.swift */; };
 		F183BAF828EB135100CA272A /* WaterIntervalPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F183BAF728EB135100CA272A /* WaterIntervalPickerViewModel.swift */; };
+		F190BAC528EECB8B00D0247D /* SortingContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F190BAC428EECB8B00D0247D /* SortingContextMenuView.swift */; };
 		F19A86A428D33F1A00C9EA4A /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A328D33F1A00C9EA4A /* DateInterval.swift */; };
 		F19A86A628D33F2F00C9EA4A /* DateIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */; };
 		F1A81E4228E1EFAA000DCDC7 /* WaterIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */; };
@@ -104,6 +105,7 @@
 		F1748A9428E48635005C6A8B /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
 		F181844228D32DB80077596E /* WaterIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalTests.swift; sourceTree = "<group>"; };
 		F183BAF728EB135100CA272A /* WaterIntervalPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalPickerViewModel.swift; sourceTree = "<group>"; };
+		F190BAC428EECB8B00D0247D /* SortingContextMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingContextMenuView.swift; sourceTree = "<group>"; };
 		F19A86A328D33F1A00C9EA4A /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInterval.swift; sourceTree = "<group>"; };
 		F19A86A528D33F2F00C9EA4A /* DateIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalTests.swift; sourceTree = "<group>"; };
 		F1A81E4128E1EFAA000DCDC7 /* WaterIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterIntervalLabel.swift; sourceTree = "<group>"; };
@@ -176,14 +178,13 @@
 		F10D43D128D6371E005C3D81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F190BAC128EEC91C00D0247D /* ContentView */,
+				F190BAC028EEC81000D0247D /* Modal */,
+				F190BABF28EEC7FC00D0247D /* Rows */,
 				F1A81E4028E1EF9F000DCDC7 /* Shared */,
 				F1434C0A28DDDE3F001163DB /* AddPlant */,
-				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
-				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
 				F1272E0C28CF53A7009E0274 /* PlantDetails.swift */,
 				F1748A9028E47425005C6A8B /* AppSettingsView.swift */,
-				F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */,
-				F1DDD8E028EC9FDB00745565 /* ThirstyPlantList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +207,32 @@
 				F1434C0D28DE0195001163DB /* AddPlantWaterIntervalView.swift */,
 			);
 			path = AddPlant;
+			sourceTree = "<group>";
+		};
+		F190BABF28EEC7FC00D0247D /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				F1D7E49D28CB7E64001159FA /* PlantRow.swift */,
+				F1DDD8DB28EC912200745565 /* PlantRowCompact.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		F190BAC028EEC81000D0247D /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				F1DDD8E028EC9FDB00745565 /* ThirstyPlantList.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		F190BAC128EEC91C00D0247D /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				F1D7E46828CB3DB9001159FA /* ContentView.swift */,
+				F190BAC428EECB8B00D0247D /* SortingContextMenuView.swift */,
+			);
+			path = ContentView;
 			sourceTree = "<group>";
 		};
 		F1A81E4028E1EF9F000DCDC7 /* Shared */ = {
@@ -590,6 +617,7 @@
 				F1D7E49228CB4914001159FA /* CornerRadius.swift in Sources */,
 				F1ED5BB428E7471000C7EA13 /* ConditionalModifier.swift in Sources */,
 				F1434C0E28DE0195001163DB /* AddPlantWaterIntervalView.swift in Sources */,
+				F190BAC528EECB8B00D0247D /* SortingContextMenuView.swift in Sources */,
 				F1434C0C28DDEA2B001163DB /* WaterIntervalPickerView.swift in Sources */,
 				F1E21B5D28E5B3540091D484 /* UserDefaults+Extension.swift in Sources */,
 				F1D7E4A328CB8130001159FA /* DescriptiveDateInterval.swift in Sources */,

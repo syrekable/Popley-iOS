@@ -19,7 +19,7 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     // TODO: sorting
-                    ForEach(model.plants) { plant in
+                    ForEach(model.sortedPlants) { plant in
                         PlantRow(plant: plant,
                                  navigateToPlantDetailsAction: model.navigateToPlant)
                     }
@@ -55,6 +55,7 @@ struct ContentView: View {
                             }
                         }
                         ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            SortingContextMenuView()
                             imageSourcePickerContextMenu
                         }
                     })
