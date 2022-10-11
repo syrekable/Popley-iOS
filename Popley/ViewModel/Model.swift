@@ -20,6 +20,7 @@ class Model: ObservableObject {
     @Published var isNotificationAuthorized = false
     @Published var isShowingThirstyPlants: Bool = false
     
+    // TODO: store sorting in UserDefaults
     @Published var sorting: SortingOption = .byName(.ascending)
     
     private var storage: KeyValueStorable
@@ -185,6 +186,12 @@ extension Model {
     static func withWateredPlants(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
         let model = Model(readFrom: storage)
         model.plants = Plant.sampleData
+        model.didLaunchBefore = true
+        return model
+    }
+    static func empty() -> Model {
+        let model = Model()
+        model.plants = []
         model.didLaunchBefore = true
         return model
     }

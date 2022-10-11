@@ -53,19 +53,21 @@ struct ContentView: View {
                             }
                         }
                         ToolbarItemGroup(placement: .navigationBarTrailing) {
-                            SortingContextMenuView()
-                            /*
-                             although the selection value *should* update by itself,
-                             since model.sorting is @Published, which manifests in
-                             the view actually sorting the elements,
-                             the Picker in the Menu won't update its bound value
-                             unless I preform this disgrace
-                             */
-                            // FIXME: sync the selected value without this abomination
-                                .onChange(of: model.sorting) { _ in
-                                    updater += 1
-                                }
-                                .id(updater)
+                            if model.plants.count > 1 {
+                                SortingContextMenuView()
+                                /*
+                                 although the selection value *should* update by itself,
+                                 since model.sorting is @Published, which manifests in
+                                 the view actually sorting the elements,
+                                 the Picker in the Menu won't update its bound value
+                                 unless I preform this disgrace
+                                 */
+                                // FIXME: sync the selected value without this abomination
+                                    .onChange(of: model.sorting) { _ in
+                                        updater += 1
+                                    }
+                                    .id(updater)
+                            }
                             imageSourcePickerContextMenu
                         }
                     })
@@ -86,9 +88,6 @@ struct ContentView: View {
             .onChange(of: model.plants) { _ in
                 model.checkForThirstyPlants()
             }
-            .onChange(of: model.sorting) { newValue in
-                print("Sorting \(newValue) now")
-            }
         }
     }
 }
@@ -106,6 +105,11 @@ struct ContentView_Previews: PreviewProvider {
                 .environmentObject(Model.withThirstyPlants())
         }
             .previewDisplayName("With thirsty plants")
+        NavigationStack {
+            ContentView()
+                .environmentObject(Model.empty())
+        }
+            .previewDisplayName("Without plants")
     }
 }
 
@@ -132,6 +136,20 @@ extension ContentView {
         }
     }
     var addPlantEngouragement: some View {
-        Text("Hello, world!")
+        VStack(alignment: .leading, spacing: 15) {
+            Text("It's empty here!")
+                .font(.title)
+                .bold()
+            VStack(alignment: .leading, spacing: 5) {
+                Text("To get the most out of Popley, you need to add your plants first.")
+                HStack {
+                    Text("Start by clicking the")
+                    Image(systemName: "plus")
+                        .fontWeight(.regular)
+                    Text("button.")
+                }
+            }.fontWeight(.semibold)
+        }.foregroundColor(.accentColor)
+            .padding()
     }
 }
