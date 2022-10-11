@@ -96,14 +96,14 @@ extension PlantRow {
     }
     var progressBar: some View {
         VStack(alignment: .trailing, spacing: 10) {
-            Text("Water now")
+            Text("Until watering")
                 .font(.title3)
                 .fontWeight(.bold)
-            Image(systemName: "drop.circle")
-                .font(.title2)
-                .fontWeight(.heavy)
+            // TODO: get this logic outta here
+            ProgressView(value: Date.now.timeIntervalSince(plant.lastWaterDate),
+                         total: plant.timeToWater.end
+                .timeIntervalSince(plant.lastWaterDate))
                 .frame(width: 100)
-                .foregroundColor(Color.accentColor)
         }
     }
 }
