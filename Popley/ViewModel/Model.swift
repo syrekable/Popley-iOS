@@ -20,6 +20,8 @@ class Model: ObservableObject {
     @Published var isNotificationAuthorized = false
     @Published var isShowingThirstyPlants: Bool = false
     
+    @Published var sorting: SortingOption = .byName(.ascending)
+    
     private var storage: KeyValueStorable
     // workaround for adopting picture saving logic presented in 'My Images' app series
     private var plantPicture: UIImage?
@@ -86,7 +88,7 @@ extension Model {
     func checkForThirstyPlants() {
         // publishing from background warning might be a bug in Xcode 14.0 beta 5
         // https://www.donnywals.com/xcode-14-publishing-changes-from-within-view-updates-is-not-allowed-this-will-cause-undefined-behavior/
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [self] in
             isShowingThirstyPlants = thirstyPlants.count > 0
         }
     }
@@ -232,5 +234,35 @@ extension Model {
              appError = MyImageError.ErrorType(error: error as! MyImageError)
              */
         }
+    }
+}
+
+// MARK: sorting
+extension Model {
+    // TODO: make it shorter? It's, like, returning a function with an operand
+    var sortedPlants: [Plant] {
+        var _sorted: [Plant]?
+        switch sorting {
+        case .byName(let order):
+            _sorted =
+                order == .ascending
+                    ? plants.sorted(by: { a, b in a.name < b.name })
+                    : plants.sorted(by: { a, b in a.name > b.name })
+        case .byTimeToWater(let order):
+            _sorted =
+                order == .ascending
+            ? plants.sorted(by: { a, b in a.timeToWater.duration < b.timeToWater.duration })
+                    : plants.sorted(by: { a, b in a.timeToWater.duration > b.timeToWater.duration })
+        case .byLastWaterDate(let order):
+            _sorted =
+                order == .ascending
+                    ? plants.sorted(by: { a, b in a.lastWaterDate < b.lastWaterDate })
+                    : plants.sorted(by: { a, b in a.lastWaterDate > b.lastWaterDate })
+        }
+        return _sorted!
+    }
+    
+    func changeSorting(to option: SortingOption) {
+        sorting = option
     }
 }

@@ -9,17 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var model: Model
+    @State private var updater: Int = 0
     var body: some View {
-        /*
-         TODO:
-         - editability of Plant's data
-         - background colour for the whole app
-         */
         NavigationStack(path: $model.path) {
             ScrollView {
                 VStack {
-                    // TODO: sorting
-                    ForEach(model.plants) { plant in
+                    if(model.plants.isEmpty) {
+                        addPlantEngouragement
+                    }
+                    ForEach(model.sortedPlants) { plant in
                         PlantRow(plant: plant,
                                  navigateToPlantDetailsAction: model.navigateToPlant)
                     }
@@ -55,6 +53,19 @@ struct ContentView: View {
                             }
                         }
                         ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            SortingContextMenuView()
+                            /*
+                             although the selection value *should* update by itself,
+                             since model.sorting is @Published, which manifests in
+                             the view actually sorting the elements,
+                             the Picker in the Menu won't update its bound value
+                             unless I preform this disgrace
+                             */
+                            // FIXME: sync the selected value without this abomination
+                                .onChange(of: model.sorting) { _ in
+                                    updater += 1
+                                }
+                                .id(updater)
                             imageSourcePickerContextMenu
                         }
                     })
@@ -74,6 +85,9 @@ struct ContentView: View {
             }
             .onChange(of: model.plants) { _ in
                 model.checkForThirstyPlants()
+            }
+            .onChange(of: model.sorting) { newValue in
+                print("Sorting \(newValue) now")
             }
         }
     }
@@ -116,5 +130,8 @@ extension ContentView {
             Label("add new plant", systemImage: "plus")
                 .foregroundColor(.accentColor)
         }
+    }
+    var addPlantEngouragement: some View {
+        Text("Hello, world!")
     }
 }
