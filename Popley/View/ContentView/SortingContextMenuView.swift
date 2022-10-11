@@ -9,14 +9,11 @@ import SwiftUI
 
 struct SortingContextMenuView: View {
     @EnvironmentObject var model: Model
-    @State private var order: SortingOption = .byName(.ascending)
     var body: some View {
         Menu {
-            ForEach(SortingOption.allCases.reversed()) { option in
-                Button {
-                    order = option
-                } label: {
-                    Text(String(describing: option.description))
+            Picker("Sorting", selection: $model.sorting) {
+                ForEach(SortingOption.allCases) { option in
+                    Text(String(describing: option))
                 }
             }
         } label: {

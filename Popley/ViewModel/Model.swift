@@ -20,7 +20,7 @@ class Model: ObservableObject {
     @Published var isNotificationAuthorized = false
     @Published var isShowingThirstyPlants: Bool = false
     
-    var sorting: SortingOption = .byName(.ascending)
+    @Published var sorting: SortingOption = .byName(.ascending)
     
     private var storage: KeyValueStorable
     // workaround for adopting picture saving logic presented in 'My Images' app series
@@ -260,5 +260,9 @@ extension Model {
                     : plants.sorted(by: { a, b in a.lastWaterDate > b.lastWaterDate })
         }
         return _sorted!
+    }
+    
+    func changeSorting(to option: SortingOption) {
+        sorting = option
     }
 }
