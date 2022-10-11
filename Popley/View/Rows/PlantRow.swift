@@ -11,13 +11,15 @@ struct PlantRow: View {
     let plant: Plant
     let navigateToPlantDetailsAction: (Plant) -> Void
     
+    // FIXME: get rid of all arbitrarily scaled views
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
                 Image(uiImage: plant.imageWrapper.image)
                     .resizable()
                     .scaledToFill()
-                // FIXME: arbitrary scale that looks like 5h1t on bigger screens
+                // fixed
                     .frame(width: 360, height: 300)
                 HStack(spacing: 0) {
                     plantName
@@ -32,6 +34,7 @@ struct PlantRow: View {
                 Spacer()
                 progressBar
             }
+            .frame(maxHeight: 60)
             .padding([.horizontal, .bottom])
             .foregroundColor(Color("Tertiary"))
             .background {
@@ -48,9 +51,7 @@ struct PlantRow: View {
 
 struct PlantCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PlantRow(plant: Plant.sampleData.first!) { _ in
-            
-        }
+        PlantRow(plant: Plant.sampleData.first!) { _ in }
     }
 }
 
@@ -95,15 +96,17 @@ extension PlantRow {
         }
     }
     var progressBar: some View {
-        VStack(alignment: .trailing, spacing: 10) {
-            Text("Until watering")
+        VStack(spacing: 10) {
+            Text("Dry-o-meter")
                 .font(.title3)
                 .fontWeight(.bold)
             // TODO: get this logic outta here
+            //Spacer()
             ProgressView(value: Date.now.timeIntervalSince(plant.lastWaterDate),
                          total: plant.timeToWater.end
                 .timeIntervalSince(plant.lastWaterDate))
-                .frame(width: 100)
+            // fixed
+            .frame(width: 100, height: 26)
         }
     }
 }
