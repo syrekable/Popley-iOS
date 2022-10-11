@@ -13,7 +13,7 @@ struct SortingContextMenuView: View {
         Menu {
             Picker("Sorting", selection: $model.sorting) {
                 ForEach(SortingOption.allCases) { option in
-                    Text(String(describing: option))
+                    Text(String(describing: option)).tag(option)
                 }
             }
         } label: {
