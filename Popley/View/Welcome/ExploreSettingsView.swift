@@ -12,7 +12,7 @@ struct ExploreSettingsView: View {
     var body: some View {
         ZStack {
             Color("Secondary")
-            VStack {
+            VStack(spacing: 45) {
                 VStack(spacing: 15) {
                     Text("Welcome to Popley")
                         .font(.title)
@@ -21,16 +21,19 @@ struct ExploreSettingsView: View {
                         .frame(width: 210)
                         .multilineTextAlignment(.center)
                 }
-                .foregroundColor(Color("Primary"))
-                Spacer()
+                Image("icon-plant")
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color("Tertiary"), lineWidth: 4))
                 Button {
                     model.didLaunchBefore = true
                 } label: {
                     ButtonLabel(description: "Open settings", systemName: "gear")
                 }
             }
-            // FIXME: arbitrary size
-            .frame(height: 700)
+            .foregroundColor(Color("Primary"))
+            .padding()
         }
         .edgesIgnoringSafeArea(.all)
     }
