@@ -9,11 +9,28 @@ import SwiftUI
 
 struct WelcomeView: View {
     var body: some View {
-        VStack {
-            Text("Welcome to Popley")
-            Text("Your helping hand in keeping your plants healthy.")
-            Text("Swipe left to explore!")
+        ZStack {
+            Color("Primary")
+            VStack(spacing: 45) {
+                VStack(spacing: 15) {
+                    Text("Welcome to Popley")
+                        .font(.title)
+                        .fontWeight(.black)
+                    Text("Your helping hand in keeping your plants healthy.")
+                        .frame(width: 210)
+                        .multilineTextAlignment(.center)
+                }
+                Image("sample-plant")
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color("Secondary"), lineWidth: 4))
+                    Text("Swipe left to explore!")
+            }
+            .foregroundColor(.accentColor)
+            .padding()
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
