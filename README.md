@@ -6,3 +6,5 @@ An iOS app that helps with keeping house plants alive
 * stylish cards that show you what and when to water - :white_check_mark:
 * notifications on the time of watering - :white_check_mark:
 * timelapse of growth - :white_large_square:
+
+![first][https://media.giphy.com/media/EVWdn1CBC5rQIPu9tD/giphy.gif]
