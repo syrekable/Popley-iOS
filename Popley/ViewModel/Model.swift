@@ -20,23 +20,25 @@ class Model: ObservableObject {
     @Published var isNotificationAuthorized = false
     @Published var isShowingThirstyPlants: Bool = false
     
+    // TODO: store sorting in UserDefaults
     @Published var sorting: SortingOption = .byName(.ascending)
     
     private var storage: KeyValueStorable
     // workaround for adopting picture saving logic presented in 'My Images' app series
     private var plantPicture: UIImage?
-    private var didLaunchBefore: Bool
+    @Published var didLaunchBefore: Bool
     
     init(readFrom storage: KeyValueStorable = UserDefaults.standard) {
         self.storage = storage
-        self.didLaunchBefore = storage.bool(forKey: AppSettingsViewModel.userDefaultsKeys["launched-before"]!)
+        let _didLaunchBefore = storage.bool(forKey: AppSettingsViewModel.userDefaultsKeys["launched-before"]!)
         var _path: NavigationPath?
-        if didLaunchBefore {
+        if _didLaunchBefore {
             _path = NavigationPath()
         } else {
             _path = NavigationPath([Page.appSettings])
         }
         self.path = _path!
+        self.didLaunchBefore = _didLaunchBefore
         loadMyImagesJSONFile()
     }
 }
@@ -185,6 +187,12 @@ extension Model {
     static func withWateredPlants(readFrom storage: KeyValueStorable = UserDefaults.standard) -> Model {
         let model = Model(readFrom: storage)
         model.plants = Plant.sampleData
+        model.didLaunchBefore = true
+        return model
+    }
+    static func empty() -> Model {
+        let model = Model()
+        model.plants = []
         model.didLaunchBefore = true
         return model
     }

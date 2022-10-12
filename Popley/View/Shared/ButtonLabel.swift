@@ -18,7 +18,7 @@ struct ButtonLabel: View {
         }
         .fontWeight(.bold)
         .padding()
-        .foregroundColor(Color("Secondary"))
+        .foregroundColor(Color("Primary"))
         .background {
             Color.accentColor
         }
@@ -28,6 +28,6 @@ struct ButtonLabel: View {
 
 struct ButtonLabel_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLabel(description: "Take a picture", systemName: "photo")
+        ButtonLabel(description: "Take a picture", systemName: "camera")
     }
 }

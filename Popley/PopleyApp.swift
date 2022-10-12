@@ -12,8 +12,13 @@ struct PopleyApp: App {
     @StateObject private var model = Model()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(model)
+            if !model.didLaunchBefore {
+                WelcomeContainerView()
+                    .environmentObject(model)
+            } else {
+                ContentView()
+                    .environmentObject(model)
+            }
         }
     }
 }
