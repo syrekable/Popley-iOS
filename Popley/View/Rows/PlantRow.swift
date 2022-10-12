@@ -77,7 +77,7 @@ extension PlantRow {
             Image(systemName: "info.circle")
         }
         .foregroundColor(Color.accentColor)
-        .shadow(radius: 3, x: 2, y: 2)
+        .shadow(color: Color("Primary").opacity(0.9), radius: 3, x: 2, y: 2)
     }
     var timeToWater: some View {
         VStack(alignment: .leading, spacing: 10) {
