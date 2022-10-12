@@ -8,6 +8,10 @@ Making your house flourish is as simple as
 * Being notified
 * Watering the plant
 
+## Requirements
+
+An iPhone/simulator with iOS 16+
+
 ## Demo
 
 ### Welcome screen
