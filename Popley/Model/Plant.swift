@@ -62,7 +62,7 @@ extension Plant {
         Plant(name: "Dracena", picture: UIImage(named: "plant-dracena"), waterInterval: .everyEightDays, lastWaterDate: Date() - 3.days.timeInterval)
     ]
     static let thirstyPlants = [
-        Plant(name: "Ziemiokulas", picture: UIImage(named: "plant-zz"), waterInterval: .everyTwoWeeks, lastWaterDate: Date() - 2.weeksOfYear.timeInterval),
+        Plant(name: "Ziemiokulas", picture: UIImage(named: "plant-zz"), waterInterval: .everyTwoWeeks, lastWaterDate: Date() - (2.weeksOfYear.timeInterval + 1.days.timeInterval)),
         Plant(name: "Aloes", picture: UIImage(named: "plant-aloe"), waterInterval: .quarterly, lastWaterDate: Date() - 5.weekOfYear.timeInterval),
         Plant(name: "Dracena", picture: UIImage(named: "plant-dracena"), waterInterval: .everyEightDays, lastWaterDate: Date() - 9.days.timeInterval)
     ]
