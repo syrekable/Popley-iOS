@@ -20,7 +20,7 @@ struct WelcomeView: View {
                         .frame(width: 210)
                         .multilineTextAlignment(.center)
                 }
-                Image("sample-plant")
+                Image("icon-plant")
                     .resizable()
                     .scaledToFit()
                     .clipShape(Circle())
