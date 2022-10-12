@@ -10,7 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     var body: some View {
         ZStack {
-            Color("Primary")
+            Color("Tertiary")
             VStack(spacing: 45) {
                 VStack(spacing: 15) {
                     Text("Welcome to Popley")
@@ -27,7 +27,7 @@ struct WelcomeView: View {
                     .overlay(Circle().stroke(Color("Secondary"), lineWidth: 4))
                     Text("Swipe left to explore!")
             }
-            .foregroundColor(.accentColor)
+            .foregroundColor(Color("Primary"))
             .padding()
         }
         .edgesIgnoringSafeArea(.all)
